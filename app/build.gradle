@@ -1,0 +1,16 @@
+apply plugin: 'com.android.application'
+apply from: '../module.gradle'
+apply from: '../config.gradle'
+
+android {
+    namespace 'com.huafang.slogan'
+    defaultConfig {
+        applicationId "com.huafang.slogan"
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    api project(path: ':mvvm')
+}
