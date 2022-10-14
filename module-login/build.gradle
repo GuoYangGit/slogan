@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply from: '../module.gradle'
+apply from: '../config.gradle'
+
+android {
+    namespace 'com.huafang.module_login'
+    resourcePrefix "login_"
+}
+
+dependencies {
+    api project(path: ':mvvm')
+}

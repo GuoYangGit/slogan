@@ -17,6 +17,9 @@ import com.guoyang.base.ui.activity.BaseActivity
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
     LoadingState by LoadingStateDelegate(), OnReloadListener, Decorative,
     ActivityBinding<VB> by ActivityBindingDelegate() {
+    private val viewDelegate: ViewDelegate by lazy {
+        ViewDelegate(this)
+    }
 
     override fun userDataBinding(): Boolean = true
 
@@ -28,8 +31,10 @@ abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
     override fun layoutId(): Int = -1
 
     override fun showLoading(message: String) {
+        viewDelegate.showLoading(message)
     }
 
     override fun dismissLoading() {
+        viewDelegate.dismissLoading()
     }
 }

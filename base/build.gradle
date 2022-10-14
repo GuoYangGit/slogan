@@ -17,6 +17,8 @@ dependencies {
     api 'com.github.DylanCaiCoding.Longan:longan:1.1.1'
     //屏幕适配框架 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
+    //权限框架 https://github.com/guolindev/PermissionX
+    api 'com.guolindev.permissionx:permissionx:1.7.1'
     //网络请求 https://github.com/liujingxing/rxhttp
     api 'com.github.liujingxing.rxhttp:rxhttp:2.8.7'
     api 'com.squareup.okhttp3:okhttp:4.9.3'
@@ -29,7 +31,15 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     //App启动框架 https://github.com/DSAppTeam/Anchors/blob/master/README-zh.md
     api 'com.github.DSAppTeam:Anchors:v1.1.7'
-
+    //图片加载 https://github.com/forJrking/ImageExt
+    api 'com.github.forJrking:ImageExt:0.0.4'
+    //图片选择库 https://github.com/LuckSiege/PictureSelector/blob/version_component/README_CN.md
+    // PictureSelector 基础 (必须)
+    api 'io.github.lucksiege:pictureselector:v3.10.6'
+    // 图片压缩 (按需引入)
+    api 'io.github.lucksiege:compress:v3.10.6'
+    // 图片裁剪 (按需引入)
+    api 'io.github.lucksiege:ucrop:v3.10.6'
     //加载WebView https://github.com/Justson/AgentWeb
     api 'com.just.agentweb:agentweb:4.1.3'
     api 'com.just.agentweb:filechooser:4.1.3'

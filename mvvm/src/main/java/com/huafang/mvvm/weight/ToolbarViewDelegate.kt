@@ -3,45 +3,73 @@ package com.huafang.mvvm.weight
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import com.dylanc.loadingstateview.BaseToolbarViewDelegate
 import com.dylanc.loadingstateview.ToolbarConfig
 import com.dylanc.loadingstateview.NavBtnType
-import com.huafang.mvvm.R
+import com.dylanc.loadingstateview.toolbarExtras
+import com.huafang.mvvm.databinding.LayoutToolbarBinding
 
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 16:11
  *  @description :
  */
+var ToolbarConfig.rightTextColor: Int? by toolbarExtras()
+
 class ToolbarViewDelegate : BaseToolbarViewDelegate() {
-    private lateinit var tvTitle: TextView
-    private lateinit var ivLeft: ImageView
-    private lateinit var ivRight: ImageView
+    private lateinit var binding: LayoutToolbarBinding
 
     override fun onCreateToolbar(inflater: LayoutInflater, parent: ViewGroup): View {
-        val view = inflater.inflate(R.layout.layout_toolbar, parent, false)
-        tvTitle = view.findViewById(R.id.tv_title)
-        ivLeft = view.findViewById(R.id.iv_left)
-        ivRight = view.findViewById(R.id.iv_right)
-        return view
+        binding = LayoutToolbarBinding.inflate(inflater, parent, false)
+        return binding.root
     }
 
     override fun onBindToolbar(config: ToolbarConfig) {
-        tvTitle.text = config.title
+        binding.apply {
+            tvTitle.text = config.title
+            when (config.navBtnType) {
+                NavBtnType.ICON -> {
+                    config.navIcon?.let { ivLeft.setImageResource(it) }
+                    ivLeft.setOnClickListener(config.onNavClickListener)
+                    tvLeft.visibility = View.GONE
+                    ivLeft.visibility = View.VISIBLE
+                }
+                NavBtnType.TEXT -> {
+                    tvLeft.text = config.navText
+                    tvLeft.setOnClickListener(config.onNavClickListener)
+                    tvLeft.visibility = View.VISIBLE
+                    ivLeft.visibility = View.GONE
+                }
+                NavBtnType.ICON_TEXT -> {
+                    config.navIcon?.let { ivLeft.setImageResource(it) }
+                    tvLeft.text = config.navText
+                    ivLeft.setOnClickListener(config.onNavClickListener)
+                    tvLeft.setOnClickListener(config.onNavClickListener)
+                    tvLeft.visibility = View.VISIBLE
+                    ivLeft.visibility = View.VISIBLE
+                }
+                NavBtnType.NONE -> {
+                    ivLeft.visibility = View.GONE
+                    tvLeft.visibility = View.GONE
+                }
+            }
 
-        if (config.navBtnType == NavBtnType.NONE) {
-            ivLeft.visibility = View.GONE
-        } else {
-            ivLeft.setOnClickListener(config.onNavClickListener)
-            ivLeft.visibility = View.VISIBLE
-        }
+            if (config.rightText != null) {
+                tvRight.text = config.rightText
+                tvRight.setOnClickListener(config.onRightClickListener)
+                tvRight.visibility = View.VISIBLE
+                config.rightTextColor?.let { tvRight.setTextColor(it) }
+            } else {
+                tvRight.visibility = View.GONE
+            }
 
-        if (config.rightIcon != null) {
-            ivRight.setImageResource(config.rightIcon!!)
-            ivRight.setOnClickListener(config.onRightClickListener)
-            ivRight.visibility = View.VISIBLE
+            if (config.rightIcon != null) {
+                ivRight.setImageResource(config.rightIcon!!)
+                ivRight.setOnClickListener(config.onRightClickListener)
+                ivRight.visibility = View.VISIBLE
+            } else {
+                ivRight.visibility = View.GONE
+            }
         }
     }
 }

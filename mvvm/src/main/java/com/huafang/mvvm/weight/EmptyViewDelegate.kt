@@ -10,7 +10,7 @@ import com.huafang.mvvm.R
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 16:09
- *  @description :
+ *  @description : 空数据视图
  */
 class EmptyViewDelegate : LoadingStateView.ViewDelegate(ViewType.EMPTY) {
 

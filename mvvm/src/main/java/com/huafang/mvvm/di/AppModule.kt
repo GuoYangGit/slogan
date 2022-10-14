@@ -12,5 +12,8 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
-
+    /**
+     * TODO 提供ImageLoader
+     * @param appContext Application上下文
+     */
 }

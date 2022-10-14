@@ -21,6 +21,9 @@ import com.guoyang.base.ui.fragment.BaseFragment
 abstract class BaseBindingFragment<VB : ViewBinding>() : BaseFragment(),
     LoadingState by LoadingStateDelegate(), OnReloadListener, Decorative,
     FragmentBinding<VB> by FragmentBindingDelegate() {
+    private val viewDelegate: ViewDelegate by lazy {
+        ViewDelegate(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -29,8 +32,10 @@ abstract class BaseBindingFragment<VB : ViewBinding>() : BaseFragment(),
     override fun layoutId(): Int = -1
 
     override fun showLoading(message: String) {
+        viewDelegate.showLoading(message)
     }
 
     override fun dismissLoading() {
+        viewDelegate.dismissLoading()
     }
 }

@@ -12,6 +12,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base" />
+            <option value="$PROJECT_DIR$/loadingstateview" />
+            <option value="$PROJECT_DIR$/loadingstateview-ktx" />
+            <option value="$PROJECT_DIR$/module-home" />
+            <option value="$PROJECT_DIR$/module-login" />
+            <option value="$PROJECT_DIR$/module-me" />
+            <option value="$PROJECT_DIR$/module-message" />
             <option value="$PROJECT_DIR$/mvvm" />
           </set>
         </option>

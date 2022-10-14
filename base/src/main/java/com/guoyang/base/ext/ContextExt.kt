@@ -14,30 +14,19 @@ import java.io.FileReader
  * 判断当前是否是主进程
  * @param block: 结果回调
  */
-inline fun Context.isMainProcess(block: (Boolean) -> Unit) {
-    try {
-        val isMainProcess = packageName == getProcessName(Process.myPid())
-        block(isMainProcess)
-    } catch (e: Exception) {
-        block(false)
-    }
-}
-
-/**
- * 获取进程名称
- * @param pid: 进程ID
- */
-fun getProcessName(pid: Int): String {
-    try {
-        BufferedReader(FileReader("/proc/$pid/cmdline")).use { reader ->
-            var processName = reader.readLine()
-            if (processName.isNotEmpty()) {
-                processName = processName.trim { it <= ' ' }
-            }
-            return processName
+inline fun Context.runMainProcess(block: () -> Unit) {
+    val myPid = Process.myPid()
+    val mActivityManager =
+        this.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+    val var3 = mActivityManager.runningAppProcesses?.iterator()
+    while (var3?.hasNext() == true) {
+        val appProcessInfo = var3.next() as android.app.ActivityManager.RunningAppProcessInfo
+        if (appProcessInfo.pid == myPid && appProcessInfo.processName.equals(
+                this.packageName, ignoreCase = true
+            )
+        ) {
+            block()
+            break
         }
-    } catch (e: Exception) {
-        e.printStackTrace()
-        return ""
     }
 }

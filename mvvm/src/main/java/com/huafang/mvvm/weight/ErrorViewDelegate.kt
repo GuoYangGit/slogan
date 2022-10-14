@@ -10,7 +10,7 @@ import com.huafang.mvvm.R
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 16:07
- *  @description :
+ *  @description : 错误
  */
 class ErrorViewDelegate : LoadingStateView.ViewDelegate(ViewType.ERROR) {
 
@@ -20,4 +20,8 @@ class ErrorViewDelegate : LoadingStateView.ViewDelegate(ViewType.ERROR) {
 //                onReloadListener?.onReload()
 //            }
         }
+
+    fun updateMsg(msg: String) {
+
+    }
 }

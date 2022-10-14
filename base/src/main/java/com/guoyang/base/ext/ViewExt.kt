@@ -5,6 +5,7 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.view.GestureDetectorCompat
+import com.dylanc.longan.doOnClick
 
 /**
  *  @author : yang.guo
@@ -18,6 +19,7 @@ import androidx.core.view.GestureDetectorCompat
  */
 @SuppressLint("ClickableViewAccessibility")
 inline fun <T : View> T.doOnDoubleClick(crossinline block: (T) -> Unit) {
+    doOnClick {  }
     val gestureDetector = object : GestureDetector.SimpleOnGestureListener() {
         override fun onDoubleTap(e: MotionEvent): Boolean {
             block(this@doOnDoubleClick)

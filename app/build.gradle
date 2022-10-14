@@ -8,9 +8,14 @@ android {
         applicationId "com.huafang.slogan"
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled true
     }
 }
 
 dependencies {
     api project(path: ':mvvm')
+    api project(path: ':module-home')
+    api project(path: ':module-message')
+    api project(path: ':module-me')
 }
