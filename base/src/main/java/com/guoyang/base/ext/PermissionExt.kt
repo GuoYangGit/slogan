@@ -21,7 +21,7 @@ import com.permissionx.guolindev.request.ForwardScope
  * @param request: 权限回调
  */
 fun FragmentActivity.requestPermissions(
-    permissions: List<String> = listOf(),
+    permissions: List<String>,
     explainReasonBeforeRequest: Boolean = false,
     onExplainRequestReason: (scope: ExplainScope, deniedList: List<String>) -> Unit = { _, _ -> },
     onForwardToSettings: (scope: ForwardScope, deniedList: List<String>) -> Unit = { _, _ -> },
@@ -65,7 +65,7 @@ fun FragmentActivity.requestPermissions(
  * @param request: 权限回调
  */
 fun Fragment.requestPermissions(
-    permissions: List<String> = listOf(),
+    permissions: List<String>,
     explainReasonBeforeRequest: Boolean = false,
     onExplainRequestReason: (scope: ExplainScope, deniedList: List<String>) -> Unit = { _, _ -> },
     onForwardToSettings: (scope: ForwardScope, deniedList: List<String>) -> Unit = { _, _ -> },

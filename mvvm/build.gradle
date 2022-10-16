@@ -20,7 +20,9 @@ dependencies {
     api 'com.github.angcyo.DslTablayout:ViewPager2Delegate:3.2.5'
     //透明导航栏 https://github.com/Zackratos/UltimateBarX
     api 'com.gitee.zackratos:UltimateBarX:0.8.0'
-    //轮播图 https://github.com/youth5201314/banner
-    api 'io.github.youth5201314:banner:2.2.2'
+    //轮播图 https://github.com/zhpanvip/BannerViewPager
+    api 'com.github.zhpanvip:bannerviewpager:3.5.7'
+    //Spannable构建工具 https://github.com/liangjingkanji/spannable
+    api 'com.github.liangjingkanji:spannable:1.2.3'
     api project(path: ':base')
 }

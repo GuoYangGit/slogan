@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {
     private val adapter: ContentAdapter by lazy {
-        ContentAdapter(viewLifecycleOwner)
+        ContentAdapter(lifecycle)
     }
 
     private val followViewModel: FollowViewModel by viewModels()

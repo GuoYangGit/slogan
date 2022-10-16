@@ -57,12 +57,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_avatar" />
 
-    <com.youth.banner.Banner
+    <com.zhpan.bannerview.BannerViewPager
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        app:banner_auto_loop="false"
+        app:bvp_auto_play="false"
+        app:bvp_indicator_checked_color="@color/home_indicator_selected_color"
+        app:bvp_indicator_normal_color="@color/home_indicator_normal_color"
+        app:bvp_indicator_style="circle"
         app:layout_constraintDimensionRatio="h,3:4"
         app:layout_constraintTop_toBottomOf="@id/iv_avatar" />
 
@@ -80,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="@id/banner"
         app:layout_constraintTop_toTopOf="@id/banner" />
 
-    <com.youth.banner.indicator.CircleIndicator
+    <com.zhpan.indicator.IndicatorView
         android:id="@+id/view_indicator"
         android:layout_width="wrap_content"
         android:layout_height="14dp"
@@ -137,6 +140,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/people_like_view" />
 
+    <com.guoyang.base.weight.ExpandableTextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_share"
+        tools:text="#初秋真的好喜欢秋天，我喜欢明媚的阳光☀#10月快乐 @好堵啊" />
+
     <ImageView
         android:id="@+id/iv_my_avatar"
         android:layout_width="26dp"
@@ -144,7 +158,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_share" />
+        app:layout_constraintTop_toBottomOf="@id/tv_content" />
 
     <TextView
         android:id="@+id/tv_letter"
@@ -156,9 +170,9 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/home_bg_letter_shape"
         android:gravity="center_vertical"
-        android:text="@string/home_letter_hint"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
+        android:text="@string/home_letter_hint"
         android:textColor="#80242424"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"

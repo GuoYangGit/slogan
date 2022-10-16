@@ -19,5 +19,6 @@ data class ContentEntity(
         UserEntity(),
         UserEntity(),
         UserEntity()
-    )
+    ),
+    val content: String = "#日出 #粉色的海 不必形色匆匆，不必光芒四射，@小宝 不必成为别人，只需做自己，我并不讨厌等待，因为等..."
 )
