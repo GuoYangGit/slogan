@@ -8,16 +8,14 @@ android {
 
 dependencies {
     //视图绑定ViewBinding https://dylancaicoding.github.io/ViewBindingKTX/#/
+    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:2.1.0'
     //状态视图 https://dylancaicoding.github.io/LoadingStateView/#/
-//    api 'com.github.DylanCaiCoding.LoadingStateView:loadingstateview-ktx:4.0.2'
+//    api 'com.github.DylanCaiCoding.LoadingStateView:loadingstateview-ktx:4.0.2'H
     api project(':loadingstateview-ktx')
     //弹窗 https://github.com/li-xiaojun/XPopup
     api 'com.github.li-xiaojun:XPopup:2.9.1'
-    //TabLayout https://github.com/angcyo/DslTabLayout
-    api 'com.github.angcyo.DslTablayout:TabLayout:3.2.5'
-    api 'com.github.angcyo.DslTablayout:ViewPager2Delegate:3.2.5'
     //透明导航栏 https://github.com/Zackratos/UltimateBarX
     api 'com.gitee.zackratos:UltimateBarX:0.8.0'
     //轮播图 https://github.com/zhpanvip/BannerViewPager

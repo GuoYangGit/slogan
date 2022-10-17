@@ -9,4 +9,5 @@ android {
 
 dependencies {
     api project(path: ':mvvm')
+    implementation 'com.github.WGwangguan:SeparatedEditText:1.3.3'
 }

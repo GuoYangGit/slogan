@@ -1,9 +1,14 @@
 package com.huafang.module_home.entity
 
+import android.os.Parcelable
+import com.huafang.mvvm.entity.UserEntity
+import kotlinx.parcelize.Parcelize
+
 /**
  * @author yang.guo on 2022/10/14
  * @describe 用户发布内容实体类
  */
+@Parcelize
 data class ContentEntity(
     val id: Long = 0,
     val currentUser: UserEntity = UserEntity(),
@@ -21,4 +26,4 @@ data class ContentEntity(
         UserEntity()
     ),
     val content: String = "#日出 #粉色的海 不必形色匆匆，不必光芒四射，@小宝 不必成为别人，只需做自己，我并不讨厌等待，因为等..."
-)
+) : Parcelable

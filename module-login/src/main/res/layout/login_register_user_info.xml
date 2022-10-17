@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingHorizontal="30dp">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="60dp"
+        android:src="@mipmap/icon_female_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/login_register_user_name_hint"
+        android:textColor="@color/content_color"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_avatar" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:maxLength="20"
+        android:textColor="@color/main_color"
+        android:textSize="16sp"
+        app:bl_corners_radius="90dp"
+        app:bl_solid_color="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_hint" />
+
+    <TextView
+        android:id="@+id/tv_sex_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/login_register_user_sex_hint"
+        android:textColor="@color/content_color"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/tv_name_hint"
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+    <TextView
+        android:id="@+id/tv_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/login_bg_male_shape"
+        android:enabled="false"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="14dp"
+        android:text="@string/sex_male"
+        android:textColor="@color/login_text_sex_selector"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tv_sex_hint"
+        app:layout_constraintTop_toBottomOf="@id/tv_sex_hint" />
+
+    <TextView
+        android:id="@+id/tv_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/login_bg_female_shape"
+        android:enabled="true"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="14dp"
+        android:text="@string/sex_female"
+        android:textColor="@color/login_text_sex_selector"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_male"
+        app:layout_constraintStart_toEndOf="@id/tv_male"
+        app:layout_constraintTop_toTopOf="@id/tv_male" />
+</androidx.constraintlayout.widget.ConstraintLayout>

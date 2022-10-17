@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".view.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/home_title_layout"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.angcyo.tablayout.DslTabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -32,30 +32,10 @@
             app:layout_constraintEnd_toStartOf="@id/iv_phone_graph"
             app:layout_constraintStart_toEndOf="@id/iv_search"
             app:layout_constraintTop_toTopOf="parent"
-            app:tab_deselect_color="@color/content_color"
-            app:tab_enable_text_bold="true"
-            app:tab_indicator_drawable="@drawable/bg_divider"
-            app:tab_indicator_height="3dp"
-            app:tab_indicator_style="STYLE_BOTTOM"
-            app:tab_indicator_width="16dp"
-            app:tab_select_color="@color/main_color">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/home_follow"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:gravity="center"
-                android:text="@string/home_recommend"
-                android:textSize="18sp" />
-
-        </com.angcyo.tablayout.DslTabLayout>
+            app:tabIndicator="@drawable/home_tab_indicator"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabIndicatorFullWidth="false"
+            app:tabRippleColor="@null" />
 
         <ImageView
             android:id="@+id/iv_phone_graph"

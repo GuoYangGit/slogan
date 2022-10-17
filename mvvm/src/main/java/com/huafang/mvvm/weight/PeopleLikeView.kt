@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dylanc.longan.dp
-import com.guoyang.base.weight.SpaceItemDecoration
+import com.guoyang.base.weight.decoration.SpaceItemDecoration
 
 /**
  * @author yang.guo on 2022/10/14

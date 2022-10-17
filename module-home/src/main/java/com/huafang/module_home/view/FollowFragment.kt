@@ -1,4 +1,4 @@
-package com.huafang.module_home
+package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dylanc.longan.dp
 import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
-import com.guoyang.base.weight.SpaceItemDecoration
+import com.guoyang.base.weight.decoration.SpaceItemDecoration
 import com.huafang.module_home.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
@@ -20,8 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {
-    private val adapter: ContentAdapter by lazy {
-        ContentAdapter(lifecycle)
+    private val adapter by lazy {
+        ContentAdapter()
     }
 
     private val followViewModel: FollowViewModel by viewModels()

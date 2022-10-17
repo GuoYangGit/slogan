@@ -1,8 +1,6 @@
 package com.huafang.module_home.adapter
 
-import android.graphics.Typeface
 import android.view.View
-import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.DiffUtil
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -19,15 +17,14 @@ import com.guoyang.base.ext.getDateStr
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemContentBinding
 import com.huafang.module_home.entity.ContentEntity
-import com.huafang.mvvm.weight.BannerImageAdapter
+import com.huafang.mvvm.weight.ViewPagerImageAdapter
 
 
 /**
  * @author yang.guo on 2022/10/14
  * @describe 用户发布内容Item适配器
  */
-class ContentAdapter(private val lifecycleRegistry: Lifecycle) :
-    BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content) {
+class ContentAdapter : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content) {
     init {
         setDiffCallback(object : DiffUtil.ItemCallback<ContentEntity>() {
             override fun areItemsTheSame(oldItem: ContentEntity, newItem: ContentEntity): Boolean {
@@ -59,12 +56,9 @@ class ContentAdapter(private val lifecycleRegistry: Lifecycle) :
             }
             tvUserContent.text = userInfo
             // 设置用户发布动态轮播图
-            banner.setAdapter(BannerImageAdapter())
-                .setLifecycleRegistry(lifecycleRegistry)
-                .setIndicatorView(viewIndicator)
-                .setIndicatorSliderWidth(6.dp.toInt(), 8.dp.toInt())
-                .setIndicatorSliderGap(4.dp.toInt())
-                .create(item.urls)
+            val adapter = ViewPagerImageAdapter()
+            viewPager.adapter = adapter
+            adapter.setList(item.urls)
             // 设置点赞用户
             if (item.likeUser.isEmpty()) {
                 peopleLikeGroup.visibility = View.GONE

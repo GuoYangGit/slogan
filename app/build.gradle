@@ -18,4 +18,5 @@ dependencies {
     api project(path: ':module-home')
     api project(path: ':module-message')
     api project(path: ':module-me')
+    api project(path: ':module-login')
 }

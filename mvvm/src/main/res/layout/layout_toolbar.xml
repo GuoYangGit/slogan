@@ -25,7 +25,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_title"
-        app:srcCompat="@mipmap/ic_back"
+        app:srcCompat="@mipmap/icon_back"
         tools:visibility="visible" />
 
     <TextView
@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@mipmap/ic_back"
+        tools:srcCompat="@mipmap/icon_back"
         tools:rotation="180"
         tools:visibility="visible" />
 

@@ -7,4 +7,26 @@
     <string name="home_recommend">推荐</string>
     <string name="home_selected">精选</string>
     <string name="home_people_like_number">等%1$s人觉得很赞</string>
+    <string name="login_one_key_login_title">总有人懂你的心</string>
+    <string name="login_one_key_phone_hint">运营商提供认证服务</string>
+    <string name="login_one_key_phone_text">本机号码一键登录</string>
+    <string name="login_one_key_other_phone_login">其他手机号登录</string>
+    <string name="login_agreement_title">我已阅读并同意 运营商账号服务与隐私协议 和\n《用户协议》以及《隐私政策》</string>
+    <string name="login_agreement_operator">运营商账号服务与隐私协议</string>
+    <string name="login_agreement_user">《用户协议》</string>
+    <string name="login_agreement_privacy">《隐私政策》</string>
+    <string name="login_agreement_dialog_title">服务协议和隐私政策</string>
+    <string name="login_agreement_dialog_content">尊敬的用户：\n欢迎使用“乐芙app”，在您使用前请认真并仔细阅读《用户协议》和《隐私政策》，点击“同意”即表示您已阅读并同意全部条款。</string>
+    <string name="agree">同意</string>
+    <string name="login_agreement_dialog_disagree">不同意并退出</string>
+    <string name="login_phone_title">Hi, 欢迎来到乐芙</string>
+    <string name="login_phone_hint">请输入手机号</string>
+    <string name="login_register_hint">未注册过的手机号验证通过后自动注册</string>
+    <string name="login_phone_btn">用此账号登录</string>
+    <string name="login_verification_code_title">请填写验证码</string>
+    <string name="login_verification_code_hint">验证码已发送到</string>
+    <string name="confirm">确定</string>
+    <string name="login_verification_code_error">验证码错误</string>
+    <string name="sex_male">男</string>
+    <string name="sex_female">女</string>
 </resources>

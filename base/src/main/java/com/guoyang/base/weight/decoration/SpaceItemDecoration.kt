@@ -1,4 +1,4 @@
-package com.guoyang.base.weight
+package com.guoyang.base.weight.decoration
 
 import android.annotation.SuppressLint
 import android.graphics.Rect
