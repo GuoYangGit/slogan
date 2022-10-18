@@ -7,6 +7,7 @@ import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
+import com.huafang.module_home.view.FollowFragment
 import com.huafang.mvvm.ui.BaseBindingActivity
 import com.huafang.mvvm.util.ARouterUtils
 import com.huafang.slogan.databinding.ActivityMainBinding
@@ -48,7 +49,8 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
                     override fun getItemCount(): Int = tabTitle.size
                     override fun createFragment(position: Int): Fragment {
                         return when (position) {
-                            0 -> ARouterUtils.toHomeFragment()
+//                            0 -> ARouterUtils.toHomeFragment()
+                            0 -> FollowFragment()
                             1 -> ARouterUtils.toMessageFragment()
                             else -> ARouterUtils.toMeFragment()
                         }

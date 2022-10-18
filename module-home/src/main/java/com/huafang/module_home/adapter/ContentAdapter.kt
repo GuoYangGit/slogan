@@ -19,6 +19,7 @@ import com.huafang.module_home.entity.ContentEntity
 import com.huafang.mvvm.ext.loadAvatar
 import com.huafang.mvvm.repository.UserRepository
 import com.huafang.mvvm.weight.ViewPagerImageAdapter
+import com.zhpan.indicator.enums.IndicatorStyle
 
 
 /**
@@ -57,9 +58,21 @@ class ContentAdapter : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.
             }
             tvUserContent.text = userInfo
             // 设置用户发布动态轮播图
+            // TODO 这里与最外层的Viewpager2有滑动冲突事件未解决
             val adapter = ViewPagerImageAdapter()
             viewPager.adapter = adapter
             adapter.setList(item.urls)
+            viewIndicator.apply {
+                setSliderColor(
+                    getCompatColor(R.color.home_indicator_normal_color),
+                    getCompatColor(R.color.home_indicator_selected_color)
+                )
+                setSliderGap(4.dp)
+                setSliderWidth(6.dp, 8.dp)
+                setSlideMode(IndicatorStyle.CIRCLE)
+                setupWithViewPager(viewPager)
+
+            }
             // 设置点赞用户
             if (item.likeUser.isEmpty()) {
                 peopleLikeGroup.visibility = View.GONE
