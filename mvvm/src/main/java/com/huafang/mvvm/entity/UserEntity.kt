@@ -13,4 +13,10 @@ data class UserEntity(
     val userName: String = "羊羊",
     val avatar: String = "https://img.zcool.cn/community/01b72057a7e0790000018c1bf4fce0.png",
     val city: String = "",
-) : Parcelable
+    val sex: Int = SEX_FEMALE,
+) : Parcelable {
+    companion object {
+        const val SEX_MALE = 1
+        const val SEX_FEMALE = 2
+    }
+}

@@ -12,11 +12,12 @@ import com.dylanc.longan.getCompatColor
 import com.dylanc.longan.logDebug
 import com.dylanc.longan.screenWidth
 import com.dylanc.viewbinding.brvah.getBinding
-import com.github.forjrking.image.loadCircleImage
 import com.guoyang.base.ext.getDateStr
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemContentBinding
 import com.huafang.module_home.entity.ContentEntity
+import com.huafang.mvvm.ext.loadAvatar
+import com.huafang.mvvm.repository.UserRepository
 import com.huafang.mvvm.weight.ViewPagerImageAdapter
 
 
@@ -44,7 +45,7 @@ class ContentAdapter : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.
     override fun convert(holder: BaseViewHolder, item: ContentEntity) {
         holder.getBinding(HomeItemContentBinding::bind).run {
             // 设置用户头像
-            ivAvatar.loadCircleImage(item.currentUser.avatar)
+            ivAvatar.loadAvatar(item.currentUser.avatar, item.currentUser.sex)
             // 设置用户昵称
             tvUserName.text = item.currentUser.userName
             // 设置用户城市｜发布日期
@@ -71,7 +72,7 @@ class ContentAdapter : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.
                     )
                 peopleLikeView.setList(item.likeUser.map { it.avatar })
             }
-            ivMyAvatar.loadCircleImage(item.currentUser.avatar)
+            ivMyAvatar.loadAvatar(UserRepository.user?.avatar, UserRepository.user?.sex)
             val viewWidth: Int =
                 screenWidth - 32.dp.toInt()
             // 保证没有点击背景色

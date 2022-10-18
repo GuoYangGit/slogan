@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:paddingHorizontal="30dp">
 
-    <ImageView
+    <com.github.forjrking.image.widget.CircleImageView
         android:id="@+id/iv_avatar"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -36,6 +36,7 @@
         android:maxLength="20"
         android:textColor="@color/main_color"
         android:textSize="16sp"
+        android:gravity="center"
         app:bl_corners_radius="90dp"
         app:bl_solid_color="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,4 +84,17 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_male"
         app:layout_constraintStart_toEndOf="@id/tv_male"
         app:layout_constraintTop_toTopOf="@id/tv_male" />
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginVertical="24dp"
+        android:background="@drawable/bg_btn"
+        android:text="@string/finish"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_male"
+        app:layout_constraintVertical_bias="1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

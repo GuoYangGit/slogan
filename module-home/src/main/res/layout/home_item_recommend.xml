@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_image"
         tools:text="#初秋 真的好喜欢秋天，我喜欢明媚的阳光..." />
 
-    <ImageView
+    <com.github.forjrking.image.widget.CircleImageView
         android:id="@+id/iv_avatar"
         android:layout_width="16dp"
         android:layout_height="16dp"

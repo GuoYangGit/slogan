@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
 
-    <ImageView
+    <com.github.forjrking.image.widget.CircleImageView
         android:id="@+id/iv_avatar"
         android:layout_width="42dp"
         android:layout_height="42dp"
@@ -146,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_share"
         tools:text="#初秋真的好喜欢秋天，我喜欢明媚的阳光☀#10月快乐 @好堵啊" />
 
-    <ImageView
+    <com.github.forjrking.image.widget.CircleImageView
         android:id="@+id/iv_my_avatar"
         android:layout_width="26dp"
         android:layout_height="26dp"

@@ -2,6 +2,7 @@ package com.huafang.module_login.view
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.os.Handler
 import android.text.style.StyleSpan
 import com.drake.spannable.addSpan
 import com.drake.spannable.span.ColorSpan
@@ -53,8 +54,10 @@ class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCo
                     changeBtn(isEnable)
                     toast(text)
                 }
-
             })
+            btnCommit.doOnClick {
+                RegisterUserInfoActivity.start()
+            }
         }
         changeBtn(false)
         startCountDown()

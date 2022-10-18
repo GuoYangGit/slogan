@@ -8,6 +8,7 @@ import com.dylanc.loadingstateview.ToolbarConfig
 import com.dylanc.loadingstateview.NavBtnType
 import com.dylanc.loadingstateview.toolbarExtras
 import com.huafang.mvvm.databinding.LayoutToolbarBinding
+import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 
 /**
  *  @author : yang.guo
@@ -21,6 +22,7 @@ class ToolbarViewDelegate : BaseToolbarViewDelegate() {
 
     override fun onCreateToolbar(inflater: LayoutInflater, parent: ViewGroup): View {
         binding = LayoutToolbarBinding.inflate(inflater, parent, false)
+        binding.root.addStatusBarTopPadding()
         return binding.root
     }
 

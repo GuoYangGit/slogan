@@ -8,11 +8,11 @@ import com.dylanc.longan.dp
 import com.dylanc.longan.getCompatColor
 import com.dylanc.longan.logDebug
 import com.dylanc.viewbinding.brvah.getBinding
-import com.github.forjrking.image.loadCircleImage
 import com.github.forjrking.image.loadRoundCornerImage
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemRecommendBinding
 import com.huafang.module_home.entity.RecommendEntity
+import com.huafang.mvvm.ext.loadAvatar
 
 
 /**
@@ -37,7 +37,7 @@ class RecommendAdapter :
                         logDebug("点击标签 ${matchResult.value}")
                     }
                 }
-            ivAvatar.loadCircleImage(item.userEntity.avatar)
+            ivAvatar.loadAvatar(item.userEntity.avatar, item.userEntity.sex)
             tvUserName.text = item.userEntity.userName
             tvLikeNum.text = item.likeNun.toString()
         }

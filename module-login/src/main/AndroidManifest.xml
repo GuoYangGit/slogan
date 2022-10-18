@@ -8,6 +8,9 @@
         <activity android:name=".view.VerificationCodeActivity"
             android:exported="true" >
         </activity>
+        <activity android:name=".view.RegisterUserInfoActivity"
+            android:exported="true" >
+        </activity>
         <activity android:name=".view.PhoneLoginActivity"
             android:exported="true" >
             <intent-filter>

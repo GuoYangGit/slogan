@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="54dp"
+    android:background="@color/white"
     android:paddingHorizontal="16dp">
 
     <TextView
@@ -60,11 +61,5 @@
         tools:srcCompat="@mipmap/icon_back"
         tools:rotation="180"
         tools:visibility="visible" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/line_color"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,6 @@ package com.huafang.mvvm.weight
 import androidx.recyclerview.widget.DiffUtil
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.dylanc.longan.dp
 import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.brvah.getBinding
 import com.github.forjrking.image.loadCircleImage
