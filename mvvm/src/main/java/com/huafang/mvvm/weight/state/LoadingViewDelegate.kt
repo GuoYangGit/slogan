@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import com.dylanc.loadingstateview.LoadingStateView
 import com.dylanc.loadingstateview.ViewType
 import com.huafang.mvvm.R
+import com.huafang.mvvm.databinding.LayoutLoadingBinding
 
 /**
  *  @author : yang.guo
@@ -13,8 +14,11 @@ import com.huafang.mvvm.R
  *  @description : 加载视图
  */
 class LoadingViewDelegate : LoadingStateView.ViewDelegate(ViewType.LOADING) {
+    private var binding: LayoutLoadingBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup): View {
-        return inflater.inflate(R.layout.layout_loading, parent, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup): View =
+        LayoutLoadingBinding.inflate(inflater, parent, false).run {
+            binding = this
+            root
+        }
 }

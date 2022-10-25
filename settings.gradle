@@ -2,8 +2,6 @@ rootProject.name = "slogan"
 include ':app'
 include ':base'
 include ':mvvm'
-include ':loadingstateview-ktx'
-include ':loadingstateview'
 include ':module-home'
 include ':module-me'
 include ':module-login'

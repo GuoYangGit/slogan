@@ -12,6 +12,9 @@ import javax.inject.Singleton
  */
 @Singleton
 class FollowRepository @Inject constructor() {
+    /**
+     * 获取关注列表页面数据
+     */
     fun getFollowList(): Flow<List<ContentEntity>> {
         return flow {
             val result = listOf(

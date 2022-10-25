@@ -15,13 +15,14 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/12
- * @describe
+ * @describe 我的页面
  */
 @AndroidEntryPoint
 @Route(path = ARouterUtils.PATH_Me_FRAGMENT)
 class MeFragment : BaseBindingFragment<MeFragmentMeBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         binding.textView.doOnClick {
+            // 选择图片
             PictureSelector.create(this)
                 .openGallery(SelectMimeType.ofImage())
                 .setImageEngine(GlideEngine.createGlideEngine())

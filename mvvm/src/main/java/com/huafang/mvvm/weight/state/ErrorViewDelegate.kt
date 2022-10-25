@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.dylanc.loadingstateview.LoadingStateView
 import com.dylanc.loadingstateview.ViewType
-import com.huafang.mvvm.R
+import com.huafang.mvvm.databinding.LayoutErrorBinding
 
 /**
  *  @author : yang.guo
@@ -13,15 +13,18 @@ import com.huafang.mvvm.R
  *  @description : 错误视图
  */
 class ErrorViewDelegate : LoadingStateView.ViewDelegate(ViewType.ERROR) {
+    private var binding: LayoutErrorBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater, parent: ViewGroup): View =
-        inflater.inflate(R.layout.layout_error, parent, false).apply {
-//            findViewById<View>(R.id.btn_reload).setOnClickListener {
-//                onReloadListener?.onReload()
-//            }
+        LayoutErrorBinding.inflate(inflater, parent, false).run {
+            binding = this
+            tvError.setOnClickListener {
+                onReloadListener?.onReload()
+            }
+            root
         }
 
     fun updateMsg(msg: String) {
-
+        binding?.tvError?.text = msg
     }
 }

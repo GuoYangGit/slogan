@@ -13,11 +13,13 @@ import com.huafang.mvvm.ui.BaseBindingActivity
 import com.kenny.separatededittext.SeparatedEditText
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe
+ * @describe 验证码页面
  */
+@AndroidEntryPoint
 class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCodeBinding>() {
     private val phone: String? by intentExtras(KEY_PHONE)
 

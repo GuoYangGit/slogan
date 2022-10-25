@@ -1,4 +1,4 @@
-package com.huafang.module_home.adapter
+package com.huafang.module_home.view.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.DiffUtil
@@ -20,13 +20,14 @@ import com.huafang.mvvm.ext.loadAvatar
 import com.huafang.mvvm.repository.UserRepository
 import com.huafang.mvvm.weight.ViewPagerImageAdapter
 import com.zhpan.indicator.enums.IndicatorStyle
+import javax.inject.Inject
 
 
 /**
  * @author yang.guo on 2022/10/14
  * @describe 用户发布内容Item适配器
  */
-class ContentAdapter : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content) {
+class ContentAdapter @Inject constructor() : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content) {
     init {
         setDiffCallback(object : DiffUtil.ItemCallback<ContentEntity>() {
             override fun areItemsTheSame(oldItem: ContentEntity, newItem: ContentEntity): Boolean {

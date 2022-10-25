@@ -3,6 +3,7 @@ package com.guoyang.base.ext
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.guoyang.base.R
 
 /**
@@ -17,11 +18,17 @@ import com.guoyang.base.R
  */
 inline fun SwipeRefreshLayout.init(
     @ColorRes colorID: Int = R.color.colorPrimary,
-    crossinline block: () -> Unit
+    baseQuickAdapter: BaseQuickAdapter<*, *>? = null,
+    crossinline block: (isRefresh: Boolean) -> Unit
 ) {
     //设置主题颜色
-    setColorSchemeColors(ContextCompat.getColor(this.context, colorID))
-    setOnRefreshListener {
-        block.invoke()
+    this.setColorSchemeColors(ContextCompat.getColor(this.context, colorID))
+    //设置下拉刷新事件
+    this.setOnRefreshListener {
+        block(true)
+    }
+    //设置上拉加载更多事件
+    baseQuickAdapter?.loadMoreModule?.setOnLoadMoreListener {
+        block(false)
     }
 }

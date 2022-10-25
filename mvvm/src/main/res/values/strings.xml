@@ -30,4 +30,6 @@
     <string name="sex_male">男</string>
     <string name="sex_female">女</string>
     <string name="finish">完成</string>
+    <string name="layout_empty">暂无数据</string>
+    <string name="layout_error">网络错误</string>
 </resources>

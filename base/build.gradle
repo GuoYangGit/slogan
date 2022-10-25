@@ -20,9 +20,8 @@ dependencies {
     //权限框架 https://github.com/guolindev/PermissionX
     api 'com.guolindev.permissionx:permissionx:1.7.1'
     //网络请求 https://github.com/liujingxing/rxhttp
-    api 'com.github.liujingxing.rxhttp:rxhttp:2.8.7'
+    api "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
     api 'com.squareup.okhttp3:okhttp:4.10.0'
-    api 'com.google.code.gson:gson:2.8.9'
     //本地存储MMKV https://dylancaicoding.github.io/MMKV-KTX/#/
     api 'com.github.DylanCaiCoding:MMKV-KTX:1.2.14'
     //本地存储Room

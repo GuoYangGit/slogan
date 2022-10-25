@@ -1,4 +1,4 @@
-package com.huafang.module_home.adapter
+package com.huafang.module_home.view.adapter
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -13,13 +13,14 @@ import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemRecommendBinding
 import com.huafang.module_home.entity.RecommendEntity
 import com.huafang.mvvm.ext.loadAvatar
+import javax.inject.Inject
 
 
 /**
  * @author yang.guo on 2022/10/15
- * @describe
+ * @describe 推荐列表适配器
  */
-class RecommendAdapter :
+class RecommendAdapter @Inject constructor() :
     BaseQuickAdapter<RecommendEntity, BaseViewHolder>(R.layout.home_item_recommend) {
     override fun convert(holder: BaseViewHolder, item: RecommendEntity) {
         holder.getBinding(HomeItemRecommendBinding::bind).run {

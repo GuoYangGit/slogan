@@ -16,11 +16,13 @@ import com.huafang.mvvm.repository.UserRepository
 import com.huafang.mvvm.ui.BaseBindingActivity
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe
+ * @describe 手机号登陆页面
  */
+@AndroidEntryPoint
 class PhoneLoginActivity : BaseBindingActivity<LoginActivityPhoneLoginBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         statusBarOnly {

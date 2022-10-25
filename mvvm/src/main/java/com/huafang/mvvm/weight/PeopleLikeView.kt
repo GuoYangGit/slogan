@@ -17,8 +17,7 @@ class PeopleLikeView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) :
-    RecyclerView(context, attrs, defStyleAttr) {
+) : RecyclerView(context, attrs, defStyleAttr) {
     private val peopleLikeAdapter by lazy {
         PeopleLikeAdapter()
     }

@@ -9,12 +9,16 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe
+ * @describe 关注ViewModel
  */
 @HiltViewModel
 class FollowViewModel @Inject constructor(private val followRepository: FollowRepository) :
     BaseViewModel() {
-        fun getFollowList():Flow<List<ContentEntity>>{
-            return followRepository.getFollowList()
-        }
+
+    /**
+     * 获取关注列表页面
+     */
+    fun getFollowList(): Flow<List<ContentEntity>> {
+        return followRepository.getFollowList()
+    }
 }

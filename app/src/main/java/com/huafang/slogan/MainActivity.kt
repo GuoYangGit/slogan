@@ -22,10 +22,12 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
+    // 首页TabTitle
     private val tabTitle = listOf(
         R.string.navigation_home, R.string.navigation_message, R.string.navigation_me
     )
 
+    // 首页TabImages
     private val tabImage = listOf(
         R.drawable.menu_home,
         R.drawable.menu_message,
@@ -49,21 +51,13 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
                     override fun getItemCount(): Int = tabTitle.size
                     override fun createFragment(position: Int): Fragment {
                         return when (position) {
-//                            0 -> ARouterUtils.toHomeFragment()
-                            0 -> FollowFragment()
+                            0 -> ARouterUtils.toHomeFragment()
                             1 -> ARouterUtils.toMessageFragment()
                             else -> ARouterUtils.toMeFragment()
                         }
                     }
                 }
             }
-            TabLayoutMediator(tabLayout, mainViewpager) { tab, position ->
-                tab.setCustomView<LayoutBottomTabBinding> {
-                    tvTitle.text = getString(tabTitle[position])
-                    tvTitle.setTextColor(getCompatColor(if (position == 0) R.color.colorPrimary else R.color.content_color))
-                    ivIcon.setImageResource(tabImage[position])
-                }
-            }.attach()
             tabLayout.doOnCustomTabSelected<LayoutBottomTabBinding>(
                 onTabSelected = {
                     tvTitle.setTextColor(getCompatColor(R.color.colorPrimary))
@@ -71,6 +65,13 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
                 onTabUnselected = {
                     tvTitle.setTextColor(getCompatColor(R.color.content_color))
                 })
+            TabLayoutMediator(tabLayout, mainViewpager) { tab, position ->
+                tab.setCustomView<LayoutBottomTabBinding> {
+                    tvTitle.text = getString(tabTitle[position])
+                    tvTitle.setTextColor(getCompatColor(if (position == 0) R.color.colorPrimary else R.color.content_color))
+                    ivIcon.setImageResource(tabImage[position])
+                }
+            }.attach()
         }
     }
 }

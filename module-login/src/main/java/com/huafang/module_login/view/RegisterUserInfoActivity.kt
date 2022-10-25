@@ -15,11 +15,13 @@ import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/18
- * @describe
+ * @describe 注册用户信息页面
  */
+@AndroidEntryPoint
 class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBinding>() {
     private var chooseSex: Int = UserEntity.SEX_FEMALE
         set(value) {
