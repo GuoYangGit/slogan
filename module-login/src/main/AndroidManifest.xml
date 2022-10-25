@@ -3,16 +3,16 @@
 
     <application>
         <activity android:name=".view.OneKeyLoginActivity"
-            android:exported="true" >
+            android:exported="false" >
         </activity>
         <activity android:name=".view.VerificationCodeActivity"
-            android:exported="true" >
+            android:exported="false" >
         </activity>
         <activity android:name=".view.RegisterUserInfoActivity"
-            android:exported="true" >
+            android:exported="false" >
         </activity>
         <activity android:name=".view.PhoneLoginActivity"
-            android:exported="true" >
+            android:exported="false" >
         </activity>
     </application>
 </manifest>

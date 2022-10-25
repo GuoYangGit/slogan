@@ -15,6 +15,9 @@ android {
 dependencies {
     //网络请求 https://github.com/liujingxing/rxhttp
     kapt "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"
+    def room_version = "2.4.3"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
     //视图绑定ViewBinding https://dylancaicoding.github.io/ViewBindingKTX/#/
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'

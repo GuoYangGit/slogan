@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/module-me" />
             <option value="$PROJECT_DIR$/module-message" />
             <option value="$PROJECT_DIR$/mvvm" />
+            <option value="$PROJECT_DIR$/sdk-mob" />
           </set>
         </option>
       </GradleProjectSettings>
