@@ -1,4 +1,4 @@
-package com.huafang.mvvm.weight
+package com.huafang.mvvm.weight.state
 
 import android.view.LayoutInflater
 import android.view.View

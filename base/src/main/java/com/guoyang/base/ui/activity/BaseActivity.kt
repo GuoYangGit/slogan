@@ -7,7 +7,7 @@ import com.guoyang.base.IView
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 10:52
- *  @description : 通用的Activity基类
+ *  @description : 通用的[Activity]基类
  */
 abstract class BaseActivity : AppCompatActivity(), IView {
 

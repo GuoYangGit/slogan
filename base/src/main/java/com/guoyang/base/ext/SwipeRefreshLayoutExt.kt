@@ -16,7 +16,8 @@ import com.guoyang.base.R
  * @param block: 刷新回调
  */
 inline fun SwipeRefreshLayout.init(
-    @ColorRes colorID: Int = R.color.colorPrimary, crossinline block: () -> Unit
+    @ColorRes colorID: Int = R.color.colorPrimary,
+    crossinline block: () -> Unit
 ) {
     //设置主题颜色
     setColorSchemeColors(ContextCompat.getColor(this.context, colorID))

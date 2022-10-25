@@ -2,13 +2,11 @@ package com.guoyang.base.ext
 
 import android.content.Context
 import android.os.Process
-import java.io.BufferedReader
-import java.io.FileReader
 
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 14:33
- *  @description : Context相关的扩展类
+ *  @description : [Context]相关的扩展类
  */
 /**
  * 判断当前是否是主进程

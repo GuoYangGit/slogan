@@ -15,18 +15,24 @@ import com.github.forjrking.image.core.ImageOptions
 import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
 import com.huafang.mvvm.state.AppLifeObserver
-import com.huafang.mvvm.weight.EmptyViewDelegate
-import com.huafang.mvvm.weight.ErrorViewDelegate
-import com.huafang.mvvm.weight.LoadingViewDelegate
-import com.huafang.mvvm.weight.ToolbarViewDelegate
+import com.huafang.mvvm.weight.state.EmptyViewDelegate
+import com.huafang.mvvm.weight.state.ErrorViewDelegate
+import com.huafang.mvvm.weight.state.LoadingViewDelegate
+import com.huafang.mvvm.weight.state.ToolbarViewDelegate
+import okhttp3.OkHttpClient
+import rxhttp.RxHttpPlugins
+import rxhttp.wrapper.ssl.HttpsUtils
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
+import javax.net.ssl.SSLSession
 
 /**
  * @author yang.guo on 2022/10/13
- * @describe
+ * @describe 第三方Application初始化工具类
  */
 
 const val TASK_APP_INIT = "task_app_init"
+const val TASK_NET_INIT = "task_net_init"
 const val TASK_AROUTER_INIT = "task_arouter_init"
 const val TASK_VIEW_INIT = "task_view_init"
 const val TASK_IMAGE_LOAD_INIT = "task_image_load_init"
@@ -44,6 +50,21 @@ class AppInitTask : Task(TASK_APP_INIT) {
                 return@handleUncaughtException
             }
         }
+    }
+}
+
+class NetInitTask : Task(TASK_NET_INIT) {
+    override fun run(name: String) {
+        val sslParams = HttpsUtils.getSslSocketFactory()
+        val okHttpClient = OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager) //添加信任证书
+            .hostnameVerifier { _: String?, _: SSLSession? -> true } //忽略host验证
+            .build()
+        // 初始化网络请求
+        RxHttpPlugins.init(okHttpClient).setDebug(isAppDebug)
     }
 }
 
@@ -102,6 +123,9 @@ object AppTaskCreator : TaskCreator {
         return when (taskName) {
             TASK_APP_INIT -> {
                 AppInitTask()
+            }
+            TASK_NET_INIT -> {
+                NetInitTask()
             }
             TASK_AROUTER_INIT -> {
                 ARouterInitTask()

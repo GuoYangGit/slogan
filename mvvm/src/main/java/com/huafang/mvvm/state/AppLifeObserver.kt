@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
  * @author Yang.Guo on 2021/5/31.
  */
 object AppLifeObserver : LifecycleEventObserver {
+    // 监听前后台切换的LiveData
     val isForeground by lazy { MutableLiveData<Boolean>() }
 
     /**

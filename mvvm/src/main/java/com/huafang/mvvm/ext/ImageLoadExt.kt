@@ -10,6 +10,14 @@ import com.huafang.mvvm.entity.UserEntity
  * @author yang.guo on 2022/10/18
  * @describe 图片加载扩展类
  */
+
+/**
+ * 加载用户头像
+ * @param url 头像地址
+ * @param sex 用户性别
+ * @param borderWidth 边框宽度
+ * @param borderColor 边框颜色
+ */
 fun ImageView.loadAvatar(
     url: String?,
     sex: Int? = UserEntity.SEX_FEMALE,

@@ -1,10 +1,9 @@
 package com.huafang.module_home.view
 
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
+import com.guoyang.base.ext.staggered
 import com.huafang.module_home.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
 import com.huafang.module_home.entity.RecommendEntity
@@ -21,37 +20,15 @@ import kotlinx.coroutines.async
  */
 @AndroidEntryPoint
 class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
-    private val staggeredGridLayoutManager: StaggeredGridLayoutManager by lazy {
-        StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-    }
 
     private val recommendAdapter: RecommendAdapter by lazy {
         RecommendAdapter()
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.run {
-            //解决加载下一页后重新排列的问题
-            staggeredGridLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
-            val checkForGapMethod =
-                StaggeredGridLayoutManager::class.java.getDeclaredMethod("checkForGaps")
-            val markItemDecorInsetsDirtyMethod =
-                RecyclerView::class.java.getDeclaredMethod("markItemDecorInsetsDirty")
-            checkForGapMethod.isAccessible = true
-            markItemDecorInsetsDirtyMethod.isAccessible = true
-            recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-                    val result = checkForGapMethod.invoke(recyclerView.layoutManager) as Boolean
-                    //如果发生了重新排序，刷新itemDecoration
-                    if (result) {
-                        markItemDecorInsetsDirtyMethod.invoke(recyclerView)
-                    }
-                }
-            })
-            recyclerView.bindBaseAdapter(staggeredGridLayoutManager, recommendAdapter)
-        }
-
+        binding.recyclerView
+            .staggered(2)
+            .bindBaseAdapter(recommendAdapter)
     }
 
     override fun lazyLoadData() {

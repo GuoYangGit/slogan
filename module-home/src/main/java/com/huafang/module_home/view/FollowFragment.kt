@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dylanc.longan.dp
 import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
-import com.guoyang.base.weight.decoration.SpaceItemDecoration
+import com.guoyang.base.ext.divider
+import com.guoyang.base.ext.linear
 import com.huafang.module_home.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
@@ -27,16 +28,13 @@ class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {
     private val followViewModel: FollowViewModel by viewModels()
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.recyclerView.run {
-            bindBaseAdapter(
-                LinearLayoutManager(context),
-                this@FollowFragment.adapter
-            )
-            addItemDecoration(SpaceItemDecoration(0, 6.dp.toInt(), false))
-        }
+        binding.recyclerView
+            .linear()
+            .divider { setDivider(6) }
+            .bindBaseAdapter(this@FollowFragment.adapter)
         viewLifecycleScope.launchWhenCreated {
             followViewModel.getFollowList()
-                .collect{
+                .collect {
                     adapter.setList(it)
                 }
         }

@@ -3,7 +3,7 @@ package com.huafang.mvvm.state
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 15:01
- *  @description :
+ *  @description : 数据和UI相关的状态类
  */
 sealed class DataUiState<out T>(val refresh: Boolean) {
     companion object {

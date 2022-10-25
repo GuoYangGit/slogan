@@ -1,4 +1,4 @@
-package com.huafang.mvvm.weight
+package com.huafang.mvvm.weight.state
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import com.huafang.mvvm.R
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 16:01
- *  @description :
+ *  @description : 加载视图
  */
 class LoadingViewDelegate : LoadingStateView.ViewDelegate(ViewType.LOADING) {
 

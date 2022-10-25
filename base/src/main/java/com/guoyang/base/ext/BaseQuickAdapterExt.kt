@@ -7,12 +7,17 @@ import com.chad.library.adapter.base.listener.OnLoadMoreListener
 import com.chad.library.adapter.base.module.LoadMoreModule
 
 /**
- * BaseQuickAdapter扩展类
+ * [BaseQuickAdapter]扩展类
  * @author Yang.Guo on 2021/5/31.
  * @link https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 var adapterLastClickTime = 0L
 
+/**
+ * 防止重复点击item
+ * @param clickIntervals 间隔时间
+ * @param action 回调事件
+ */
 fun BaseQuickAdapter<*, *>.doOnItemClickListener(
     clickIntervals: Int = 0,
     action: (adapter: BaseQuickAdapter<*, *>, view: View, position: Int) -> Unit
@@ -28,7 +33,9 @@ fun BaseQuickAdapter<*, *>.doOnItemClickListener(
 }
 
 /**
- * 给adapter拓展的，防止重复点击item
+ * 防止重复点击item
+ * @param clickIntervals 间隔时间
+ * @param action 回调事件
  */
 var adapterChildLastClickTime = 0L
 fun BaseQuickAdapter<*, *>.doOnItemChildClickListener(
@@ -46,14 +53,14 @@ fun BaseQuickAdapter<*, *>.doOnItemChildClickListener(
 }
 
 /**
- * RecyclerView绑定BaseQuickAdapter
+ * [RecyclerView]绑定[BaseQuickAdapter]
+ * @param bindAdapter [BaseQuickAdapter]
+ * @param loadMoreListener 加载更多事件
  */
 fun RecyclerView.bindBaseAdapter(
-    layoutManger: RecyclerView.LayoutManager,
     bindAdapter: BaseQuickAdapter<*, *>,
     loadMoreListener: OnLoadMoreListener? = null
 ): RecyclerView {
-    layoutManager = layoutManger
     adapter = bindAdapter
     // 这里需要判断Adapter是否实现了LoadMoreModule接口
     if (bindAdapter is LoadMoreModule)

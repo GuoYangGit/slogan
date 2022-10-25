@@ -1,4 +1,4 @@
-package com.huafang.mvvm.weight
+package com.huafang.mvvm.weight.state
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 16:11
- *  @description :
+ *  @description : 标题栏视图
  */
 var ToolbarConfig.rightTextColor: Int? by toolbarExtras()
 

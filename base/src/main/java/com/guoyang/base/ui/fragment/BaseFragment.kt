@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import com.guoyang.base.IView
 
 /***
- *
- * 通用的Fragment基类
- * @author Yang.Guo on 2021/5/31.
+ *  @author : yang.guo
+ *  @date : 2022/10/11 10:52
+ *  @description : 通用的Fragment基类
  */
 abstract class BaseFragment : Fragment(), IView {
 
