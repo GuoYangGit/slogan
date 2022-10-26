@@ -9,7 +9,7 @@
 - 视图绑定：[ViewBindingKTX](https://dylancaicoding.github.io/ViewBindingKTX/#/?id=viewbindingktx)
 - 日志库：XLog
 - 启动框架：[Anchors](https://github.com/DSAppTeam/Anchors)
-- Kotlin工具库：Longan  
+- Kotlin工具库：[Longan](https://dylancaicoding.github.io/Longan/#/)
 - 屏幕适配：[AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize)
 - 权限框架：[PermissionX](https://github.com/guolindev/PermissionX)
 - 透明导航栏：[UltimateBarX](https://github.com/Zackratos/UltimateBarX)
