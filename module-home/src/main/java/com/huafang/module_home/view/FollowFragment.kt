@@ -2,6 +2,8 @@ package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import com.dylanc.longan.launchAndCollectIn
 import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
 import com.guoyang.base.ext.divider
@@ -11,6 +13,7 @@ import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
 import com.huafang.mvvm.ui.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
 import javax.inject.Inject
 
 
@@ -30,11 +33,10 @@ class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {
             .linear()
             .divider { setDivider(6) }
             .bindBaseAdapter(this@FollowFragment.adapter)
-        viewLifecycleScope.launchWhenCreated {
-            followViewModel.getFollowList()
-                .collect {
-                    adapter.setList(it)
-                }
-        }
+        followViewModel.getFollowList()
+            .launchAndCollectIn(viewLifecycleOwner) {
+                adapter.setList(it)
+            }
+
     }
 }

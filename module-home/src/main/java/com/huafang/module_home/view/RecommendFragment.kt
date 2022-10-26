@@ -2,6 +2,7 @@ package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
+import com.dylanc.longan.launchAndCollectIn
 import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
 import com.guoyang.base.ext.init
@@ -42,19 +43,17 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
     }
 
     private fun loadData(isRefresh: Boolean = true) {
-        viewLifecycleScope.launchWhenResumed {
-            recommendViewModel.getRecommendList(this@RecommendFragment)
-                .asUiStateFlow(isRefresh)
-                .collect {
-                    it.bindLoadState(
-                        binding.refreshLayout,
-                        recommendAdapter,
-                        this@RecommendFragment
-                    )
-                        .doSuccess { list ->
-                            recommendAdapter.setDiffNewData(list?.toMutableList())
-                        }
-                }
-        }
+        recommendViewModel.getRecommendList(this@RecommendFragment)
+            .asUiStateFlow(isRefresh)
+            .launchAndCollectIn(viewLifecycleOwner){
+                it.bindLoadState(
+                    binding.refreshLayout,
+                    recommendAdapter,
+                    this@RecommendFragment
+                )
+                    .doSuccess { list ->
+                        recommendAdapter.setDiffNewData(list?.toMutableList())
+                    }
+            }
     }
 }
