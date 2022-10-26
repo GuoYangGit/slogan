@@ -11,11 +11,17 @@ import com.permissionx.guolindev.request.ForwardScope
 /**
  * @author yang.guo on 2022/10/13
  * @describe App权限扩展类
- * Manifest.permission.CAMERA 相机权限
+ * [requestReadOrWritePermissions] 读写权限(兼容Android 13)
+ * [requestCameraPermissions] 相机、录音权限
+ * [requestLocationPermissions] 定位权限(兼容Android 12)
+ * [requestNotificationPermissions] 通知权限(特殊权限)
+ * [requestSystemAlertWindowPermissions] 悬浮窗权限(特殊权限)
+ * [requestWriteSettingPermissions] 系统设置权限(特殊权限)
+ * [requestInstallPackagePermissions] 允许安装未知来源权限(特殊权限)
  */
 
 /**
- * FragmentActivity获取读写权限扩展方法
+ * 读写权限(兼容Android 13[Build.VERSION_CODES.TIRAMISU])
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -45,7 +51,7 @@ fun FragmentActivity.requestReadOrWritePermissions(
 }
 
 /**
- * FragmentActivity获取读写权限扩展方法
+ * 读写权限(兼容Android 13[Build.VERSION_CODES.TIRAMISU])
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -75,7 +81,7 @@ fun Fragment.requestReadOrWritePermissions(
 }
 
 /**
- * FragmentActivity获取相机、录音权限扩展方法
+ * 相机、录音权限
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -98,7 +104,7 @@ fun FragmentActivity.requestCameraPermissions(
 }
 
 /**
- * FragmentActivity获取相机、录音权限扩展方法
+ * 相机、录音权限
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -121,7 +127,7 @@ fun Fragment.requestCameraPermissions(
 }
 
 /**
- * FragmentActivity获取定位权限扩展方法
+ * 定位权限(兼容Android 12[Build.VERSION_CODES.Q])
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -147,7 +153,7 @@ fun FragmentActivity.requestLocationPermissions(
 }
 
 /**
- * FragmentActivity获取定位权限扩展方法
+ * FragmentActivity获取定位权限扩展方法(兼容Android 12[Build.VERSION_CODES.Q])
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -173,7 +179,7 @@ fun Fragment.requestLocationPermissions(
 }
 
 /**
- * FragmentActivity获取悬浮窗权限扩展方法
+ * 通知权限(特殊权限)
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -196,7 +202,7 @@ fun FragmentActivity.requestNotificationPermissions(
 }
 
 /**
- * FragmentActivity获取悬浮窗权限扩展方法
+ * 通知权限(特殊权限)
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -219,7 +225,7 @@ fun Fragment.requestNotificationPermissions(
 }
 
 /**
- * FragmentActivity获取悬浮窗权限扩展方法
+ * 悬浮窗权限(特殊权限)
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -242,7 +248,7 @@ fun FragmentActivity.requestSystemAlertWindowPermissions(
 }
 
 /**
- * FragmentActivity获取悬浮窗权限扩展方法
+ * 悬浮窗权限(特殊权限)
  * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
  * @param onExplainRequestReason:
  * @param onForwardToSettings:
@@ -255,6 +261,98 @@ fun Fragment.requestSystemAlertWindowPermissions(
     request: (allGranted: Boolean, grantedList: List<String>, deniedList: List<String>) -> Unit
 ) {
     val permissionList = arrayListOf(Manifest.permission.SYSTEM_ALERT_WINDOW)
+    requestPermissions(
+        permissionList,
+        explainReasonBeforeRequest,
+        onExplainRequestReason,
+        onForwardToSettings,
+        request
+    )
+}
+
+/**
+ * 系统设置权限(特殊权限)
+ * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
+ * @param onExplainRequestReason:
+ * @param onForwardToSettings:
+ * @param request: 权限回调
+ */
+fun FragmentActivity.requestWriteSettingPermissions(
+    explainReasonBeforeRequest: Boolean = false,
+    onExplainRequestReason: (scope: ExplainScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    onForwardToSettings: (scope: ForwardScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    request: (allGranted: Boolean, grantedList: List<String>, deniedList: List<String>) -> Unit
+) {
+    val permissionList = arrayListOf(Manifest.permission.WRITE_SETTINGS)
+    requestPermissions(
+        permissionList,
+        explainReasonBeforeRequest,
+        onExplainRequestReason,
+        onForwardToSettings,
+        request
+    )
+}
+
+/**
+ * 系统设置权限(特殊权限)
+ * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
+ * @param onExplainRequestReason:
+ * @param onForwardToSettings:
+ * @param request: 权限回调
+ */
+fun Fragment.requestWriteSettingPermissions(
+    explainReasonBeforeRequest: Boolean = false,
+    onExplainRequestReason: (scope: ExplainScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    onForwardToSettings: (scope: ForwardScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    request: (allGranted: Boolean, grantedList: List<String>, deniedList: List<String>) -> Unit
+) {
+    val permissionList = arrayListOf(Manifest.permission.WRITE_SETTINGS)
+    requestPermissions(
+        permissionList,
+        explainReasonBeforeRequest,
+        onExplainRequestReason,
+        onForwardToSettings,
+        request
+    )
+}
+
+/**
+ * 允许安装未知来源权限(特殊权限)
+ * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
+ * @param onExplainRequestReason:
+ * @param onForwardToSettings:
+ * @param request: 权限回调
+ */
+fun FragmentActivity.requestInstallPackagePermissions(
+    explainReasonBeforeRequest: Boolean = false,
+    onExplainRequestReason: (scope: ExplainScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    onForwardToSettings: (scope: ForwardScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    request: (allGranted: Boolean, grantedList: List<String>, deniedList: List<String>) -> Unit
+) {
+    val permissionList = arrayListOf(Manifest.permission.REQUEST_INSTALL_PACKAGES)
+    requestPermissions(
+        permissionList,
+        explainReasonBeforeRequest,
+        onExplainRequestReason,
+        onForwardToSettings,
+        request
+    )
+}
+
+/**
+ * 允许安装未知来源权限(特殊权限)
+ * @param explainReasonBeforeRequest: 请求权限之前告知用户为何要用
+ * @param onExplainRequestReason:
+ * @param onForwardToSettings:
+ * @param request: 权限回调
+ */
+fun Fragment.requestInstallPackagePermissions(
+    explainReasonBeforeRequest: Boolean = false,
+    onExplainRequestReason: (scope: ExplainScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    onForwardToSettings: (scope: ForwardScope, deniedList: List<String>) -> Unit = { _, _ -> },
+    request: (allGranted: Boolean, grantedList: List<String>, deniedList: List<String>) -> Unit
+) {
+    val permissionList = arrayListOf(Manifest.permission.REQUEST_INSTALL_PACKAGES)
     requestPermissions(
         permissionList,
         explainReasonBeforeRequest,
