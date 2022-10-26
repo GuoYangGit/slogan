@@ -3,7 +3,6 @@ package com.huafang.mvvm
 import com.dylanc.longan.isAppDebug
 import com.effective.android.anchors.*
 import com.guoyang.base.BaseApp
-import com.huafang.mvvm.init.*
 
 /**
  *  @author : yang.guo
@@ -17,12 +16,23 @@ open class MvvmApplication : BaseApp() {
         AnchorsManager.getInstance()
             .debuggable { isAppDebug }
             .taskFactory { AppTaskFactory() }
+            .anchors {
+                arrayOf(
+                    TASK_AROUTER_INIT,
+                    TASK_APP_INIT,
+                    TASK_VIEW_INIT,
+                    TASK_NET_INIT,
+                    TASK_IMAGE_LOAD_INIT
+                )
+            }
             .graphics {
                 TASK_AROUTER_INIT.sons(
-                    TASK_APP_INIT,
-                    TASK_NET_INIT,
-                    TASK_VIEW_INIT,
-                    TASK_IMAGE_LOAD_INIT
+                    TASK_APP_INIT.sons(
+                        TASK_VIEW_INIT.sons(
+                            TASK_NET_INIT,
+                            TASK_IMAGE_LOAD_INIT
+                        )
+                    )
                 )
                 arrayOf(TASK_AROUTER_INIT)
             }

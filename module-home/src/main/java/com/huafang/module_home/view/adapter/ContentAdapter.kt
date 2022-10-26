@@ -3,6 +3,7 @@ package com.huafang.module_home.view.adapter
 import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.drake.spannable.movement.ClickableMovementMethod
 import com.drake.spannable.replaceSpan
@@ -27,7 +28,8 @@ import javax.inject.Inject
  * @author yang.guo on 2022/10/14
  * @describe 用户发布内容Item适配器
  */
-class ContentAdapter @Inject constructor() : BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content) {
+class ContentAdapter @Inject constructor() :
+    BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content), LoadMoreModule {
     init {
         setDiffCallback(object : DiffUtil.ItemCallback<ContentEntity>() {
             override fun areItemsTheSame(oldItem: ContentEntity, newItem: ContentEntity): Boolean {

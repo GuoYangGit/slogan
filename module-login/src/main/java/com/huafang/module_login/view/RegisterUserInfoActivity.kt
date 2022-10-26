@@ -41,11 +41,11 @@ class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBindin
             // 设置状态栏为透明色
             transparent()
         }
-        setToolbar {
-            title = "完善资料"
-            navIcon = R.mipmap.icon_close
-        }
         binding.run {
+            toolbarView.setToolbar {
+                title = "完善资料"
+                navIcon = R.mipmap.icon_close
+            }
             ivAvatar.doOnClick {
                 PictureSelector.create(this@RegisterUserInfoActivity)
                     .openGallery(SelectMimeType.ofImage())

@@ -1,8 +1,10 @@
 package com.huafang.module_home.model
 
 import com.huafang.module_home.entity.ContentEntity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,6 +25,8 @@ class FollowRepository @Inject constructor() {
                 ContentEntity()
             )
             emit(result)
+        }.onEach {
+            delay(1000)
         }
     }
 }

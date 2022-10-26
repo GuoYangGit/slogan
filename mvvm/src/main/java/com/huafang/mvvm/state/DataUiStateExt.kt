@@ -3,14 +3,10 @@ package com.huafang.mvvm.state
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
-import com.dylanc.loadingstateview.LoadingState
-import com.huafang.mvvm.ext.showContent
-import com.huafang.mvvm.ext.showError
-import com.huafang.mvvm.ext.showLoading
+import com.drake.statelayout.StateLayout
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onStart
 
 /**
  *  @author : yang.guo
@@ -19,22 +15,11 @@ import kotlinx.coroutines.flow.onStart
  */
 
 /**
- * 开始请求回调
- * @param block 事件回调
- */
-inline fun <T> DataUiState<T>.doStart(block: () -> Unit): DataUiState<T> {
-    if (this is DataUiState.Start) {
-        block.invoke()
-    }
-    return this
-}
-
-/**
  * 成功请求回调
  * @param block 事件回调
  */
-inline fun <T> DataUiState<T>.doSuccess(block: (data: T?) -> Unit): DataUiState<T> {
-    if (this is DataUiState.Success) {
+inline fun <T> UiState<T>.doSuccess(block: (data: T?) -> Unit): UiState<T> {
+    if (this is UiState.Success) {
         block.invoke(data)
     }
     return this
@@ -44,8 +29,8 @@ inline fun <T> DataUiState<T>.doSuccess(block: (data: T?) -> Unit): DataUiState<
  * 错误请求回调
  * @param block 事件回调
  */
-inline fun <T> DataUiState<T>.doError(block: (throwable: Throwable) -> Unit): DataUiState<T> {
-    if (this is DataUiState.Error) {
+inline fun <T> UiState<T>.doError(block: (throwable: Throwable) -> Unit): UiState<T> {
+    if (this is UiState.Error) {
         block.invoke(error)
     }
     return this
@@ -56,13 +41,11 @@ inline fun <T> DataUiState<T>.doError(block: (throwable: Throwable) -> Unit): Da
  */
 fun <T> Flow<T>.asUiStateFlow(
     isRefresh: Boolean = true
-): Flow<DataUiState<T>> {
+): Flow<UiState<T>> {
     return this.map {
-        DataUiState.onSuccess(it, isRefresh)
-    }.onStart {
-        this.emit(DataUiState.onStart(isRefresh = isRefresh))
+        UiState.onSuccess(it, isRefresh)
     }.catch {
-        this.emit(DataUiState.onError(it, isRefresh))
+        this.emit(UiState.onError(it, isRefresh))
     }
 }
 
@@ -70,39 +53,71 @@ fun <T> Flow<T>.asUiStateFlow(
  * 绑定加载状态
  * @param swipeRefreshLayout 下拉刷新控件
  * @param adapter [BaseQuickAdapter]适配器
- * @param loadingState 状态布局
+ * @param stateLayout 状态布局
  */
-fun <T> DataUiState<T>.bindLoadState(
+fun <T> UiState<T>.bindUiState(
     swipeRefreshLayout: SwipeRefreshLayout? = null,
     adapter: BaseQuickAdapter<*, *>? = null,
-    loadingState: LoadingState? = null
-): DataUiState<T> {
+    stateLayout: StateLayout? = null,
+): UiState<T> {
     // 判断是否有加载更多功能
     val isLoadMore = adapter is LoadMoreModule
-    this.doStart {
-        if (!refresh) return@doStart
-        swipeRefreshLayout?.isRefreshing = true
-        loadingState?.showLoading()
-    }.doSuccess {
+    // 判断数据是否为空
+    val isEmpty = when {
+        this is UiState.Success && this.data is Collection<*> -> {
+            this.data.isEmpty()
+        }
+        this is UiState.Success && this.data is IPageSate -> {
+            this.data.hasEmpty()
+        }
+        this is UiState.Success -> {
+            this.data == null
+        }
+        else -> {
+            false
+        }
+    }
+    // 判断是否还有更多数据
+    val hasMore = when {
+        this is UiState.Success && this.data is Collection<*> -> {
+            this.data.size >= 10
+        }
+        this is UiState.Success && this.data is IPageSate -> {
+            this.data.hasMore()
+        }
+        else -> {
+            true
+        }
+    }
+    this.doSuccess { // 请求成功
         when {
-            refresh -> {
+            refresh -> { // 下拉刷新
                 swipeRefreshLayout?.isRefreshing = false
+                if (isEmpty) {
+                    stateLayout?.showEmpty()
+                } else {
+                    stateLayout?.showContent()
+                }
             }
-            isLoadMore -> {
-                adapter?.loadMoreModule?.loadMoreComplete()
+            isLoadMore -> { // 上拉加载更多
+                if (!isEmpty && hasMore) {
+                    adapter?.loadMoreModule?.loadMoreComplete()
+                } else {
+                    adapter?.loadMoreModule?.loadMoreEnd()
+                }
+                stateLayout?.showContent()
             }
         }
-        loadingState?.showContent()
     }.doError { throwable ->
         when {
             refresh -> {
                 swipeRefreshLayout?.isRefreshing = false
-                loadingState?.showError(throwable.message ?: "")
             }
             isLoadMore -> {
                 adapter?.loadMoreModule?.loadMoreFail()
             }
         }
+        stateLayout?.showError(throwable.message)
     }
     return this
 }

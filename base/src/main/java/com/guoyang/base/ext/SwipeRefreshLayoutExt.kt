@@ -18,7 +18,6 @@ import com.guoyang.base.R
  */
 inline fun SwipeRefreshLayout.init(
     @ColorRes colorID: Int = R.color.colorPrimary,
-    baseQuickAdapter: BaseQuickAdapter<*, *>? = null,
     crossinline block: (isRefresh: Boolean) -> Unit
 ) {
     //设置主题颜色
@@ -26,9 +25,5 @@ inline fun SwipeRefreshLayout.init(
     //设置下拉刷新事件
     this.setOnRefreshListener {
         block(true)
-    }
-    //设置上拉加载更多事件
-    baseQuickAdapter?.loadMoreModule?.setOnLoadMoreListener {
-        block(false)
     }
 }

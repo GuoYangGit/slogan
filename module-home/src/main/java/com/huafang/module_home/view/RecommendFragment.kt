@@ -3,7 +3,6 @@ package com.huafang.module_home.view
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.dylanc.longan.launchAndCollectIn
-import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
 import com.guoyang.base.ext.init
 import com.guoyang.base.ext.staggered
@@ -11,7 +10,7 @@ import com.huafang.module_home.view.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
 import com.huafang.module_home.viewmodel.RecommendViewModel
 import com.huafang.mvvm.state.asUiStateFlow
-import com.huafang.mvvm.state.bindLoadState
+import com.huafang.mvvm.state.bindUiState
 import com.huafang.mvvm.state.doSuccess
 import com.huafang.mvvm.ui.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,35 +24,48 @@ import javax.inject.Inject
 class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
 
     @Inject
-    lateinit var recommendAdapter: RecommendAdapter
+    lateinit var adapter: RecommendAdapter
 
     private val recommendViewModel: RecommendViewModel by viewModels()
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.refreshLayout.init(baseQuickAdapter = recommendAdapter) { isRefresh ->
-            loadData(isRefresh)
+        binding.apply {
+            recyclerView
+                .staggered(2)
+                .bindBaseAdapter(adapter)
+            refreshLayout
+                .init { isRefresh ->
+                    loadData(isRefresh)
+                }
+            adapter.loadMoreModule.setOnLoadMoreListener {
+                loadData(false)
+            }
+            stateLayout.onRefresh {
+                loadData(true)
+            }
         }
-        binding.recyclerView
-            .staggered(2)
-            .bindBaseAdapter(recommendAdapter)
     }
 
     override fun lazyLoadData() {
-        loadData()
+        binding.stateLayout.showLoading()
     }
 
     private fun loadData(isRefresh: Boolean = true) {
         recommendViewModel.getRecommendList(this@RecommendFragment)
             .asUiStateFlow(isRefresh)
-            .launchAndCollectIn(viewLifecycleOwner){
-                it.bindLoadState(
+            .launchAndCollectIn(viewLifecycleOwner) {
+                it.bindUiState(
                     binding.refreshLayout,
-                    recommendAdapter,
-                    this@RecommendFragment
-                )
-                    .doSuccess { list ->
-                        recommendAdapter.setDiffNewData(list?.toMutableList())
+                    adapter,
+                    binding.stateLayout
+                ).doSuccess { list ->
+                    if (list == null) return@doSuccess
+                    if (isRefresh) {
+                        adapter.setDiffNewData(list.toMutableList())
+                    } else {
+                        adapter.addData(list)
                     }
+                }
             }
     }
 }

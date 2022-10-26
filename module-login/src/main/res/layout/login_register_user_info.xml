@@ -6,6 +6,14 @@
     android:background="@color/white"
     android:paddingHorizontal="30dp">
 
+    <com.huafang.mvvm.weight.ToolbarView
+        android:id="@+id/toolbar_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.github.forjrking.image.widget.CircleImageView
         android:id="@+id/iv_avatar"
         android:layout_width="120dp"
@@ -14,7 +22,7 @@
         android:src="@mipmap/icon_female_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_view" />
 
     <TextView
         android:id="@+id/tv_name_hint"
@@ -33,10 +41,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@null"
+        android:gravity="center"
         android:maxLength="20"
         android:textColor="@color/main_color"
         android:textSize="16sp"
-        android:gravity="center"
         app:bl_corners_radius="90dp"
         app:bl_solid_color="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"

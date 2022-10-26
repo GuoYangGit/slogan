@@ -1,13 +1,14 @@
-package com.huafang.mvvm.init
+package com.huafang.mvvm
 
 import android.content.Context
+import android.widget.TextView
 import androidx.lifecycle.ProcessLifecycleOwner
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.Registry
 import com.chad.library.adapter.base.module.LoadMoreModuleConfig
-import com.dylanc.loadingstateview.LoadingStateView
+import com.drake.statelayout.StateConfig
 import com.dylanc.longan.*
 import com.effective.android.anchors.task.Task
 import com.effective.android.anchors.task.TaskCreator
@@ -17,10 +18,6 @@ import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
 import com.huafang.mvvm.state.AppLifeObserver
 import com.huafang.mvvm.weight.CustomLoadMoreView
-import com.huafang.mvvm.weight.state.EmptyViewDelegate
-import com.huafang.mvvm.weight.state.ErrorViewDelegate
-import com.huafang.mvvm.weight.state.LoadingViewDelegate
-import com.huafang.mvvm.weight.state.ToolbarViewDelegate
 import okhttp3.OkHttpClient
 import rxhttp.RxHttpPlugins
 import rxhttp.wrapper.ssl.HttpsUtils
@@ -87,13 +84,26 @@ class ARouterInitTask : Task(TASK_AROUTER_INIT) {
 class ViewInitTask : Task(TASK_VIEW_INIT) {
     override fun run(name: String) {
         // 注册状态布局
-        LoadingStateView.setViewDelegatePool {
-            register(
-                ToolbarViewDelegate(), // 标题栏
-                LoadingViewDelegate(), // 加载状态
-                ErrorViewDelegate(), // 错误状态
-                EmptyViewDelegate() // 空数据状态
-            )
+        StateConfig.apply {
+            emptyLayout = R.layout.layout_empty // 配置全局的空布局
+            errorLayout = R.layout.layout_error // 配置全局的错误布局
+            loadingLayout = R.layout.layout_loading // 配置全局的加载中布局
+            setRetryIds(R.id.tv_empty, R.id.tv_error) // 全局的重试id
+            onLoading {
+                logDebug("StateConfig onLoading $it")
+            }
+            onEmpty {
+                logDebug("StateConfig onEmpty $it")
+            }
+            onError {
+                logDebug("StateConfig onError $it")
+                if (it is Throwable) {
+                    findViewById<TextView>(R.id.tv_error).text = it.message
+                }
+            }
+            onContent {
+                logDebug("StateConfig onContent $it")
+            }
         }
         LoadMoreModuleConfig.defLoadMoreView = CustomLoadMoreView()
     }
@@ -115,8 +125,8 @@ class ImageLoadInitTask : Task(TASK_IMAGE_LOAD_INIT) {
         }
         //配置全局占位图 错误图 非必须
         ImageOptions.DrawableOptions.setDefault {
-//            placeHolderResId =  R.drawable.ic_launcher_background
-//            errorResId = R.color.gray
+            placeHolderResId = R.mipmap.icon_male_default
+            errorResId = R.mipmap.icon_male_default
         }
     }
 }

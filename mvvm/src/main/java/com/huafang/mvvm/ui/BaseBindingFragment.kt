@@ -5,10 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.dylanc.loadingstateview.Decorative
-import com.dylanc.loadingstateview.LoadingState
-import com.dylanc.loadingstateview.LoadingStateDelegate
-import com.dylanc.loadingstateview.OnReloadListener
 import com.dylanc.viewbinding.base.FragmentBinding
 import com.dylanc.viewbinding.base.FragmentBindingDelegate
 import com.guoyang.base.ui.fragment.BaseFragment
@@ -18,8 +14,7 @@ import com.guoyang.base.ui.fragment.BaseFragment
  *  @date : 2022/10/11 10:36
  *  @description : Fragment封装基类
  */
-abstract class BaseBindingFragment<VB : ViewBinding>() : BaseFragment(),
-    LoadingState by LoadingStateDelegate(), OnReloadListener, Decorative,
+abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(),
     FragmentBinding<VB> by FragmentBindingDelegate() {
     private val viewDelegate: ViewDelegate by lazy {
         ViewDelegate(requireContext())
@@ -27,7 +22,7 @@ abstract class BaseBindingFragment<VB : ViewBinding>() : BaseFragment(),
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? = createViewWithBinding(inflater, container).decorate(this, this)
+    ): View? = createViewWithBinding(inflater, container)
 
     override fun layoutId(): Int = -1
 
