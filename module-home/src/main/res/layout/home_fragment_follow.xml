@@ -6,9 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".view.HomeFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <com.huafang.mvvm.weight.NestedScrollableHost
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#F7F7F7" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F7F7F7" />
+    </com.huafang.mvvm.weight.NestedScrollableHost>
 </androidx.constraintlayout.widget.ConstraintLayout>

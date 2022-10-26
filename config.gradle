@@ -5,12 +5,19 @@ android {
         minSdkVersion 21
         targetSdkVersion 33
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // 开启module混淆
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
+            // 开启代码混淆
             minifyEnabled true
-//            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 开启代码混淆
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

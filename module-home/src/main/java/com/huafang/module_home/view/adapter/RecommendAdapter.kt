@@ -1,6 +1,8 @@
 package com.huafang.module_home.view.adapter
 
+import androidx.recyclerview.widget.DiffUtil
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
@@ -21,7 +23,23 @@ import javax.inject.Inject
  * @describe 推荐列表适配器
  */
 class RecommendAdapter @Inject constructor() :
-    BaseQuickAdapter<RecommendEntity, BaseViewHolder>(R.layout.home_item_recommend) {
+    BaseQuickAdapter<RecommendEntity, BaseViewHolder>(R.layout.home_item_recommend),
+    LoadMoreModule {
+    init {
+        setDiffCallback(object : DiffUtil.ItemCallback<RecommendEntity>() {
+            override fun areItemsTheSame(
+                oldItem: RecommendEntity,
+                newItem: RecommendEntity
+            ): Boolean = oldItem == newItem
+
+            override fun areContentsTheSame(
+                oldItem: RecommendEntity,
+                newItem: RecommendEntity
+            ): Boolean = oldItem == newItem
+
+        })
+    }
+
     override fun convert(holder: BaseViewHolder, item: RecommendEntity) {
         holder.getBinding(HomeItemRecommendBinding::bind).run {
             val layoutParams = ivImage.layoutParams

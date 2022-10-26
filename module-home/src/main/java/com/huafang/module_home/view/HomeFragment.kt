@@ -37,7 +37,7 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
             // 设置ViewPager
             homeViewpager.run {
                 // 设置不可以滑动
-                isUserInputEnabled = false
+//                isUserInputEnabled = false
                 // 设置适配器
                 adapter = object : FragmentStateAdapter(childFragmentManager, lifecycle) {
                     override fun getItemCount(): Int = tabTitles.size

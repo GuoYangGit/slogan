@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.dylanc.longan.viewLifecycleScope
 import com.guoyang.base.ext.bindBaseAdapter
+import com.guoyang.base.ext.init
 import com.guoyang.base.ext.staggered
 import com.huafang.module_home.view.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
@@ -28,22 +29,30 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
     private val recommendViewModel: RecommendViewModel by viewModels()
 
     override fun initView(savedInstanceState: Bundle?) {
+        binding.refreshLayout.init(baseQuickAdapter = recommendAdapter) { isRefresh ->
+            loadData(isRefresh)
+        }
         binding.recyclerView
             .staggered(2)
             .bindBaseAdapter(recommendAdapter)
     }
 
     override fun lazyLoadData() {
+        loadData()
+    }
+
+    private fun loadData(isRefresh: Boolean = true) {
         viewLifecycleScope.launchWhenResumed {
             recommendViewModel.getRecommendList(this@RecommendFragment)
-                .asUiStateFlow()
+                .asUiStateFlow(isRefresh)
                 .collect {
                     it.bindLoadState(
-                        adapter = recommendAdapter,
-                        loadingState = this@RecommendFragment
+                        binding.refreshLayout,
+                        recommendAdapter,
+                        this@RecommendFragment
                     )
                         .doSuccess { list ->
-                            recommendAdapter.setList(list)
+                            recommendAdapter.setDiffNewData(list?.toMutableList())
                         }
                 }
         }

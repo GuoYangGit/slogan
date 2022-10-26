@@ -24,7 +24,7 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:4.10.0'
     //本地存储MMKV https://dylancaicoding.github.io/MMKV-KTX/#/
     api 'com.github.DylanCaiCoding:MMKV-KTX:1.2.14'
-    //本地存储Room
+    //本地存储Room https://developer.android.com/training/data-storage/room
     def room_version = "2.4.3"
     api "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
@@ -45,9 +45,8 @@ dependencies {
     api 'com.download.library:Downloader:4.1.3'
     //BaseAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.8'
-    //标签生成shape
+    //标签生成shape https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.1'
-
     //multidex
     implementation 'com.android.support:multidex:1.0.3'
 }

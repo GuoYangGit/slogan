@@ -87,12 +87,12 @@ fun <T> DataUiState<T>.bindLoadState(
         when {
             refresh -> {
                 swipeRefreshLayout?.isRefreshing = false
-                loadingState?.showContent()
             }
             isLoadMore -> {
                 adapter?.loadMoreModule?.loadMoreComplete()
             }
         }
+        loadingState?.showContent()
     }.doError { throwable ->
         when {
             refresh -> {

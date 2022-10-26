@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.Registry
+import com.chad.library.adapter.base.module.LoadMoreModuleConfig
 import com.dylanc.loadingstateview.LoadingStateView
 import com.dylanc.longan.*
 import com.effective.android.anchors.task.Task
@@ -15,6 +16,7 @@ import com.github.forjrking.image.core.ImageOptions
 import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
 import com.huafang.mvvm.state.AppLifeObserver
+import com.huafang.mvvm.weight.CustomLoadMoreView
 import com.huafang.mvvm.weight.state.EmptyViewDelegate
 import com.huafang.mvvm.weight.state.ErrorViewDelegate
 import com.huafang.mvvm.weight.state.LoadingViewDelegate
@@ -93,6 +95,7 @@ class ViewInitTask : Task(TASK_VIEW_INIT) {
                 EmptyViewDelegate() // 空数据状态
             )
         }
+        LoadMoreModuleConfig.defLoadMoreView = CustomLoadMoreView()
     }
 }
 

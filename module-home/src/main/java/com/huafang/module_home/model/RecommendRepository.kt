@@ -33,7 +33,6 @@ class RecommendRepository @Inject constructor() {
             awaitClose { }
         }.onEach {
             delay(1000)
-            1 / 0
         }.flowOn(Dispatchers.IO)
     }
 }
