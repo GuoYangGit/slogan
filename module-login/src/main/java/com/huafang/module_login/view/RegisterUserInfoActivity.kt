@@ -9,7 +9,7 @@ import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginRegisterUserInfoBinding
 import com.huafang.mvvm.entity.UserEntity
 import com.huafang.mvvm.ext.loadAvatar
-import com.huafang.mvvm.ui.BaseBindingActivity
+import com.huafang.mvvm.view.BaseBindingActivity
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia

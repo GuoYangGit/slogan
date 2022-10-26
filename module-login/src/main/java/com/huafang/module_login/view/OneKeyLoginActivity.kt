@@ -11,7 +11,7 @@ import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityOneKeyLoginBinding
 import com.huafang.module_login.ext.showAgreementDialog
 import com.huafang.mvvm.repository.UserRepository
-import com.huafang.mvvm.ui.BaseBindingActivity
+import com.huafang.mvvm.view.BaseBindingActivity
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 

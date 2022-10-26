@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.guoyang.base.IView
+import com.guoyang.base.ui.IView
 
 /***
  *  @author : yang.guo

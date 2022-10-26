@@ -7,9 +7,7 @@ import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
-import com.huafang.module_home.view.FollowFragment
-import com.huafang.module_home.view.RecommendFragment
-import com.huafang.mvvm.ui.BaseBindingActivity
+import com.huafang.mvvm.view.BaseBindingActivity
 import com.huafang.mvvm.util.ARouterUtils
 import com.huafang.slogan.databinding.ActivityMainBinding
 import com.huafang.slogan.databinding.LayoutBottomTabBinding

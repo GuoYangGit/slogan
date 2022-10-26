@@ -1,4 +1,4 @@
-package com.huafang.mvvm.ui
+package com.huafang.mvvm.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.dylanc.viewbinding.base.FragmentBinding
 import com.dylanc.viewbinding.base.FragmentBindingDelegate
+import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.fragment.BaseFragment
 
 /**
@@ -15,7 +16,7 @@ import com.guoyang.base.ui.fragment.BaseFragment
  *  @description : Fragment封装基类
  */
 abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(),
-    FragmentBinding<VB> by FragmentBindingDelegate() {
+    FragmentBinding<VB> by FragmentBindingDelegate(), ILoading {
     private val viewDelegate: ViewDelegate by lazy {
         ViewDelegate(requireContext())
     }

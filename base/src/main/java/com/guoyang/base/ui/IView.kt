@@ -1,4 +1,4 @@
-package com.guoyang.base
+package com.guoyang.base.ui
 
 import android.os.Bundle
 
@@ -17,14 +17,4 @@ interface IView {
      * 初始化数据
      */
     fun initView(savedInstanceState: Bundle?)
-
-    /**
-     * 显示Loading
-     */
-    fun showLoading(message: String)
-
-    /**
-     * 隐藏Loading
-     */
-    fun dismissLoading()
 }

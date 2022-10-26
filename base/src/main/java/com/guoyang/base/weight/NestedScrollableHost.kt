@@ -1,4 +1,4 @@
-package com.huafang.mvvm.weight
+package com.guoyang.base.weight
 
 import android.content.Context
 import android.util.AttributeSet

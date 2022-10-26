@@ -5,7 +5,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.dylanc.longan.doOnClick
 import com.guoyang.base.util.GlideEngine
 import com.huafang.module_me.databinding.MeFragmentMeBinding
-import com.huafang.mvvm.ui.BaseBindingFragment
+import com.huafang.mvvm.view.BaseBindingFragment
 import com.huafang.mvvm.util.ARouterUtils
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType

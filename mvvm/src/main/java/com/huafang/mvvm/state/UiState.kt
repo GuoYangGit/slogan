@@ -5,18 +5,20 @@ package com.huafang.mvvm.state
  *  @date : 2022/10/11 15:01
  *  @description : 数据和UI相关的状态类
  */
-sealed class UiState<out T>(val refresh: Boolean) {
+sealed class UiState<out T> {
     companion object {
-        fun <T> onSuccess(data: T?, isRefresh: Boolean = true): UiState<T> =
-            Success(data, isRefresh)
+        fun <T> onStart(): UiState<T> = Start()
 
-        fun <T> onError(error: Throwable, isRefresh: Boolean = true): UiState<T> =
-            Error(error, isRefresh)
+        fun <T> onSuccess(data: T?): UiState<T> = Success(data)
+
+        fun <T> onError(error: Throwable): UiState<T> = Error(error)
     }
 
-    data class Success<out T>(val data: T?, val isRefresh: Boolean) : UiState<T>(isRefresh)
+    data class Start(val isRefresh: Boolean = true) : UiState<Nothing>()
 
-    data class Error(val error: Throwable, val isRefresh: Boolean) : UiState<Nothing>(isRefresh)
+    data class Success<out T>(val data: T?) : UiState<T>()
+
+    data class Error(val error: Throwable) : UiState<Nothing>()
 }
 
 interface IPageSate {

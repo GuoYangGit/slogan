@@ -8,12 +8,11 @@ import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
 import com.dylanc.longan.doOnClick
 import com.dylanc.longan.getCompatColor
-import com.dylanc.longan.startActivity
 import com.dylanc.longan.toast
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityPhoneLoginBinding
 import com.huafang.mvvm.repository.UserRepository
-import com.huafang.mvvm.ui.BaseBindingActivity
+import com.huafang.mvvm.view.BaseBindingActivity
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint

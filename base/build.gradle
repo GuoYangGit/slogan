@@ -18,7 +18,7 @@ dependencies {
     //屏幕适配框架 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
     //权限框架 https://github.com/guolindev/PermissionX
-    api 'com.guolindev.permissionx:permissionx:1.7.1'
+    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
     //网络请求 https://github.com/liujingxing/rxhttp
     api "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
     api 'com.squareup.okhttp3:okhttp:4.10.0'

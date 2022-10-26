@@ -4,15 +4,16 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.dylanc.longan.launchAndCollectIn
 import com.guoyang.base.ext.bindBaseAdapter
-import com.guoyang.base.ext.init
+import com.huafang.mvvm.ext.init
 import com.guoyang.base.ext.staggered
 import com.huafang.module_home.view.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
 import com.huafang.module_home.viewmodel.RecommendViewModel
 import com.huafang.mvvm.state.asUiStateFlow
+import com.huafang.mvvm.state.bindLoading
 import com.huafang.mvvm.state.bindUiState
 import com.huafang.mvvm.state.doSuccess
-import com.huafang.mvvm.ui.BaseBindingFragment
+import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -34,15 +35,12 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
                 .staggered(2)
                 .bindBaseAdapter(adapter)
             refreshLayout
-                .init { isRefresh ->
+                .init(
+                    recyclerView = recyclerView,
+                    stateLayout = stateLayout,
+                ) { isRefresh ->
                     loadData(isRefresh)
                 }
-            adapter.loadMoreModule.setOnLoadMoreListener {
-                loadData(false)
-            }
-            stateLayout.onRefresh {
-                loadData(true)
-            }
         }
     }
 
@@ -52,20 +50,24 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
 
     private fun loadData(isRefresh: Boolean = true) {
         recommendViewModel.getRecommendList(this@RecommendFragment)
-            .asUiStateFlow(isRefresh)
+            .asUiStateFlow()
             .launchAndCollectIn(viewLifecycleOwner) {
-                it.bindUiState(
-                    binding.refreshLayout,
-                    adapter,
-                    binding.stateLayout
-                ).doSuccess { list ->
-                    if (list == null) return@doSuccess
-                    if (isRefresh) {
-                        adapter.setDiffNewData(list.toMutableList())
-                    } else {
-                        adapter.addData(list)
+                it.bindLoading(this@RecommendFragment)
+                    .bindUiState(
+                        isRefresh,
+                        10,
+                        binding.refreshLayout,
+                        adapter,
+                        binding.stateLayout
+                    )
+                    .doSuccess { list ->
+                        if (list == null) return@doSuccess
+                        if (isRefresh) {
+                            adapter.setDiffNewData(list.toMutableList())
+                        } else {
+                            adapter.addData(list)
+                        }
                     }
-                }
             }
     }
 }

@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeFragmentHomeBinding
 import com.huafang.mvvm.databinding.LayoutTextViewTabBinding
-import com.huafang.mvvm.ui.BaseBindingFragment
+import com.huafang.mvvm.view.BaseBindingFragment
 import com.huafang.mvvm.util.ARouterUtils
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import dagger.hilt.android.AndroidEntryPoint

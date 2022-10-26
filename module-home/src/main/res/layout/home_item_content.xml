@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_avatar" />
 
-    <com.huafang.mvvm.weight.NestedScrollableHost
+    <com.guoyang.base.weight.NestedScrollableHost
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -68,7 +68,7 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </com.huafang.mvvm.weight.NestedScrollableHost>
+    </com.guoyang.base.weight.NestedScrollableHost>
 
     <TextView
         android:layout_width="34dp"

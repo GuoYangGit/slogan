@@ -2,7 +2,7 @@ package com.guoyang.base.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.guoyang.base.IView
+import com.guoyang.base.ui.IView
 
 /**
  *  @author : yang.guo

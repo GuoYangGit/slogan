@@ -1,8 +1,9 @@
-package com.huafang.mvvm.ui
+package com.huafang.mvvm.view
 
 import androidx.viewbinding.ViewBinding
 import com.dylanc.viewbinding.base.ActivityBinding
 import com.dylanc.viewbinding.base.ActivityBindingDelegate
+import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.activity.BaseActivity
 
 /**
@@ -11,7 +12,7 @@ import com.guoyang.base.ui.activity.BaseActivity
  *  @description : Activity封装基类
  */
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
-    ActivityBinding<VB> by ActivityBindingDelegate() {
+    ActivityBinding<VB> by ActivityBindingDelegate(), ILoading {
     private val viewDelegate: ViewDelegate by lazy {
         ViewDelegate(this)
     }
