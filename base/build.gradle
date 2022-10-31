@@ -11,6 +11,8 @@ android {
 }
 
 dependencies {
+    //Log日志库
+    api 'com.github.GuoYangGit:XlogUtils:1.0.0'
     //LiveData数据倒灌问题 https://github.com/KunMinX/UnPeek-LiveData
     implementation 'com.kunminx.arch:unpeek-livedata:7.8.0'
     //Kotlin工具类 https://dylancaicoding.github.io/Longan/#/

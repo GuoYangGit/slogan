@@ -10,10 +10,10 @@ import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
 import com.dylanc.longan.dp
 import com.dylanc.longan.getCompatColor
-import com.dylanc.longan.logDebug
 import com.dylanc.longan.screenWidth
 import com.dylanc.viewbinding.brvah.getBinding
 import com.guoyang.base.ext.getDateStr
+import com.guoyang.loghelper.xLogD
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemContentBinding
 import com.huafang.module_home.entity.ContentEntity
@@ -101,11 +101,11 @@ class ContentAdapter @Inject constructor() :
             tvContent.setCloseSuffixColor(tvContent.getCompatColor(R.color.colorPrimary))
             tvContent.setOriginalText(item.content.replaceSpan("@[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
                 HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
-                    logDebug("点击用户 ${matchResult.value}")
+                    xLogD("点击用户 ${matchResult.value}")
                 }
             }.replaceSpan("#[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
                 HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
-                    logDebug("点击标签 ${matchResult.value}")
+                    xLogD("点击标签 ${matchResult.value}")
                 }
             })
         }

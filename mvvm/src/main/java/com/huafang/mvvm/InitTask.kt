@@ -16,6 +16,8 @@ import com.effective.android.anchors.task.project.Project
 import com.github.forjrking.image.core.ImageOptions
 import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
+import com.guoyang.loghelper.LogHelper
+import com.guoyang.loghelper.xLogD
 import com.huafang.mvvm.state.AppLifeObserver
 import com.huafang.mvvm.weight.CustomLoadMoreView
 import okhttp3.OkHttpClient
@@ -39,13 +41,16 @@ const val TASK_IMAGE_LOAD_INIT = "task_image_load_init"
 class AppInitTask : Task(TASK_APP_INIT) {
     override fun run(name: String) {
         // 初始化日志打印
-        initLogger(isAppDebug)
+        LogHelper.init(application, BuildConfig.DEBUG, logPath) {
+            this.pubKey = xLogPubKey
+
+        }
         // 注册全局的App生命周期监听
         ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver)
         // 全局处理未捕获的异常
         handleUncaughtException { thread, throwable ->
             if (thread.name == "FinalizerWatchdogDaemon" && throwable is TimeoutException) {
-                logDebug(throwable.message)
+                xLogD(throwable.message)
                 return@handleUncaughtException
             }
         }
@@ -90,19 +95,19 @@ class ViewInitTask : Task(TASK_VIEW_INIT) {
             loadingLayout = R.layout.layout_loading // 配置全局的加载中布局
             setRetryIds(R.id.tv_empty, R.id.tv_error) // 全局的重试id
             onLoading {
-                logDebug("StateConfig onLoading $it")
+                xLogD("StateConfig onLoading $it")
             }
             onEmpty {
-                logDebug("StateConfig onEmpty $it")
+                xLogD("StateConfig onEmpty $it")
             }
             onError {
-                logDebug("StateConfig onError $it")
+                xLogD("StateConfig onError $it")
                 if (it is Throwable) {
                     findViewById<TextView>(R.id.tv_error).text = it.message
                 }
             }
             onContent {
-                logDebug("StateConfig onContent $it")
+                xLogD("StateConfig onContent $it")
             }
         }
         LoadMoreModuleConfig.defLoadMoreView = CustomLoadMoreView()
@@ -115,12 +120,12 @@ class ImageLoadInitTask : Task(TASK_IMAGE_LOAD_INIT) {
         AppGlideModuleIml.options = object : IAppGlideOptions {
             override fun applyOptions(context: Context, builder: GlideBuilder) {
                 //修改缓存大小等
-                logDebug("applyOptions")
+                xLogD("applyOptions")
             }
 
             override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
                 //修改注册组件 例如 okhttp 注意如果修改可能会导致进度丢失
-                logDebug("registerComponents")
+                xLogD("registerComponents")
             }
         }
         //配置全局占位图 错误图 非必须

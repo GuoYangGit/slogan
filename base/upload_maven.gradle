@@ -1,0 +1,49 @@
+//打包发布插件 https://docs.gradle.org/current/userguide/publishing_maven.html#header
+apply plugin: 'maven-publish'
+
+// 项目中gradle.properties配置信息
+// 获取远程仓库地址
+def RELEASE_REPOSITORY_URL = project.REPOSITORY_URL
+// 获取用户名
+def USERNAME = project.USERNAME
+// 获取密码
+def PASSWORD = project.PASSWORD
+// 获取版本号
+def VERSION = project.VERSION
+// 获取版本号
+def GROUP_ID = project.GROUP_ID
+// 获取项目名
+def ARTIFACT_ID = project.ARTIFACT_ID
+
+//生成源码注释
+task androidSourcesJar(type: Jar) {
+    from project.android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+//发布到远程仓库
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = GROUP_ID
+                artifactId = ARTIFACT_ID
+                version = VERSION
+                // 上传source，这样使用方可以看到方法注释
+                artifact androidSourcesJar
+            }
+        }
+        repositories {
+            maven {
+                allowInsecureProtocol = true
+                url = uri(RELEASE_REPOSITORY_URL)
+                //认证用户和密码
+                credentials {
+                    username USERNAME
+                    password PASSWORD
+                }
+            }
+        }
+    }
+}

@@ -36,7 +36,7 @@ class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCo
         }
         binding.apply {
             llTitle.addStatusBarTopPadding()
-            ivBack.doOnClick { onBackPressed() }
+            ivBack.doOnClick { onBackPressedDispatcher.onBackPressed() }
             tvHint.text = getString(R.string.login_verification_code_hint).addSpan(
                 phone ?: "",
                 listOf(ColorSpan(getCompatColor(R.color.main_color)), StyleSpan(Typeface.BOLD))
