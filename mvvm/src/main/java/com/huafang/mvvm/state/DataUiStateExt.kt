@@ -5,6 +5,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.drake.statelayout.StateLayout
 import com.guoyang.base.ui.ILoading
+import com.huafang.mvvm.ext.msg
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
@@ -150,7 +151,7 @@ fun <T> UiState<T>.bindUiState(
                 adapter?.loadMoreModule?.loadMoreFail()
             }
         }
-        stateLayout?.showError(throwable.message)
+        stateLayout?.showError(throwable.msg)
     }
     return this
 }

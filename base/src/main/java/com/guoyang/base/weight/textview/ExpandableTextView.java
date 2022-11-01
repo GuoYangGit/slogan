@@ -27,7 +27,7 @@ import java.lang.reflect.Field;
 
 /**
  * @author yang.guo on 2022/10/15
- * @describe
+ * @describe 展开/收起文本
  */
 public class ExpandableTextView extends AppCompatTextView {
     private static final String TAG = ExpandableTextView.class.getSimpleName();

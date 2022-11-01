@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 /**
  * @author yang.guo on 2022/10/25
- * @describe
+ * @describe 用户Dao
  */
 @Dao
 interface UserDao {

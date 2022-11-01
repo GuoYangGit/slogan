@@ -4,9 +4,9 @@ import android.content.Context
 import android.os.Process
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 14:33
- *  @description : [Context]相关的扩展类
+ *  @author yang.guo
+ *  @date 2022/10/11 14:33
+ *  @description [Context]相关的扩展类
  */
 /**
  * 判断当前是否是主进程

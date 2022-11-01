@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.guoyang.base.ui.IView
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 10:52
- *  @description : 通用的[Activity]基类
+ *  @author yang.guo
+ *  @date 2022/10/11 10:52
+ *  @description 通用的[Activity]基类
  */
 abstract class BaseActivity : AppCompatActivity(), IView {
 

@@ -8,9 +8,9 @@ import androidx.core.view.GestureDetectorCompat
 import com.dylanc.longan.doOnClick
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 11:20
- *  @description : [View]相关的扩展方法
+ *  @author yang.guo
+ *  @date 2022/10/11 11:20
+ *  @description [View]相关的扩展方法
  */
 
 /**

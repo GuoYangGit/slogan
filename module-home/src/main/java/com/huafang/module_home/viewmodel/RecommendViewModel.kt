@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/25
- * @describe
+ * @describe 推荐ViewModel
  */
 @HiltViewModel
 class RecommendViewModel @Inject constructor(private val recommendRepository: RecommendRepository) :

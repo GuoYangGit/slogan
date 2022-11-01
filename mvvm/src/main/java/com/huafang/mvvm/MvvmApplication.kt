@@ -7,7 +7,7 @@ import com.guoyang.base.BaseApp
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 14:30
- *  @description :
+ *  @description : Application中间层
  */
 open class MvvmApplication : BaseApp() {
 

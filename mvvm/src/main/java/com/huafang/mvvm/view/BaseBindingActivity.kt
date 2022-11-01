@@ -13,8 +13,8 @@ import com.guoyang.base.ui.activity.BaseActivity
  */
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
     ActivityBinding<VB> by ActivityBindingDelegate(), ILoading {
-    private val viewDelegate: ViewDelegate by lazy {
-        ViewDelegate(this)
+    private val viewDelegate: LoadingDelegate by lazy {
+        LoadingDelegate(this)
     }
 
     override fun userDataBinding(): Boolean = true

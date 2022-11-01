@@ -15,9 +15,9 @@ import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/10 17:14
- *  @description :
+ *  @author yang.guo
+ *  @date 2022/10/10 17:14
+ *  @description 首页
  */
 @AndroidEntryPoint
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {

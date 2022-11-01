@@ -12,7 +12,7 @@ import com.guoyang.base.util.GlideEngine
 
 /**
  * @author yang.guo on 2022/10/13
- * @describe：Glide加载引擎
+ * @describe Glide加载引擎
  */
 class GlideEngine private constructor() : ImageEngine {
     /**

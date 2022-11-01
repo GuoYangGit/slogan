@@ -9,7 +9,7 @@ import com.lxj.xpopup.impl.LoadingPopupView
  * @author yang.guo on 2022/10/11
  * @describe
  */
-class ViewDelegate(private val context: Context) : ILoading {
+class LoadingDelegate(private val context: Context) : ILoading {
     private var loadingPopupView: LoadingPopupView? = null
 
     override fun showLoading(message: String) {

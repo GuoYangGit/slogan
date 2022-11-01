@@ -11,7 +11,7 @@ import com.guoyang.base.ext.linear
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe
+ * @describe 用户点赞自定义View
  */
 class PeopleLikeView @JvmOverloads constructor(
     context: Context,

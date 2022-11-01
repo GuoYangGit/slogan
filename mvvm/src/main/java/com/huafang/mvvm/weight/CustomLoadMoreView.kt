@@ -3,6 +3,7 @@ package com.huafang.mvvm.weight
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.loadmore.BaseLoadMoreView
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.huafang.mvvm.R
@@ -10,7 +11,7 @@ import com.huafang.mvvm.R
 
 /**
  * @author yang.guo on 2022/10/25
- * @describe
+ * @describe [BaseQuickAdapter]上拉加载更多视图
  */
 class CustomLoadMoreView : BaseLoadMoreView() {
     override fun getRootView(parent: ViewGroup): View {

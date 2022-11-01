@@ -3,8 +3,8 @@ package com.guoyang.base.ui
 import android.os.Bundle
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/10 17:31
+ *  @author yang.guo
+ *  @date 2022/10/10 17:31
  *  @description :Activity、Fragment的基类接口
  */
 interface IView {

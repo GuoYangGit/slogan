@@ -17,8 +17,8 @@ import com.guoyang.base.ui.fragment.BaseFragment
  */
 abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(),
     FragmentBinding<VB> by FragmentBindingDelegate(), ILoading {
-    private val viewDelegate: ViewDelegate by lazy {
-        ViewDelegate(requireContext())
+    private val viewDelegate: LoadingDelegate by lazy {
+        LoadingDelegate(requireContext())
     }
 
     override fun onCreateView(

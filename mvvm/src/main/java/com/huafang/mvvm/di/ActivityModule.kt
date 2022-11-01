@@ -10,5 +10,4 @@ import dagger.hilt.android.components.ActivityComponent
  */
 @Module
 @InstallIn(ActivityComponent::class)
-class ActivityModule {
-}
+class ActivityModule

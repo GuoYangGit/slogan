@@ -8,7 +8,7 @@ import com.huafang.mvvm.entity.UserEntity
 
 /**
  * @author yang.guo on 2022/10/25
- * @describe
+ * @describe App存储Room数据库
  */
 @Database(entities = [UserEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
