@@ -1,46 +1,71 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'com.alibaba.arouter'
+
 android {
-    compileSdkVersion 33
+    compileSdkVersion compile_sdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdkVersion min_sdk
+        targetSdkVersion compile_sdk
+        versionCode version_code
+        versionName version_name
+        multiDexEnabled true
+        ndk {
+            // 选择要添加的对应 cpu 类型的 .so 库，多个abi以“,”分隔。
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+            // 可指定的值为 'armeabi-v7a', 'arm64-v8a', 'armeabi', 'x86', 'x86_64'，
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // 开启module混淆
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    buildFeatures {
+        viewBinding true // 开启viewBinding
+    }
+
     buildTypes {
         release {
-            // 开启代码混淆
-            minifyEnabled true
+            minifyEnabled true // 开启代码混淆
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            // 开启代码混淆
-            minifyEnabled true
+            minifyEnabled true // 开启代码混淆
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName()) // 参数为每个 module 的名称
+        }
+        correctErrorTypes true // 开启kapt的错误修复
+    }
     lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
-        abortOnError false
+        checkReleaseBuilds false //关闭lint检查
+        abortOnError false // lint检查出错时，是否中断编译
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //引入基础组件库
+    implementation project(path: ':mvvm')
+    //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
+    implementation 'com.alibaba:arouter-api:1.5.2'
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
+    //hilt https://developer.android.com/training/dependency-injection/hilt-android
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     //androidx
     implementation 'androidx.appcompat:appcompat:1.5.1'

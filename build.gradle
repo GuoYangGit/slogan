@@ -1,11 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext.compile_sdk = 33
+    ext.min_sdk = 21
+    ext.version_code = 1
+    ext.version_name = "1.0.0"
     ext.kotlin_version = "1.7.10"
     ext.hilt_version = "2.44"
     ext.rxhttp_version = "2.9.5"
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url "https://mvn.mob.com/android" }
     }
     dependencies {
@@ -20,6 +24,7 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
         maven { url "https://jitpack.io" }
     }

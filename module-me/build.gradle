@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply from: '../module.gradle'
 apply from: '../config.gradle'
 
 android {
@@ -8,5 +7,4 @@ android {
 }
 
 dependencies {
-    api project(path: ':mvvm')
 }

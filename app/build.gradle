@@ -1,21 +1,11 @@
 apply plugin: 'com.android.application'
-apply from: '../module.gradle'
 apply from: '../config.gradle'
 
 android {
     namespace 'com.huafang.slogan'
     defaultConfig {
         applicationId "com.huafang.slogan"
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
-        ndk {
-            // 选择要添加的对应 cpu 类型的 .so 库，多个abi以“,”分隔。
-            abiFilters 'armeabi-v7a', 'arm64-v8a'
-            // 可指定的值为 'armeabi-v7a', 'arm64-v8a', 'armeabi', 'x86', 'x86_64'，
-        }
     }
-
     signingConfigs {
         release {
             storeFile file(RELEASE_STORE_FILE)
@@ -31,8 +21,9 @@ android {
         }
     }
 
-    //版本名字
+    // 版本名字
     def appName = "Slogan_" + new Date().format('yyyy.MM.dd')
+    // 修改apk文件名字
     android.applicationVariants.all { variant ->
         if (variant.buildType.name == 'release') {
             variant.outputs.all {
@@ -44,9 +35,8 @@ android {
 }
 
 dependencies {
-    api project(path: ':mvvm')
-    api project(path: ':module-home')
-    api project(path: ':module-message')
-    api project(path: ':module-me')
-    api project(path: ':module-login')
+    implementation project(path: ':module-home')
+    implementation project(path: ':module-message')
+    implementation project(path: ':module-me')
+    implementation project(path: ':module-login')
 }
