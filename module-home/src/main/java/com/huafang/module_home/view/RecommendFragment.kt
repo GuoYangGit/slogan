@@ -6,13 +6,13 @@ import com.dylanc.longan.launchAndCollectIn
 import com.guoyang.base.ext.bindBaseAdapter
 import com.huafang.mvvm.ext.init
 import com.guoyang.base.ext.staggered
+import com.guoyang.base.state.asUiStateFlow
+import com.guoyang.base.state.bindLoading
+import com.guoyang.base.state.doSuccess
 import com.huafang.module_home.view.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
 import com.huafang.module_home.viewmodel.RecommendViewModel
-import com.huafang.mvvm.state.asUiStateFlow
-import com.huafang.mvvm.state.bindLoading
 import com.huafang.mvvm.state.bindUiState
-import com.huafang.mvvm.state.doSuccess
 import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

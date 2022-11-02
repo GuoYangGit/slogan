@@ -1,4 +1,4 @@
-package com.guoyang.base.weight.textview;
+package com.huafang.mvvm.weight.textview;
 
 import android.text.NoCopySpan;
 import android.text.Spannable;

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.huafang.module_message.databinding.MessageFragmentMessageBinding
 import com.huafang.mvvm.view.BaseBindingFragment
-import com.huafang.mvvm.util.ARouterUtils
+import com.huafang.mvvm.util.ARouterNavigation
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @describe 消息页面
  */
 @AndroidEntryPoint
-@Route(path = ARouterUtils.PATH_Message_FRAGMENT)
+@Route(path = ARouterNavigation.PATH_Message_FRAGMENT)
 class MessageFragment : BaseBindingFragment<MessageFragmentMessageBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
 

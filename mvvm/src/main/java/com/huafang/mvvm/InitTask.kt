@@ -18,7 +18,7 @@ import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
 import com.guoyang.loghelper.LogHelper
 import com.guoyang.loghelper.xLogD
-import com.huafang.mvvm.state.AppLifeObserver
+import com.guoyang.base.AppLifeObserver
 import com.huafang.mvvm.weight.CustomLoadMoreView
 import okhttp3.OkHttpClient
 import rxhttp.RxHttpPlugins
@@ -41,12 +41,9 @@ const val TASK_IMAGE_LOAD_INIT = "task_image_load_init"
 class AppInitTask : Task(TASK_APP_INIT) {
     override fun run(name: String) {
         // 初始化日志打印
-        LogHelper.init(application, BuildConfig.DEBUG, logPath) {
-            this.pubKey = xLogPubKey
-
+        LogHelper.init(application, BuildConfig.DEBUG, LOG_PATH) {
+            this.pubKey = XLOG_PUBKEY
         }
-        // 注册全局的App生命周期监听
-        ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifeObserver)
         // 全局处理未捕获的异常
         handleUncaughtException { thread, throwable ->
             if (thread.name == "FinalizerWatchdogDaemon" && throwable is TimeoutException) {

@@ -8,7 +8,7 @@ import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.huafang.mvvm.view.BaseBindingActivity
-import com.huafang.mvvm.util.ARouterUtils
+import com.huafang.mvvm.util.ARouterNavigation
 import com.huafang.slogan.databinding.ActivityMainBinding
 import com.huafang.slogan.databinding.LayoutBottomTabBinding
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
@@ -50,9 +50,9 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
                     override fun getItemCount(): Int = tabTitle.size
                     override fun createFragment(position: Int): Fragment {
                         return when (position) {
-                            0 -> ARouterUtils.toHomeFragment()
-                            1 -> ARouterUtils.toMessageFragment()
-                            else -> ARouterUtils.toMeFragment()
+                            0 -> ARouterNavigation.toHomeFragment()
+                            1 -> ARouterNavigation.toMessageFragment()
+                            else -> ARouterNavigation.toMeFragment()
                         }
                     }
                 }

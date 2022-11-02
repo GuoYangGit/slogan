@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.launcher.ARouter
  * @author yang.guo on 2022/10/13
  * @describe [ARouter]的工具类
  */
-object ARouterUtils {
+object ARouterNavigation {
     const val PATH_HOME_FRAGMENT = "/home/HomeFragment"
     const val PATH_Message_FRAGMENT = "/message/MessageFragment"
     const val PATH_Me_FRAGMENT = "/me/MeFragment"

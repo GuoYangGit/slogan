@@ -1,6 +1,5 @@
 rootProject.name = "slogan"
 include ':app'
-include ':base'
 include ':mvvm'
 include ':module-home'
 include ':module-me'

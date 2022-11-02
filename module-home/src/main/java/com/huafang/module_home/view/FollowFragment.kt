@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.dylanc.longan.launchAndCollectIn
 import com.guoyang.base.ext.*
+import com.guoyang.base.state.asUiStateFlow
+import com.guoyang.base.state.doSuccess
 import com.huafang.module_home.view.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
 import com.huafang.mvvm.ext.init
-import com.huafang.mvvm.state.asUiStateFlow
 import com.huafang.mvvm.state.bindUiState
-import com.huafang.mvvm.state.doSuccess
 import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

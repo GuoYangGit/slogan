@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
 import com.dylanc.longan.doOnClick
 import com.dylanc.longan.startActivity
-import com.guoyang.base.util.GlideEngine
+import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginRegisterUserInfoBinding
 import com.huafang.mvvm.entity.UserEntity

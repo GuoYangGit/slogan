@@ -3,10 +3,10 @@ package com.huafang.module_me
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.dylanc.longan.doOnClick
-import com.guoyang.base.util.GlideEngine
+import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_me.databinding.MeFragmentMeBinding
 import com.huafang.mvvm.view.BaseBindingFragment
-import com.huafang.mvvm.util.ARouterUtils
+import com.huafang.mvvm.util.ARouterNavigation
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia
@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @describe 我的页面
  */
 @AndroidEntryPoint
-@Route(path = ARouterUtils.PATH_Me_FRAGMENT)
+@Route(path = ARouterNavigation.PATH_Me_FRAGMENT)
 class MeFragment : BaseBindingFragment<MeFragmentMeBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         binding.textView.doOnClick {

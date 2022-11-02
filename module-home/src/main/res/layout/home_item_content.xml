@@ -141,7 +141,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/people_like_view" />
 
-    <com.guoyang.base.weight.textview.ExpandableTextView
+    <com.huafang.mvvm.weight.textview.ExpandableTextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

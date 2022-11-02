@@ -13,7 +13,7 @@ import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeFragmentHomeBinding
 import com.huafang.mvvm.databinding.LayoutTextViewTabBinding
 import com.huafang.mvvm.view.BaseBindingFragment
-import com.huafang.mvvm.util.ARouterUtils
+import com.huafang.mvvm.util.ARouterNavigation
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @describe 首页
  */
 @AndroidEntryPoint
-@Route(path = ARouterUtils.PATH_HOME_FRAGMENT)
+@Route(path = ARouterNavigation.PATH_HOME_FRAGMENT)
 class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
     private val tabTitles by lazy {
         listOf(
