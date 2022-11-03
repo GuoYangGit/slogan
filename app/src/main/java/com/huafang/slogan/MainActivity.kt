@@ -72,5 +72,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
                 }
             }.attach()
         }
+        "".toIntOrNull()
     }
 }

@@ -50,9 +50,10 @@ dependencies {
     // 图片裁剪 (按需引入)
     api 'io.github.lucksiege:ucrop:v3.10.6'
     //加载WebView https://github.com/Justson/AgentWeb
-    api 'com.just.agentweb:agentweb:4.1.3'
-    api 'com.just.agentweb:filechooser:4.1.3'
-    api 'com.download.library:Downloader:4.1.3'
+    def agentweb_version = "v5.0.6-androidx"
+    api "com.github.Justson.AgentWeb:agentweb-core:$agentweb_version" //核心库
+    api "com.github.Justson.AgentWeb:agentweb-filechooser:$agentweb_version" //文件选择
+    api "com.github.Justson:Downloader:v5.0.4-androidx" //下载器
     //BaseAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.8'
     //标签生成shape https://github.com/JavaNoober/BackgroundLibrary
