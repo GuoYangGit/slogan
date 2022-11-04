@@ -7,6 +7,7 @@ import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
+import com.huafang.mvvm.ComplianceInit
 import com.huafang.mvvm.view.BaseBindingActivity
 import com.huafang.mvvm.util.ARouterNavigation
 import com.huafang.slogan.databinding.ActivityMainBinding
@@ -73,5 +74,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
             }.attach()
         }
         "".toIntOrNull()
+        ComplianceInit.init()
     }
 }

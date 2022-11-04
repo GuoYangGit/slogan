@@ -58,8 +58,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //引入基础组件库
-    implementation project(path: ':mvvm')
     //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
     implementation 'com.alibaba:arouter-api:1.5.2'
     kapt 'com.alibaba:arouter-compiler:1.5.2'

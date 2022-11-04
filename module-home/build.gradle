@@ -7,4 +7,6 @@ android {
 }
 
 dependencies {
+    //引入基础组件库
+    implementation project(path: ':mvvm')
 }

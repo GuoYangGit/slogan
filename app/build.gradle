@@ -35,6 +35,8 @@ android {
 }
 
 dependencies {
+    //引入基础组件库
+    implementation project(path: ':mvvm')
     implementation project(path: ':module-home')
     implementation project(path: ':module-message')
     implementation project(path: ':module-me')
