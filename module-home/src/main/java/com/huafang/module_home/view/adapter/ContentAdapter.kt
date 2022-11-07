@@ -11,6 +11,7 @@ import com.drake.spannable.span.HighlightSpan
 import com.dylanc.longan.dp
 import com.dylanc.longan.getCompatColor
 import com.dylanc.longan.screenWidth
+import com.dylanc.longan.toast
 import com.dylanc.viewbinding.brvah.getBinding
 import com.guoyang.base.ext.getDateStr
 import com.guoyang.loghelper.xLogD
@@ -91,23 +92,24 @@ class ContentAdapter @Inject constructor() :
             ivMyAvatar.loadAvatar(UserRepository.user?.avatar, UserRepository.user?.sex)
             val viewWidth: Int =
                 screenWidth - 32.dp.toInt()
+            val contentSpan =
+                item.content.replaceSpan("@[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
+                    HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
+                        xLogD("点击用户 ${matchResult.value}")
+                        context.toast("点击用户 ${matchResult.value}")
+                    }
+                }.replaceSpan("#[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
+                    HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
+                        xLogD("点击标签 ${matchResult.value}")
+                        context.toast("点击标签 ${matchResult.value}")
+                    }
+                }
             // 保证没有点击背景色
             tvContent.movementMethod = ClickableMovementMethod.getInstance()
             tvContent.initWidth(viewWidth)
-            tvContent.maxLines = 2
-            tvContent.setHasAnimation(true)
-            tvContent.setCloseInNewLine(false)
-            tvContent.setOpenSuffixColor(tvContent.getCompatColor(R.color.colorPrimary))
-            tvContent.setCloseSuffixColor(tvContent.getCompatColor(R.color.colorPrimary))
-            tvContent.setOriginalText(item.content.replaceSpan("@[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
-                HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
-                    xLogD("点击用户 ${matchResult.value}")
-                }
-            }.replaceSpan("#[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
-                HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
-                    xLogD("点击标签 ${matchResult.value}")
-                }
-            })
+                .setMaxLine(2)
+                .setSuffixColor(R.color.colorPrimary)
+                .setOriginalText(contentSpan)
         }
     }
 }
