@@ -1,11 +1,10 @@
 package com.huafang.mvvm.weight.richinput
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
 import android.text.Editable
 import androidx.appcompat.widget.AppCompatEditText
-import android.text.TextUtils
+import androidx.core.text.getSpans
 import android.util.AttributeSet
 import com.drake.spannable.listener.ModifyTextWatcher
 import com.drake.spannable.replaceSpan
@@ -52,6 +51,9 @@ class RichInputTextView @JvmOverloads constructor(
                 //赋值话题列表数据
                 mTopicList.clear()
                 //刷新页面
+                s.getSpans<HighlightSpan>().forEach {
+                    s.removeSpan(it)
+                }
                 matchRules.forEach { rule ->
                     s.replaceSpan(rule.key) {
                         val bean = TopicBean()
@@ -62,36 +64,36 @@ class RichInputTextView @JvmOverloads constructor(
                     }
                 }
                 //先添加话题再处理删除逻辑,只是判断删除[#|@]号
-//                if (s.length < preTextLength) {
-//                    val selectionStart = selectionStart
-//                    val selectionEnd = selectionEnd
-//                    // 如果光标起始和结束不在同一位置,删除文本
-//                    if (selectionStart != selectionEnd) {
-//                        // 查询文本是否属于话题对象,若是移除列表数据
-//                        val targetText = text.toString().substring(selectionStart, selectionEnd)
-//                        for (i in mTopicList.indices) {
-//                            val topicBean = mTopicList[i]
-//                            if (targetText == topicBean.topicText) {
-//                                mTopicList.remove(topicBean)
-//                                break
-//                            }
-//                        }
-//                    }
-//                    var lastPos = 0
-//                    // 遍历判断光标的位置
-//                    for (i in mTopicList.indices) {
-//                        val objectText = mTopicList[i].topicText
-//                        lastPos = text.toString().indexOf(objectText, lastPos)
-//                        if (lastPos != -1) {
-//                            if (selectionStart != 0 && selectionStart >= lastPos && selectionStart <= lastPos + objectText.length) {
-//                                // 选中话题
-//                                setSelection(lastPos, lastPos + objectText.length)
-//                                break
-//                            }
-//                            lastPos += objectText.length
-//                        }
-//                    }
-//                }
+                if (s.length < preTextLength) {
+                    val selectionStart = selectionStart
+                    val selectionEnd = selectionEnd
+                    // 如果光标起始和结束不在同一位置,删除文本
+                    if (selectionStart != selectionEnd) {
+                        // 查询文本是否属于话题对象,若是移除列表数据
+                        val targetText = text.toString().substring(selectionStart, selectionEnd)
+                        for (i in mTopicList.indices) {
+                            val topicBean = mTopicList[i]
+                            if (targetText == topicBean.topicText) {
+                                mTopicList.remove(topicBean)
+                                break
+                            }
+                        }
+                    }
+                    var lastPos = 0
+                    // 遍历判断光标的位置
+                    for (i in mTopicList.indices) {
+                        val objectText = mTopicList[i].topicText
+                        lastPos = text.toString().indexOf(objectText, lastPos)
+                        if (lastPos != -1) {
+                            if (selectionStart != 0 && selectionStart >= lastPos && selectionStart <= lastPos + objectText.length) {
+                                // 选中话题
+                                setSelection(lastPos, lastPos + objectText.length)
+                                break
+                            }
+                            lastPos += objectText.length
+                        }
+                    }
+                }
                 //记录上一次的长度
                 preTextLength = s.length
                 matchRules.forEach { rule ->
