@@ -13,7 +13,7 @@ import com.guoyang.loghelper.xLogD
 
 /**
  * @author yang.guo on 2022/11/7
- * @describe
+ * @describe 富文本输入框,支持话题|@高亮
  */
 class RichInputTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -46,6 +46,7 @@ class RichInputTextView @JvmOverloads constructor(
     }
 
     init {
+        isFocusableInTouchMode = true // 设置可触摸
         addTextChangedListener(object : ModifyTextWatcher() {
             override fun onModify(s: Editable) {
                 //赋值话题列表数据
