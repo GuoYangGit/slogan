@@ -6,7 +6,7 @@ import com.tencent.imsdk.v2.*
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe
+ * @describe V2TIM初始化实现类
  */
 object V2TInitImpl : IIMInit {
     /**
@@ -43,34 +43,58 @@ object V2TInitImpl : IIMInit {
         onLoginFail: (isKickedOffline: Boolean) -> Unit
     ) {
         val sdkListener = object : V2TIMSDKListener() {
+            /**
+             * 正在连接到腾讯云服务器,适合在 UI 上展示 “正在连接” 状态。
+             */
             override fun onConnecting() {
                 super.onConnecting()
-                // 正在连接到腾讯云服务器,适合在 UI 上展示 “正在连接” 状态。
                 onConnecting()
             }
 
+            /**
+             * 已经成功连接到腾讯云服务器
+             */
             override fun onConnectSuccess() {
                 super.onConnectSuccess()
-                // 已经成功连接到腾讯云服务器
                 onConnectSuccess()
             }
 
+            /**
+             * 连接腾讯云服务器失败
+             */
             override fun onConnectFailed(code: Int, error: String?) {
                 super.onConnectFailed(code, error)
-                // 连接腾讯云服务器失败
                 onConnectFailed(code, error)
             }
 
+            /**
+             * 当前用户被踢下线,此时可以 UI 提示用户 “您已经在其他端登录了当前帐号，是否重新登录？”
+             */
             override fun onKickedOffline() {
                 super.onKickedOffline()
-                // 当前用户被踢下线,此时可以 UI 提示用户 “您已经在其他端登录了当前帐号，是否重新登录？”
                 onLoginFail(true)
             }
 
+            /**
+             * 登录票据已经过期,请使用新签发的 UserSig 进行登录。
+             */
             override fun onUserSigExpired() {
                 super.onUserSigExpired()
-                // 登录票据已经过期,请使用新签发的 UserSig 进行登录。
                 onLoginFail(false)
+            }
+
+            /**
+             * 登陆用户信息更新
+             */
+            override fun onSelfInfoUpdated(info: V2TIMUserFullInfo?) {
+                super.onSelfInfoUpdated(info)
+            }
+
+            /**
+             * 用户状态改变(包括自己、好友状态),ONLINE-在线,OFFLINE-离线,UNLOGINED-未登录
+             */
+            override fun onUserStatusChanged(userStatusList: MutableList<V2TIMUserStatus>?) {
+                super.onUserStatusChanged(userStatusList)
             }
         }
         V2TIMManager.getInstance().addIMSDKListener(sdkListener)

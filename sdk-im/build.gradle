@@ -41,5 +41,20 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // 推送
     implementation 'com.tencent.imsdk:imsdk-plus:6.7.3184'
+    // 小米
+    implementation "com.tencent.tpns:xiaomi:1.3.3.3-release"
+    // 魅族
+    implementation "com.tencent.tpns:meizu:1.3.3.3-release"
+    // OPPO
+    implementation "com.tencent.tpns:oppo:1.3.3.3-release"
+    implementation 'commons-codec:commons-codec:1.15'
+    // vivo
+    implementation "com.tencent.tpns:vivo:1.3.3.3-release"
+    // 华为
+    implementation 'com.tencent.tpns:huawei:1.3.3.3-release'
+    implementation 'com.huawei.hms:push:5.0.2.300'
+    // honor
+    implementation 'com.tencent.tpns:honor:1.3.3.3-release'
 }

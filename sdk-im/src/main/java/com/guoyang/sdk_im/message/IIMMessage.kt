@@ -1,5 +1,6 @@
 package com.guoyang.sdk_im.message
 
+import com.guoyang.sdk_im.entity.IMSendConfig
 import com.tencent.imsdk.v2.V2TIMMessage
 
 /**
@@ -7,7 +8,36 @@ import com.tencent.imsdk.v2.V2TIMMessage
  * @describe 消息相关的接口类
  */
 
-interface IMessage {
+interface IIMMessage {
+
+    /**
+     * 发送消息
+     * @param imMessage 要发送的消息类型
+     * @param configBlock 发送消息的配置
+     * @param onSuccess 发送成功的回调
+     * @param onError 发送失败的回调
+     * @param onProgress 发送进度的回调
+     */
+    fun sendMessage(
+        imMessage: V2TIMMessage,
+        configBlock: IMSendConfig.() -> Unit = {},
+        onSuccess: (message: V2TIMMessage?) -> Unit,
+        onError: (code: Int, desc: String) -> Unit = { _, _ -> },
+        onProgress: (progress: Int) -> Unit = { _ -> }
+    )
+
+    /**
+     * 添加消息监听
+     * @param listener 消息监听
+     */
+    fun addReceiveMessageListener(listener: IIMReceiveMessageCallback)
+
+    /**
+     * 移除消息监听
+     * @param listener 消息监听
+     */
+    fun removeReceiveMessageListener(listener: IIMReceiveMessageCallback)
+
     /**
      * 获取历史消息
      * @param userID 对方的userID,userID｜groupID二选一

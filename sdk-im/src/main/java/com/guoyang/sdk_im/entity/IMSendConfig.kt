@@ -22,6 +22,6 @@ class IMSendConfig {
     // 设置消息是否需要已读回执,默认值:false
     var isNeedReadReceipt: Boolean = false
 
-    // 是否更新lastMessage，如果您不希望一些消息（例如系统提示等）显示为会话的最新消息，可以将此参数设置为true
+    // 是否更新lastMessage,如果您不希望一些消息（例如系统提示等）显示为会话的最新消息，可以将此参数设置为true
     var isExcludedFromLastMessage: Boolean = false
 }

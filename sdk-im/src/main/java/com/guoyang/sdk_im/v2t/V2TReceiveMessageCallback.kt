@@ -1,44 +1,23 @@
 package com.guoyang.sdk_im.v2t
 
 import android.util.Log
-import com.guoyang.sdk_im.message.IReceiveMessage
-import com.guoyang.sdk_im.message.IReceiveMessageCallback
+import com.guoyang.sdk_im.message.IIMReceiveMessageCallback
 import com.tencent.imsdk.v2.*
 import java.io.File
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe 接收消息实现类
+ * @describe 接受消息监听抽象类
  */
-object V2TReceiveImpl : IReceiveMessage<V2TReceiveMessageCallback> {
-    /**
-     * 添加消息监听
-     * @param listener 消息监听
-     */
-    override fun addReceiveMessageListener(listener: V2TReceiveMessageCallback) {
-        V2TIMManager.getMessageManager().addAdvancedMsgListener(listener)
-    }
-
-    /**
-     * 移除消息监听
-     * @param listener 消息监听
-     */
-    override fun removeReceiveMessageListener(listener: V2TReceiveMessageCallback) {
-        V2TIMManager.getMessageManager().removeAdvancedMsgListener(listener)
-    }
-}
-
-/**
- * 接受消息监听抽象类
- */
-abstract class V2TReceiveMessageCallback : V2TIMAdvancedMsgListener(), IReceiveMessageCallback {
+class V2TReceiveMessageCallback(private val callback: IIMReceiveMessageCallback) :
+    V2TIMAdvancedMsgListener() {
     /**
      * 收到新消息
      */
     override fun onRecvNewMessage(msg: V2TIMMessage?) {
         super.onRecvNewMessage(msg)
         if (msg == null) return
-        onReceiveMessage(msg)
+        callback.onReceiveMessage(msg)
         // 解析出 groupID 和 userID
         // 判断当前是单聊还是群聊
         // 如果 groupID 不为空，表示此消息为群聊；如果 userID 不为空，表示此消息为单聊
