@@ -5,7 +5,7 @@ import com.tencent.imsdk.v2.V2TIMMessage
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe 消息相关的接口类
+ * 消息相关的接口类
  */
 
 interface IIMMessage {

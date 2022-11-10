@@ -11,7 +11,7 @@ import java.io.IOException
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe Bugly崩溃上报实现类
+ * Bugly崩溃上报实现类
  * https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=1.0.0
  */
 internal object BuglyCrash : ICrash {

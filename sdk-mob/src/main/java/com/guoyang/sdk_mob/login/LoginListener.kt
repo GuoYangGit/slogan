@@ -2,7 +2,7 @@ package com.guoyang.sdk_mob.login
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe 登录接口
+ * 登录接口
  */
 interface LoginListener {
     /**

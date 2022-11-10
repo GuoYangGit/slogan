@@ -8,7 +8,7 @@ import com.tencent.cos.xml.transfer.COSXMLDownloadTask
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 腾讯云下载任务类
+ * 腾讯云下载任务类
  */
 class COSDownloadTask(context: Context, private val config: COSConfig) : IDownload {
     private val appContext = context.applicationContext

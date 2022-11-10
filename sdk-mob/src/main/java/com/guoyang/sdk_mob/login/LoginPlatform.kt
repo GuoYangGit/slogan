@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe 登录平台相关信息
+ * 登录平台相关信息
  */
 
 /**

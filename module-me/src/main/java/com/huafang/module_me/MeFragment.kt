@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/12
- * @describe 我的页面
+ * 我的页面
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_Me_FRAGMENT)

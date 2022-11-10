@@ -8,7 +8,7 @@ import com.hihonor.push.sdk.bean.DataMessage
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe
+ *
  */
 class MyHonorMessageService : HonorMessageService() {
     override fun onNewToken(token: String) {

@@ -12,7 +12,7 @@ import kotlinx.parcelize.Parcelize
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 腾讯云对象存储管理类
+ * 腾讯云对象存储管理类
  */
 object COSTransferManager {
 

@@ -10,7 +10,7 @@ import com.guoyang.base.R
 
 /**
  * @author yang.guo on 2022/10/11
- * @describe 刷新布局扩展类
+ * 刷新布局扩展类
  */
 
 /**

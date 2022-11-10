@@ -27,7 +27,7 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 用户发布内容Item适配器
+ * 用户发布内容Item适配器
  */
 class ContentAdapter @Inject constructor() :
     BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content), LoadMoreModule {

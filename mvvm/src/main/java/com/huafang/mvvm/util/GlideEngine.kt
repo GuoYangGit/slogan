@@ -11,7 +11,7 @@ import com.huafang.mvvm.R
 
 /**
  * @author yang.guo on 2022/10/13
- * @describe Glide加载引擎
+ * Glide加载引擎
  */
 class GlideEngine private constructor() : ImageEngine {
     /**

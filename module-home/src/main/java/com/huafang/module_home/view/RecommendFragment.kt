@@ -3,7 +3,7 @@ package com.huafang.module_home.view
 import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.dylanc.longan.launchAndCollectIn
-import com.guoyang.base.ext.bindBaseAdapter
+import com.huafang.mvvm.ext.bindBaseAdapter
 import com.huafang.mvvm.ext.init
 import com.guoyang.base.ext.staggered
 import com.guoyang.base.state.asUiStateFlow
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 推荐页面
+ * 推荐页面
  */
 @AndroidEntryPoint
 class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {

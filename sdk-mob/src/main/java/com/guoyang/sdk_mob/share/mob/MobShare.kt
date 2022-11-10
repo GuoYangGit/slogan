@@ -12,7 +12,7 @@ import com.mob.MobSDK
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe
+ *
  */
 internal object MobShare : IShare {
     /**

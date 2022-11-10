@@ -4,7 +4,7 @@ import com.tencent.imsdk.relationship.UserInfo
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe
+ *
  */
 data class IMUserInfo(
     val userID: String, // 用户ID

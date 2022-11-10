@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/18
- * @describe 注册用户信息页面
+ * 注册用户信息页面
  */
 @AndroidEntryPoint
 class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBinding>() {

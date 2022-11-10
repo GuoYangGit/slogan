@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/12
- * @describe 首页
+ * 首页
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_HOME_FRAGMENT)

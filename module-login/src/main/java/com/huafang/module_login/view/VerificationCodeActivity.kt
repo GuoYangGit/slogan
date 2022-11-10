@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe 验证码页面
+ * 验证码页面
  */
 @AndroidEntryPoint
 class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCodeBinding>() {

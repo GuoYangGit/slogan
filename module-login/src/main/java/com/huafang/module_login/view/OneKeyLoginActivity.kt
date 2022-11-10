@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe 一键登陆页面
+ * 一键登陆页面
  */
 @AndroidEntryPoint
 class OneKeyLoginActivity : BaseBindingActivity<LoginActivityOneKeyLoginBinding>() {

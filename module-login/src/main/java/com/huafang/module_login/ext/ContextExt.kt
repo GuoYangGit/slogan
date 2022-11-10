@@ -7,7 +7,7 @@ import com.lxj.xpopup.XPopup
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe 关于[Context]扩展类
+ * 关于[Context]扩展类
  */
 
 /**

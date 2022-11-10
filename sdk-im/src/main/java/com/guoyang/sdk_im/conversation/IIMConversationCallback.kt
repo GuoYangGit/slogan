@@ -4,7 +4,7 @@ import com.tencent.imsdk.v2.V2TIMConversation
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe 会话监听接口
+ * 会话监听接口
  */
 interface IIMConversationCallback {
 

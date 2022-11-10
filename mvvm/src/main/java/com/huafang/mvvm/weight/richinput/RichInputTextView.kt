@@ -13,7 +13,7 @@ import com.guoyang.loghelper.xLogD
 
 /**
  * @author yang.guo on 2022/11/7
- * @describe 富文本输入框,支持话题|@高亮
+ * 富文本输入框,支持话题|@高亮
  */
 class RichInputTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

@@ -29,7 +29,7 @@ import javax.net.ssl.SSLSession
 
 /**
  * @author yang.guo on 2022/10/13
- * @describe 第三方Application初始化工具类
+ * 第三方Application初始化工具类
  */
 
 const val TASK_APP_INIT = "task_app_init"

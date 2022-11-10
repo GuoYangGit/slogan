@@ -17,7 +17,7 @@ import com.mob.secverify.datatype.VerifyResult
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe
+ *
  */
 object MobLogin : ILogin {
     const val TAG = "MobLogin"

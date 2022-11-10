@@ -2,7 +2,7 @@ package com.guoyang.sdk_mob.share
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe 分享接口
+ * 分享接口
  */
 interface ShareListener {
     /**

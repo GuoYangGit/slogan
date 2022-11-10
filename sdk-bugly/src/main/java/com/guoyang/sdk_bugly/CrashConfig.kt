@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe 崩溃上报配置类
+ * 崩溃上报配置类
  */
 
 @Parcelize

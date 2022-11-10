@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 /**
  * @author yang.guo on 2022/10/25
- * @describe 推荐请求类
+ * 推荐请求类
  */
 @Singleton
 class RecommendRepository @Inject constructor() {

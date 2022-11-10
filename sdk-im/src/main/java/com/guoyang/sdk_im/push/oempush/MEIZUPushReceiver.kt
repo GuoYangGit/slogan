@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.platform.message.*
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe
+ *
  */
 class MEIZUPushReceiver : MzPushMessageReceiver() {
     override fun onMessage(context: Context?, s: String) {

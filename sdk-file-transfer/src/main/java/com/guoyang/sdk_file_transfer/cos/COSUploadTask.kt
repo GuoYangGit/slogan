@@ -8,7 +8,7 @@ import com.tencent.cos.xml.transfer.COSXMLUploadTask
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 腾讯云上传任务类
+ * 腾讯云上传任务类
  */
 class COSUploadTask(context: Context, private val config: COSConfig) : IUpload {
     private val appContext = context.applicationContext

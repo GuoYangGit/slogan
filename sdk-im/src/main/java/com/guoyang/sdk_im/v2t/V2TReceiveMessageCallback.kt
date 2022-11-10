@@ -7,7 +7,7 @@ import java.io.File
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe 接受消息监听抽象类
+ * 接受消息监听抽象类
  */
 class V2TReceiveMessageCallback(private val callback: IIMReceiveMessageCallback) :
     V2TIMAdvancedMsgListener() {

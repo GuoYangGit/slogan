@@ -4,7 +4,7 @@ import android.content.Context
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe 崩溃上报接口
+ * 崩溃上报接口
  */
 interface ICrash {
 

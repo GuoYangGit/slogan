@@ -2,16 +2,14 @@ package com.huafang.mvvm.weight
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dylanc.longan.dp
-import com.guoyang.base.ext.bindBaseAdapter
+import com.huafang.mvvm.ext.bindBaseAdapter
 import com.guoyang.base.ext.divider
 import com.guoyang.base.ext.linear
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 用户点赞自定义View
+ * 用户点赞自定义View
  */
 class PeopleLikeView @JvmOverloads constructor(
     context: Context,

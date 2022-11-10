@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.map
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 腾讯云对象存储任务扩展类
+ * 腾讯云对象存储任务扩展类
  */
 /**
  * 扩展方法，腾讯云对象存储任务回调绑定

@@ -4,7 +4,7 @@ import com.tencent.imsdk.v2.V2TIMMessage
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe 发送消息配置类
+ * 发送消息配置类
  */
 class IMSendConfig {
     // 接受者的ID,可以是群ID或者用户ID

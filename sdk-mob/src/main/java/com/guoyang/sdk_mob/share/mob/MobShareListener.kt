@@ -7,7 +7,7 @@ import java.util.HashMap
 
 /**
  * @author yang.guo on 2022/11/2
- * @describe Mob平台分享监听实现类
+ * Mob平台分享监听实现类
  */
 internal class MobShareListener(private val listener: ShareListener) :
     PlatformActionListener {

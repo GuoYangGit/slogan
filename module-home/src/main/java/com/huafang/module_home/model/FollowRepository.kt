@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 关注列表的数据处理类
+ * 关注列表的数据处理类
  */
 @Singleton
 class FollowRepository @Inject constructor() {

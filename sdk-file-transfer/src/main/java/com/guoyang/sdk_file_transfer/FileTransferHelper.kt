@@ -5,7 +5,7 @@ import com.guoyang.sdk_file_transfer.upload.IUpload
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 文件上传/下载帮助类
+ * 文件上传/下载帮助类
  */
 object FileTransferHelper {
     /**

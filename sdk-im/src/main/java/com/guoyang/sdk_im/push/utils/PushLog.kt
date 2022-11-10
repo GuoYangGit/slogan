@@ -5,7 +5,7 @@ import com.guoyang.sdk_im.push.utils.PushLog
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe
+ *
  */
 object PushLog : IMLog() {
     private const val TAG = "TUIOfflinePush"

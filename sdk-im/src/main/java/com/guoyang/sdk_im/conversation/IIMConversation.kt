@@ -4,7 +4,7 @@ import com.tencent.imsdk.v2.V2TIMConversation
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe 会话列表相关的接口类
+ * 会话列表相关的接口类
  */
 interface IIMConversation {
     /**

@@ -19,7 +19,7 @@ import com.huafang.mvvm.R
 
 /**
  * @author yang.guo on 2022/11/7
- * @describe 可展开收起的TextView
+ * 可展开收起的TextView
  */
 class ExpandTextView @JvmOverloads constructor(
     context: Context,
