@@ -7,7 +7,7 @@ import kotlin.random.Random
 
 /**
  * @author yang.guo on 2022/10/15
- * @describe 推荐实体类
+ * 推荐实体类
  */
 @Parcelize
 data class RecommendEntity(

@@ -9,7 +9,7 @@ import com.huawei.hms.push.RemoteMessage
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe 华为推送服务
+ * 华为推送服务
  */
 class HUAWEIHmsMessageService : HmsMessageService() {
     /**

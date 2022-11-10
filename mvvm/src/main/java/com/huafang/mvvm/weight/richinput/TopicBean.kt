@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 /**
  * @author yang.guo on 2022/11/7
- * @describe 话题bean
+ * 话题bean
  */
 @Parcelize
 data class TopicBean(

@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe 播放队列
+ * 播放队列
  */
 class PlayQueue<T : View>(
     private val view: T,

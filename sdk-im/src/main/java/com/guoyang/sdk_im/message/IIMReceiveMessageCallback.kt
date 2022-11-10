@@ -4,7 +4,7 @@ import com.tencent.imsdk.v2.V2TIMMessage
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe
+ *
  */
 interface IIMReceiveMessageCallback {
     /**

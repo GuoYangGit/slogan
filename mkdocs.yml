@@ -1,10 +1,10 @@
 # https://mkdocs.zimoapps.com/
-site_name: 日常文档
-site_description: 用于记录日常学习文档
+site_name: 项目开发文档
+site_description: Android项目开发使用指南文档
 site_author: yang.guo
 copyright: Copyright &copy; 2022 - 2024 郭杨
 repo_name: GitHub # 仓库名称
-repo_url: https://github.com/GuoYangGit/DailyDocs # 仓库链接
+repo_url: https://github.com/GuoYangGit/slogan # 仓库链接
 
 theme: # 主题
   name: material # 主题名称
@@ -34,7 +34,10 @@ docs_dir: 'docs' # 文档路径
 # 导航
 nav:
   - 首页: index.md
+  - 代码编写: 代码编写指南.md
+  - 基础模块: 基础模块指南.md
+  - 业务模块: 业务模块指南.md
+  - 权限申请: 动态权限申请.md
+  - Gradle: Gradle.md
   - 版本适配: 版本适配.md
-  - Gradle配置: Gradle.md
-  - 动态权限申请: 动态权限申请.md
-  - 代码编写指南: 代码编写指南.md
+  - 代码规范: 代码规范.md

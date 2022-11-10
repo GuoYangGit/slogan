@@ -8,7 +8,7 @@ import com.huafang.mvvm.entity.UserEntity
 
 /**
  * @author yang.guo on 2022/10/18
- * @describe 图片加载扩展类
+ * 图片加载扩展类
  */
 
 /**

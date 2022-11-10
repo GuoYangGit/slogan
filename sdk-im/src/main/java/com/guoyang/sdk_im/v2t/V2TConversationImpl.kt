@@ -6,7 +6,7 @@ import com.tencent.imsdk.v2.*
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe V2TIM会话实现类
+ * V2TIM会话实现类
  */
 object V2TConversationImpl : IIMConversation {
     private val listenerMap = mutableMapOf<IIMConversationCallback, T2VConversationCallback>()

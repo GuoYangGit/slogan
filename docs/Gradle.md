@@ -1,4 +1,6 @@
-# Gradle项目构建
+# 项目Gradle构建指南
+
+> 本文关于项目配置相关讲解，涉及通用 `gradle` 配置、代码混淆、App打包等相关操作。
 
 ## config.gradle
 
@@ -104,7 +106,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
 }
 ```
 
@@ -117,6 +119,8 @@ dependencies {
 如果在编码阶段需要配置混淆规则，无需在 `app` 模块下进行配置，只需在当前业务/基础功能模块的 `consumer-rules.pro` 文件中进行规则配置，打包 Apk 时会自动合并混淆规则。原因：在 `config.gradle` 文件中 `consumerProguardFiles "consumer-rules.pro"` 进行了合并操作。
 
 **如果配置了混淆规则，一定要在 `debug` 模式下开启混淆功能进行验证。**
+
+> **注意：`debug` 模式下开启代码混淆功能，需要注释 `Leakcanary` 内存泄露检测依赖，不然会导致 `App` 崩溃。**
 
 ## 业务模块资源冲突解决
 

@@ -14,7 +14,7 @@ import com.lxj.xpopup.core.CenterPopupView
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe 用户隐私协议弹窗
+ * 用户隐私协议弹窗
  */
 class AgreementDialog(context: Context, private val block: (agree: Boolean) -> Unit) :
     CenterPopupView(context) {

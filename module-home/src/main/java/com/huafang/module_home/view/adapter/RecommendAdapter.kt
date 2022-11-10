@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/15
- * @describe 推荐列表适配器
+ * 推荐列表适配器
  */
 class RecommendAdapter @Inject constructor() :
     BaseQuickAdapter<RecommendEntity, BaseViewHolder>(R.layout.home_item_recommend),

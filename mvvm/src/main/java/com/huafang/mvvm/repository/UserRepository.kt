@@ -7,7 +7,7 @@ import com.huafang.mvvm.entity.UserEntity
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe 用户相关[MMKVOwner]存储类
+ * 用户相关[MMKVOwner]存储类
  */
 object UserRepository : MMKVOwner {
     // 是否显示用户协议

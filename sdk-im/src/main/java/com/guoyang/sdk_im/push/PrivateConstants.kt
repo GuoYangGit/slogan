@@ -2,7 +2,7 @@ package com.guoyang.sdk_im.push
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe 腾讯推送配置参数
+ * 腾讯推送配置参数
  */
 object PrivateConstants {
     const val xiaomiPushAppId: String = "2882303761518880000" // 小米推送appId

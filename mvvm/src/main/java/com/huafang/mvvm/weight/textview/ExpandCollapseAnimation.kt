@@ -7,7 +7,7 @@ import android.view.animation.Transformation
 
 /**
  * @author yang.guo on 2022/11/7
- * @describe
+ *
  */
 internal class ExpandCollapseAnimation(target: View, startHeight: Int, endHeight: Int) :
     Animation() {

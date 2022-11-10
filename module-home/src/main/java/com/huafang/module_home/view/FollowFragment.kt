@@ -9,6 +9,7 @@ import com.guoyang.base.state.doSuccess
 import com.huafang.module_home.view.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
+import com.huafang.mvvm.ext.bindBaseAdapter
 import com.huafang.mvvm.ext.init
 import com.huafang.mvvm.state.bindUiState
 import com.huafang.mvvm.view.BaseBindingFragment
@@ -18,7 +19,7 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/12
- * @describe 关注页面
+ * 关注页面
  */
 @AndroidEntryPoint
 class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {

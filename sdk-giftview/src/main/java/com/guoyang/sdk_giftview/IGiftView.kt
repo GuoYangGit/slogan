@@ -8,7 +8,7 @@ import java.io.File
 
 /**
  * @author yang.guo on 2022/11/4
- * @describe 礼物播放接口
+ * 礼物播放接口
  */
 interface IGiftView {
 

@@ -4,7 +4,7 @@ import com.dylanc.longan.internalCacheDirPath
 
 /**
  * @author yang.guo on 2022/10/31
- * @describe 全局定义常量
+ * 全局定义常量
  */
 // 日志解析公钥
 const val XLOG_PUBKEY =

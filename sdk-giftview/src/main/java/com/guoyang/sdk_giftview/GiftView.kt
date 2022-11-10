@@ -18,7 +18,7 @@ import java.io.File
 
 /**
  * @author yang.guo on 2022/11/4
- * @describe 礼物播放控件
+ * 礼物播放控件
  */
 class GiftView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

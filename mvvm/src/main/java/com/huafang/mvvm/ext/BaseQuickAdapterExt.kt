@@ -1,4 +1,4 @@
-package com.guoyang.base.ext
+package com.huafang.mvvm.ext
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

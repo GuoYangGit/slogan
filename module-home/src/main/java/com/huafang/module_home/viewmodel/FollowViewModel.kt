@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 关注ViewModel
+ * 关注ViewModel
  */
 @HiltViewModel
 class FollowViewModel @Inject constructor(private val followRepository: FollowRepository) :

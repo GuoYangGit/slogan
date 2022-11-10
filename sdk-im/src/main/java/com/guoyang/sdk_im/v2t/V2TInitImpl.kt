@@ -6,7 +6,7 @@ import com.tencent.imsdk.v2.*
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe V2TIM初始化实现类
+ * V2TIM初始化实现类
  */
 object V2TInitImpl : IIMInit {
     /**

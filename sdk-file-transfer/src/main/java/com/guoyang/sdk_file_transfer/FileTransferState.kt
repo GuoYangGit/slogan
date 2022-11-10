@@ -2,7 +2,7 @@ package com.guoyang.sdk_file_transfer
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 文件操作状态
+ * 文件操作状态
  */
 enum class FileTransferState {
     IDLE,// 默认状态

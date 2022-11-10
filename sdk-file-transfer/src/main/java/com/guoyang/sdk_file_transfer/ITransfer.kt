@@ -2,7 +2,7 @@ package com.guoyang.sdk_file_transfer
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 文件操作接口
+ * 文件操作接口
  */
 interface ITransfer {
 

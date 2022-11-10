@@ -11,7 +11,7 @@ import com.huafang.mvvm.R
 
 /**
  * @author yang.guo on 2022/10/25
- * @describe [BaseQuickAdapter]上拉加载更多视图
+ * [BaseQuickAdapter]上拉加载更多视图
  */
 class CustomLoadMoreView : BaseLoadMoreView() {
     override fun getRootView(parent: ViewGroup): View {

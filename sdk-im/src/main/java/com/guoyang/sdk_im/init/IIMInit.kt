@@ -4,7 +4,7 @@ import android.content.Context
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe IM初始化接口
+ * IM初始化接口
  */
 interface IIMInit {
     /**

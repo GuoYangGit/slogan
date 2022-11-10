@@ -5,7 +5,7 @@ import com.guoyang.sdk_im.entity.IMUserState
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe 用户信息管理接口
+ * 用户信息管理接口
  */
 interface IIMUserManager {
     /**

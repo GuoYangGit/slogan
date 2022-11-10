@@ -20,7 +20,7 @@ import com.xiaomi.mipush.sdk.MiPushClient
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe 腾讯推送设置类
+ * 腾讯推送设置类
  */
 object OEMPushSetting {
 

@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/12
- * @describe 消息页面
+ * 消息页面
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_Message_FRAGMENT)

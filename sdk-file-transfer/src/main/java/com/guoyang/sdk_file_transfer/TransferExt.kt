@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.transform
 
 /**
  * @author yang.guo on 2022/11/3
- * @describe 文件上传/下载扩展类(Flow调用形式)
+ * 文件上传/下载扩展类(Flow调用形式)
  */
 fun <T : ITransfer> Flow<T>.asTransferStateFlow(filePath: String): Flow<TransferStateData> {
     return this.transform { it.asFlow(filePath) }

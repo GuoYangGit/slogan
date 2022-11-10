@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 用户发布内容实体类
+ * 用户发布内容实体类
  */
 @Parcelize
 data class ContentEntity(

@@ -11,7 +11,7 @@ import com.huafang.mvvm.databinding.ItemPeopleLikeBinding
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe 用户头像Adapter
+ * 用户头像Adapter
  */
 class PeopleLikeAdapter : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_people_like) {
     init {

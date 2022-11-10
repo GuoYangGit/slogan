@@ -7,7 +7,7 @@ import com.tencent.imsdk.v2.*
 
 /**
  * @author yang.guo on 2022/11/9
- * @describe 用户信息管理实现类
+ * 用户信息管理实现类
  */
 object V2TUserManagerImpl : IIMUserManager {
     /**

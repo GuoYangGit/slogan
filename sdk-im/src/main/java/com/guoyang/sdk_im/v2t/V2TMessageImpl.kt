@@ -8,7 +8,7 @@ import com.tencent.imsdk.v2.*
 
 /**
  * @author yang.guo on 2022/11/8
- * @describe V2TIM消息相关的接口类
+ * V2TIM消息相关的接口类
  */
 object V2TMessageImpl : IIMMessage {
 
