@@ -54,7 +54,12 @@ class AppInitTask : Task(TASK_APP_INIT) {
     }
 }
 
-class NetInitTask : Task(TASK_NET_INIT) {
+/**
+ * 初始化网络请求
+ * @param id 任务ID
+ * @param isAsyncTask 是否异步执行,默认为false
+ */
+class NetInitTask : Task(id = TASK_NET_INIT, isAsyncTask = true) {
     override fun run(name: String) {
         val sslParams = HttpsUtils.getSslSocketFactory()
         val okHttpClient = OkHttpClient.Builder()
@@ -133,6 +138,9 @@ class ImageLoadInitTask : Task(TASK_IMAGE_LOAD_INIT) {
     }
 }
 
+/**
+ * 创建任务构建器
+ */
 object AppTaskCreator : TaskCreator {
     override fun createTask(taskName: String): Task {
         return when (taskName) {
@@ -159,4 +167,7 @@ object AppTaskCreator : TaskCreator {
 
 }
 
+/**
+ * 创建任务工厂
+ */
 class AppTaskFactory : Project.TaskFactory(AppTaskCreator)
