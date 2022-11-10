@@ -1,22 +1,45 @@
 apply plugin: 'com.android.application'
-apply from: '../module.gradle'
 apply from: '../config.gradle'
+apply plugin: 'com.huawei.agconnect'
 
 android {
     namespace 'com.huafang.slogan'
     defaultConfig {
         applicationId "com.huafang.slogan"
-        versionCode 1
-        versionName "1.0"
+    }
+    signingConfigs {
+        release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+        debug {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+    }
 
-        multiDexEnabled true
+    // 版本名字
+    def appName = "Slogan_" + new Date().format('yyyy.MM.dd')
+    // 修改apk文件名字
+    android.applicationVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.outputs.all {
+                def newName = "${appName}_${versionName}_${versionCode}.apk"
+                outputFileName = newName
+            }
+        }
     }
 }
 
 dependencies {
-    api project(path: ':mvvm')
-    api project(path: ':module-home')
-    api project(path: ':module-message')
-    api project(path: ':module-me')
-    api project(path: ':module-login')
+    //引入基础组件库
+    implementation project(path: ':mvvm')
+    implementation project(path: ':module-home')
+    implementation project(path: ':module-message')
+    implementation project(path: ':module-me')
+    implementation project(path: ':module-login')
 }

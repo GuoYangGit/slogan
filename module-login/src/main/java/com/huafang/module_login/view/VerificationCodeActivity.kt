@@ -2,22 +2,23 @@ package com.huafang.module_login.view
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.os.Handler
 import android.text.style.StyleSpan
 import com.drake.spannable.addSpan
 import com.drake.spannable.span.ColorSpan
 import com.dylanc.longan.*
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityVerificationCodeBinding
-import com.huafang.mvvm.ui.BaseBindingActivity
+import com.huafang.mvvm.view.BaseBindingActivity
 import com.kenny.separatededittext.SeparatedEditText
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/17
- * @describe
+ * @describe 验证码页面
  */
+@AndroidEntryPoint
 class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCodeBinding>() {
     private val phone: String? by intentExtras(KEY_PHONE)
 
@@ -35,7 +36,7 @@ class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCo
         }
         binding.apply {
             llTitle.addStatusBarTopPadding()
-            ivBack.doOnClick { onBackPressed() }
+            ivBack.doOnClick { onBackPressedDispatcher.onBackPressed() }
             tvHint.text = getString(R.string.login_verification_code_hint).addSpan(
                 phone ?: "",
                 listOf(ColorSpan(getCompatColor(R.color.main_color)), StyleSpan(Typeface.BOLD))

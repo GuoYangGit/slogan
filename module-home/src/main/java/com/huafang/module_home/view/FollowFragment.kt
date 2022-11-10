@@ -2,16 +2,18 @@ package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.dylanc.longan.dp
-import com.dylanc.longan.viewLifecycleScope
-import com.guoyang.base.ext.bindBaseAdapter
-import com.guoyang.base.weight.decoration.SpaceItemDecoration
-import com.huafang.module_home.adapter.ContentAdapter
+import com.dylanc.longan.launchAndCollectIn
+import com.guoyang.base.ext.*
+import com.guoyang.base.state.asUiStateFlow
+import com.guoyang.base.state.doSuccess
+import com.huafang.module_home.view.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
-import com.huafang.mvvm.ui.BaseBindingFragment
+import com.huafang.mvvm.ext.init
+import com.huafang.mvvm.state.bindUiState
+import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 /**
@@ -20,24 +22,51 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {
-    private val adapter by lazy {
-        ContentAdapter()
-    }
+    @Inject
+    lateinit var adapter: ContentAdapter
 
     private val followViewModel: FollowViewModel by viewModels()
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.recyclerView.run {
-            bindBaseAdapter(
-                LinearLayoutManager(context),
-                this@FollowFragment.adapter
-            )
-            addItemDecoration(SpaceItemDecoration(0, 6.dp.toInt(), false))
+        binding.apply {
+            recyclerView
+                .linear()
+                .divider { setDivider(6) }
+                .bindBaseAdapter(this@FollowFragment.adapter)
+            refreshLayout
+                .init(
+                    recyclerView = recyclerView,
+                    stateLayout = stateLayout
+                ) { isRefresh ->
+                    loadData(isRefresh)
+                }
         }
-        viewLifecycleScope.launchWhenCreated {
+    }
+
+    override fun lazyLoadData() {
+        binding.stateLayout.showLoading()
+    }
+
+    private fun loadData(isRefresh: Boolean = true) {
+        requestReadOrWritePermissions { allGranted, _, _ ->
+            if (!allGranted) return@requestReadOrWritePermissions
             followViewModel.getFollowList()
-                .collect{
-                    adapter.setList(it)
+                .asUiStateFlow()
+                .launchAndCollectIn(viewLifecycleOwner) {
+                    it.bindUiState(
+                        isRefresh,
+                        10,
+                        binding.refreshLayout,
+                        adapter,
+                        binding.stateLayout
+                    ).doSuccess { list ->
+                        if (list == null) return@doSuccess
+                        if (isRefresh) {
+                            adapter.setDiffNewData(list.toMutableList())
+                        } else {
+                            adapter.addData(list)
+                        }
+                    }
                 }
         }
     }

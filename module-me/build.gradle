@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply from: '../module.gradle'
 apply from: '../config.gradle'
 
 android {
@@ -8,5 +7,6 @@ android {
 }
 
 dependencies {
-    api project(path: ':mvvm')
+    //引入基础组件库
+    implementation project(path: ':mvvm')
 }

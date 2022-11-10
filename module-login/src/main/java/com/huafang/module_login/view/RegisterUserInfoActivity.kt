@@ -4,22 +4,24 @@ import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
 import com.dylanc.longan.doOnClick
 import com.dylanc.longan.startActivity
-import com.guoyang.base.util.GlideEngine
+import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginRegisterUserInfoBinding
 import com.huafang.mvvm.entity.UserEntity
 import com.huafang.mvvm.ext.loadAvatar
-import com.huafang.mvvm.ui.BaseBindingActivity
+import com.huafang.mvvm.view.BaseBindingActivity
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/18
- * @describe
+ * @describe 注册用户信息页面
  */
+@AndroidEntryPoint
 class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBinding>() {
     private var chooseSex: Int = UserEntity.SEX_FEMALE
         set(value) {
@@ -39,11 +41,11 @@ class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBindin
             // 设置状态栏为透明色
             transparent()
         }
-        setToolbar {
-            title = "完善资料"
-            navIcon = R.mipmap.icon_close
-        }
         binding.run {
+            toolbarView.setToolbar {
+                title = "完善资料"
+                navIcon = R.mipmap.icon_close
+            }
             ivAvatar.doOnClick {
                 PictureSelector.create(this@RegisterUserInfoActivity)
                     .openGallery(SelectMimeType.ofImage())

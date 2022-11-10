@@ -1,104 +1,91 @@
 package com.huafang.mvvm.state
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
-import com.dylanc.loadingstateview.LoadingState
-import com.dylanc.loadingstateview.ViewType
-import com.huafang.mvvm.weight.ErrorViewDelegate
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.launch
+import com.drake.statelayout.StateLayout
+import com.guoyang.base.state.IPageSate
+import com.guoyang.base.state.UiState
+import com.guoyang.base.state.doError
+import com.guoyang.base.state.doSuccess
+import com.huafang.mvvm.ext.msg
 
 /**
  *  @author : yang.guo
  *  @date : 2022/10/11 15:07
- *  @description :
+ *  @description : [UiState]扩展类
  */
-inline fun <T> DataUiState<T>.doStart(block: () -> Unit): DataUiState<T> {
-    if (this is DataUiState.Start) {
-        block.invoke()
-    }
-    return this
-}
 
-inline fun <T> DataUiState<T>.doSuccess(block: (data: T?) -> Unit): DataUiState<T> {
-    if (this is DataUiState.Success) {
-        block.invoke(data)
-    }
-    return this
-}
-
-inline fun <T> DataUiState<T>.doError(block: (throwable: Throwable) -> Unit): DataUiState<T> {
-    if (this is DataUiState.Error) {
-        block.invoke(error)
-    }
-    return this
-}
-
-fun <T> DataUiState<T>.bindLoadState(
+/**
+ * 绑定加载状态
+ * @param isRefresh true:下拉刷新、false:上拉加载(默认为下拉刷新)
+ * @param pageSize 每页数量(默认为10)
+ * @param swipeRefreshLayout 下拉刷新控件
+ * @param adapter [BaseQuickAdapter]适配器
+ * @param stateLayout 状态布局
+ */
+fun <T> UiState<T>.bindUiState(
+    isRefresh: Boolean = true,
+    pageSize: Int = 10,
     swipeRefreshLayout: SwipeRefreshLayout? = null,
     adapter: BaseQuickAdapter<*, *>? = null,
-    loadingState: LoadingState? = null
-): DataUiState<T> {
+    stateLayout: StateLayout? = null,
+): UiState<T> {
     // 判断是否有加载更多功能
     val isLoadMore = adapter is LoadMoreModule
-    doStart {
-        if (!refresh) return@doStart
-        swipeRefreshLayout?.isRefreshing = true
-        if (loadingState?.getViewType() == ViewType.CONTENT) return@doStart
-        loadingState?.showLoadingView()
-    }
-    doSuccess {
-        when {
-            refresh -> {
-                swipeRefreshLayout?.isRefreshing = false
-                loadingState?.showContentView()
+    this.doSuccess { // 请求成功
+        // 判断数据是否为空
+        val isEmpty = when (it) {
+            is Collection<*> -> {
+                it.isEmpty()
             }
-            isLoadMore -> {
-                adapter?.loadMoreModule?.loadMoreComplete()
+            is IPageSate -> {
+                it.hasEmpty()
+            }
+            else -> {
+                it == null
             }
         }
-    }
-    doError { throwable ->
+        // 判断是否还有更多数据
+        val hasMore = when (it) {
+            is Collection<*> -> {
+                it.size >= pageSize
+            }
+            is IPageSate -> {
+                it.hasMore()
+            }
+            else -> {
+                true
+            }
+        }
         when {
-            refresh -> {
+            isRefresh -> { // 下拉刷新
                 swipeRefreshLayout?.isRefreshing = false
-                if (loadingState?.getViewType() == ViewType.CONTENT) return@doError
-                loadingState?.updateView<ErrorViewDelegate>(ViewType.ERROR){
-                    this.updateMsg(throwable.message ?: "")
+                if (isEmpty) {
+                    stateLayout?.showEmpty()
+                } else {
+                    stateLayout?.showContent()
                 }
-                loadingState?.showErrorView()
+            }
+            isLoadMore -> { // 上拉加载更多
+                if (!isEmpty && hasMore) {
+                    adapter?.loadMoreModule?.loadMoreComplete()
+                } else {
+                    adapter?.loadMoreModule?.loadMoreEnd()
+                }
+                stateLayout?.showContent()
+            }
+        }
+    }.doError { throwable ->
+        when {
+            isRefresh -> {
+                swipeRefreshLayout?.isRefreshing = false
             }
             isLoadMore -> {
                 adapter?.loadMoreModule?.loadMoreFail()
             }
         }
+        stateLayout?.showError(throwable.msg)
     }
     return this
-}
-
-fun <T> Flow<T>.bindUiState(
-    isRefresh: Boolean = false, uiState: MutableLiveData<DataUiState<T>>
-): Flow<T> {
-    return this.onStart {
-        uiState.postValue(DataUiState.onStart(isRefresh = isRefresh))
-    }.catch {
-        uiState.postValue(DataUiState.onError(it, isRefresh))
-    }
-}
-
-fun <T> Flow<T>.bindUiState(
-    isRefresh: Boolean = false, uiState: MutableLiveData<DataUiState<T>>, viewModel: ViewModel
-) {
-    viewModel.viewModelScope.launch {
-        this@bindUiState.bindUiState(isRefresh, uiState).collect {
-            uiState.postValue(DataUiState.onSuccess(it, isRefresh))
-        }
-    }
 }

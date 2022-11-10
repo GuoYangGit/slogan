@@ -12,17 +12,17 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeFragmentHomeBinding
 import com.huafang.mvvm.databinding.LayoutTextViewTabBinding
-import com.huafang.mvvm.ui.BaseBindingFragment
-import com.huafang.mvvm.util.ARouterUtils
+import com.huafang.mvvm.view.BaseBindingFragment
+import com.huafang.mvvm.util.ARouterNavigation
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * @author yang.guo on 2022/10/12
- * @describe
+ * @describe 首页
  */
 @AndroidEntryPoint
-@Route(path = ARouterUtils.PATH_HOME_FRAGMENT)
+@Route(path = ARouterNavigation.PATH_HOME_FRAGMENT)
 class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
     private val tabTitles by lazy {
         listOf(
@@ -37,7 +37,7 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
             // 设置ViewPager
             homeViewpager.run {
                 // 设置不可以滑动
-                isUserInputEnabled = false
+//                isUserInputEnabled = false
                 // 设置适配器
                 adapter = object : FragmentStateAdapter(childFragmentManager, lifecycle) {
                     override fun getItemCount(): Int = tabTitles.size
@@ -49,17 +49,6 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
                     }
                 }
             }
-            //使用.attach()将TabLayout和ViewPager2进行绑定,如果没有这步操作将不会联动
-            TabLayoutMediator(tabLayout, homeViewpager) { tab, position ->
-                tab.setCustomView<LayoutTextViewTabBinding> {
-                    val isSelect = position == 0
-                    tvTitle.text = tabTitles[position]
-                    tvTitle.textSize = 18f
-                    tvTitle.setTextColor(getCompatColor(if (isSelect) R.color.main_color else R.color.content_color))
-                    tvTitle.typeface = if (isSelect) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
-                }
-            }.attach()
-
             tabLayout.doOnCustomTabSelected<LayoutTextViewTabBinding>(
                 onTabSelected = {
                     tvTitle.setTextColor(getCompatColor(R.color.main_color))
@@ -70,6 +59,16 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
                     tvTitle.typeface = Typeface.DEFAULT
                 }
             )
+            //使用.attach()将TabLayout和ViewPager2进行绑定,如果没有这步操作将不会联动
+            TabLayoutMediator(tabLayout, homeViewpager) { tab, position ->
+                tab.setCustomView<LayoutTextViewTabBinding> {
+                    val isSelect = position == 0
+                    tvTitle.text = tabTitles[position]
+                    tvTitle.textSize = 18f
+                    tvTitle.setTextColor(getCompatColor(if (isSelect) R.color.main_color else R.color.content_color))
+                    tvTitle.typeface = if (isSelect) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+                }
+            }.attach()
         }
     }
 }

@@ -8,8 +8,8 @@ import java.io.IOException
 import java.lang.reflect.Type
 
 /***
- *
  * 网络统一业务处理解析类
+ * @author Yang.Guo on 2021/6/2.
  */
 @Parser(name = "Response")
 open class ResponseParser<T> : TypeParser<T> {

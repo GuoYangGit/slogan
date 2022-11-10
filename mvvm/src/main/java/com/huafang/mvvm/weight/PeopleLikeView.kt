@@ -5,26 +5,29 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dylanc.longan.dp
-import com.guoyang.base.weight.decoration.SpaceItemDecoration
+import com.guoyang.base.ext.bindBaseAdapter
+import com.guoyang.base.ext.divider
+import com.guoyang.base.ext.linear
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe
+ * @describe 用户点赞自定义View
  */
 class PeopleLikeView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) :
-    RecyclerView(context, attrs, defStyleAttr) {
+) : RecyclerView(context, attrs, defStyleAttr) {
     private val peopleLikeAdapter by lazy {
         PeopleLikeAdapter()
     }
 
     init {
-        adapter = peopleLikeAdapter
-        layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
-        addItemDecoration(SpaceItemDecoration(-4.dp.toInt(), 0))
+        linear(HORIZONTAL)
+            .divider {
+                setDivider(-4)
+            }
+            .bindBaseAdapter(peopleLikeAdapter)
     }
 
     fun setList(urls: List<String>) {

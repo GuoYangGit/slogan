@@ -1,19 +1,70 @@
 apply plugin: 'com.android.library'
-apply from: '../module.gradle'
 apply from: '../config.gradle'
 
 android {
     namespace 'com.huafang.mvvm'
+
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions { // Room导出Json文件
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    kapt {
+        arguments {
+            arg("rxhttp_package", "rxhttp")  //指定RxHttp类包名，可随意指定
+        }
+    }
 }
 
 dependencies {
+    implementation project(path: ':sdk-bugly')
+    //Log日志库
+    api 'com.github.GuoYangGit:XlogUtils:1.0.0'
+    api 'com.github.GuoYangGit:AndroidBase:1.0.0'
+    //网络请求 https://github.com/liujingxing/rxhttp
+    api "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
+    kapt "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"
+    api 'com.squareup.okhttp3:okhttp:4.10.0'
+    //本地存储MMKV https://dylancaicoding.github.io/MMKV-KTX/#/
+    api 'com.github.DylanCaiCoding:MMKV-KTX:1.2.14'
+    //本地存储Room https://developer.android.com/training/data-storage/room
+    def room_version = "2.4.3"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //App启动框架 https://github.com/DSAppTeam/Anchors/blob/master/README-zh.md
+    api 'com.github.DSAppTeam:Anchors:v1.1.7'
+    //图片加载 https://github.com/forJrking/ImageExt
+    api 'com.github.forJrking:ImageExt:0.0.4'
+    //Kotlin工具类 https://dylancaicoding.github.io/Longan/#/
+    api 'com.github.DylanCaiCoding.Longan:longan:1.1.1'
+    //屏幕适配框架 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
+    //图片选择库 https://github.com/LuckSiege/PictureSelector/blob/version_component/README_CN.md
+    // PictureSelector 基础 (必须)
+    api 'io.github.lucksiege:pictureselector:v3.10.6'
+    // 图片压缩 (按需引入)
+    api 'io.github.lucksiege:compress:v3.10.6'
+    // 图片裁剪 (按需引入)
+    api 'io.github.lucksiege:ucrop:v3.10.6'
+    //加载WebView https://github.com/Justson/AgentWeb
+    def agentweb_version = "v5.0.6-androidx"
+    api "com.github.Justson.AgentWeb:agentweb-core:$agentweb_version" //核心库
+    api "com.github.Justson.AgentWeb:agentweb-filechooser:$agentweb_version" //文件选择
+    api "com.github.Justson:Downloader:v5.0.4-androidx" //下载器
+    //BaseAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.8'
+    //标签生成shape https://github.com/JavaNoober/BackgroundLibrary
+    api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.1'
     //视图绑定ViewBinding https://dylancaicoding.github.io/ViewBindingKTX/#/
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:2.1.0'
-    //状态视图 https://dylancaicoding.github.io/LoadingStateView/#/
-//    api 'com.github.DylanCaiCoding.LoadingStateView:loadingstateview-ktx:4.0.2'H
-    api project(':loadingstateview-ktx')
+    //缺省页 https://liangjingkanji.github.io/StateLayout/
+    api 'com.github.liangjingkanji:StateLayout:1.3.11'
     //弹窗 https://github.com/li-xiaojun/XPopup
     api 'com.github.li-xiaojun:XPopup:2.9.1'
     //透明导航栏 https://github.com/Zackratos/UltimateBarX
@@ -22,5 +73,4 @@ dependencies {
     api 'com.github.zhpanvip:bannerviewpager:3.5.7'
     //Spannable构建工具 https://github.com/liangjingkanji/spannable
     api 'com.github.liangjingkanji:spannable:1.2.3'
-    api project(path: ':base')
 }

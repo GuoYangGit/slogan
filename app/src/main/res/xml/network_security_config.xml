@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- 指定Android9.0 http协议支持 -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates
+                overridePins="true"
+                src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+    <!--  配置数美允许明文传输-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">fengkongcloud.com</domain>
+    </domain-config>
+</network-security-config>

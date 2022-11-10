@@ -1,67 +1,73 @@
 package com.huafang.module_home.view
 
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.dylanc.longan.viewLifecycleScope
+import androidx.fragment.app.viewModels
+import com.dylanc.longan.launchAndCollectIn
 import com.guoyang.base.ext.bindBaseAdapter
-import com.huafang.module_home.adapter.RecommendAdapter
+import com.huafang.mvvm.ext.init
+import com.guoyang.base.ext.staggered
+import com.guoyang.base.state.asUiStateFlow
+import com.guoyang.base.state.bindLoading
+import com.guoyang.base.state.doSuccess
+import com.huafang.module_home.view.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
-import com.huafang.module_home.entity.RecommendEntity
-import com.huafang.mvvm.ui.BaseBindingFragment
-import com.luck.picture.lib.basic.PictureSelector
-import com.luck.picture.lib.config.SelectMimeType
+import com.huafang.module_home.viewmodel.RecommendViewModel
+import com.huafang.mvvm.state.bindUiState
+import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
+import javax.inject.Inject
 
 /**
  * @author yang.guo on 2022/10/14
- * @describe
+ * @describe 推荐页面
  */
 @AndroidEntryPoint
 class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
-    private val staggeredGridLayoutManager: StaggeredGridLayoutManager by lazy {
-        StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-    }
 
-    private val recommendAdapter: RecommendAdapter by lazy {
-        RecommendAdapter()
-    }
+    @Inject
+    lateinit var adapter: RecommendAdapter
+
+    private val recommendViewModel: RecommendViewModel by viewModels()
 
     override fun initView(savedInstanceState: Bundle?) {
-        binding.run {
-            //解决加载下一页后重新排列的问题
-            staggeredGridLayoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
-            val checkForGapMethod =
-                StaggeredGridLayoutManager::class.java.getDeclaredMethod("checkForGaps")
-            val markItemDecorInsetsDirtyMethod =
-                RecyclerView::class.java.getDeclaredMethod("markItemDecorInsetsDirty")
-            checkForGapMethod.isAccessible = true
-            markItemDecorInsetsDirtyMethod.isAccessible = true
-            recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-                    val result = checkForGapMethod.invoke(recyclerView.layoutManager) as Boolean
-                    //如果发生了重新排序，刷新itemDecoration
-                    if (result) {
-                        markItemDecorInsetsDirtyMethod.invoke(recyclerView)
-                    }
+        binding.apply {
+            recyclerView
+                .staggered(2)
+                .bindBaseAdapter(adapter)
+            refreshLayout
+                .init(
+                    recyclerView = recyclerView,
+                    stateLayout = stateLayout,
+                ) { isRefresh ->
+                    loadData(isRefresh)
                 }
-            })
-            recyclerView.bindBaseAdapter(staggeredGridLayoutManager, recommendAdapter)
         }
-
     }
 
     override fun lazyLoadData() {
-        viewLifecycleScope.async(Dispatchers.IO) {
-            PictureSelector.create(this@RecommendFragment)
-                .dataSource(SelectMimeType.ofImage())
-                .obtainMediaData {
-                    val list = it.map { RecommendEntity(url = it.path) }
-                    recommendAdapter.setList(list)
-                }
-        }
+        binding.stateLayout.showLoading()
+    }
+
+    private fun loadData(isRefresh: Boolean = true) {
+        recommendViewModel.getRecommendList(this@RecommendFragment)
+            .asUiStateFlow()
+            .launchAndCollectIn(viewLifecycleOwner) {
+                it.bindLoading(this@RecommendFragment)
+                    .bindUiState(
+                        isRefresh,
+                        10,
+                        binding.refreshLayout,
+                        adapter,
+                        binding.stateLayout
+                    )
+                    .doSuccess { list ->
+                        if (list == null) return@doSuccess
+                        if (isRefresh) {
+                            adapter.setDiffNewData(list.toMutableList())
+                        } else {
+                            adapter.addData(list)
+                        }
+                    }
+            }
     }
 }
