@@ -11,12 +11,6 @@ import com.guoyang.base.state.doSuccess
 import com.huafang.mvvm.ext.msg
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 15:07
- *  @description : [UiState]扩展类
- */
-
-/**
  * 绑定加载状态
  * @param isRefresh true:下拉刷新、false:上拉加载(默认为下拉刷新)
  * @param pageSize 每页数量(默认为10)

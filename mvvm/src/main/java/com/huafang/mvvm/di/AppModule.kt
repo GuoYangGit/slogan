@@ -5,8 +5,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
 /**
- *  @author yang.guo on 2022/10/26
- *  @description : App通用注入Module
+ * App通用注入Module
+ * @author yang.guo on 2022/10/26
  */
 @Module
 @InstallIn(SingletonComponent::class)

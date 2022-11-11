@@ -9,11 +9,6 @@ import com.drake.statelayout.StateLayout
 import com.guoyang.base.R
 
 /**
- * @author yang.guo on 2022/10/11
- * 刷新布局扩展类
- */
-
-/**
  * 初始化 SwipeRefreshLayout
  * @param colorID: 颜色资源
  * @param block: 刷新回调

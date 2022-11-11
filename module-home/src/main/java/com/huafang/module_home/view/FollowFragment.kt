@@ -2,10 +2,10 @@ package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
-import com.dylanc.longan.launchAndCollectIn
 import com.guoyang.base.ext.*
 import com.guoyang.base.state.asUiStateFlow
 import com.guoyang.base.state.doSuccess
+import com.guoyang.utils_helper.launchAndCollectIn
 import com.huafang.module_home.view.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
@@ -18,8 +18,8 @@ import javax.inject.Inject
 
 
 /**
- * @author yang.guo on 2022/10/12
  * 关注页面
+ * @author yang.guo on 2022/10/12
  */
 @AndroidEntryPoint
 class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {

@@ -8,8 +8,8 @@ import com.huafang.mvvm.entity.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * @author yang.guo on 2022/10/25
  * 用户Dao
+ * @author yang.guo on 2022/10/25
  */
 @Dao
 interface UserDao {

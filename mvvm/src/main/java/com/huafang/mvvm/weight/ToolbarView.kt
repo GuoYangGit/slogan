@@ -14,9 +14,8 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 16:11
- *  @description : 标题栏视图
+ * 标题栏视图
+ * @author yang.guo on 2022/10/14
  */
 var ToolbarConfig.rightTextColor: Int? by toolbarExtras()
 

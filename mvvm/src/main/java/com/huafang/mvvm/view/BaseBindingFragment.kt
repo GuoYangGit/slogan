@@ -11,9 +11,8 @@ import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.fragment.BaseFragment
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 10:36
- *  @description : Fragment封装基类
+ * Fragment封装基类
+ * @author yang.guo on 2022/10/13
  */
 abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(),
     FragmentBinding<VB> by FragmentBindingDelegate(), ILoading {

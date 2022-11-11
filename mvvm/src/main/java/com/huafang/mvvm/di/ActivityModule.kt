@@ -5,8 +5,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 
 /**
- * @author yang.guo on 2022/10/26
  * Activity通用注入Module
+ * @author yang.guo on 2022/10/26
  */
 @Module
 @InstallIn(ActivityComponent::class)

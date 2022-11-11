@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.text.style.StyleSpan
 import com.drake.spannable.addSpan
 import com.drake.spannable.span.ColorSpan
-import com.dylanc.longan.*
+import com.guoyang.utils_helper.*
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityVerificationCodeBinding
 import com.huafang.mvvm.view.BaseBindingActivity
@@ -20,7 +20,9 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class VerificationCodeActivity : BaseBindingActivity<LoginActivityVerificationCodeBinding>() {
-    private val phone: String? by intentExtras(KEY_PHONE)
+    private val phone: String by lazy {
+        intent.getStringExtra(KEY_PHONE) ?: ""
+    }
 
     companion object {
         private const val KEY_PHONE = "key_phone"

@@ -1,13 +1,12 @@
 package com.huafang.mvvm
 
-import com.dylanc.longan.isAppDebug
+import com.guoyang.utils_helper.isAppDebug
 import com.effective.android.anchors.*
 import com.guoyang.base.BaseApp
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 14:30
- *  @description : Application中间层
+ * Application中间层
+ * @author yang.guo on 2022/11/4
  */
 open class MvvmApplication : BaseApp() {
 

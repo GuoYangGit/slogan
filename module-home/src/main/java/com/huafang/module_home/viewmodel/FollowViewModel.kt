@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * @author yang.guo on 2022/10/14
  * 关注ViewModel
+ * @author yang.guo on 2022/10/14
  */
 @HiltViewModel
 class FollowViewModel @Inject constructor(private val followRepository: FollowRepository) :

@@ -6,9 +6,9 @@ import androidx.core.widget.doOnTextChanged
 import com.drake.spannable.movement.ClickableMovementMethod
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
-import com.dylanc.longan.doOnClick
-import com.dylanc.longan.getCompatColor
-import com.dylanc.longan.toast
+import com.guoyang.utils_helper.doOnClick
+import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.utils_helper.toast
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityPhoneLoginBinding
 import com.huafang.mvvm.repository.UserRepository
@@ -18,8 +18,8 @@ import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * @author yang.guo on 2022/10/17
  * 手机号登陆页面
+ * @author yang.guo on 2022/10/17
  */
 @AndroidEntryPoint
 class PhoneLoginActivity : BaseBindingActivity<LoginActivityPhoneLoginBinding>() {

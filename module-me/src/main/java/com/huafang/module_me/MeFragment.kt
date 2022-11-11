@@ -2,7 +2,7 @@ package com.huafang.module_me
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.dylanc.longan.doOnClick
+import com.guoyang.utils_helper.doOnClick
 import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_me.databinding.MeFragmentMeBinding
 import com.huafang.mvvm.view.BaseBindingFragment

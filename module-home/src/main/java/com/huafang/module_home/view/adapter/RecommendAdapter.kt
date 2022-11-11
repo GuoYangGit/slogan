@@ -6,11 +6,11 @@ import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
-import com.dylanc.longan.dp
-import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.brvah.getBinding
 import com.github.forjrking.image.loadRoundCornerImage
-import com.guoyang.loghelper.xLogD
+import com.guoyang.utils_helper.dp
+import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.xloghelper.xLogD
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemRecommendBinding
 import com.huafang.module_home.entity.RecommendEntity
@@ -19,8 +19,8 @@ import javax.inject.Inject
 
 
 /**
- * @author yang.guo on 2022/10/15
  * 推荐列表适配器
+ * @author yang.guo on 2022/10/15
  */
 class RecommendAdapter @Inject constructor() :
     BaseQuickAdapter<RecommendEntity, BaseViewHolder>(R.layout.home_item_recommend),

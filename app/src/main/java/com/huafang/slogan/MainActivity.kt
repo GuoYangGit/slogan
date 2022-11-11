@@ -3,10 +3,10 @@ package com.huafang.slogan
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
+import com.guoyang.utils_helper.getCompatColor
 import com.huafang.mvvm.ComplianceInit
 import com.huafang.mvvm.view.BaseBindingActivity
 import com.huafang.mvvm.util.ARouterNavigation
@@ -16,18 +16,21 @@ import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- *  @author yang.guo
- *  @date 2022/10/10 17:14
- *  @description 首页
+ * 首页
+ * @author yang.guo on 2022/10/25
  */
 @AndroidEntryPoint
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
-    // 首页TabTitle
+    /**
+     * 首页TabTitle
+     */
     private val tabTitle = listOf(
         R.string.navigation_home, R.string.navigation_message, R.string.navigation_me
     )
 
-    // 首页TabImages
+    /**
+     * 首页TabImages
+     */
     private val tabImage = listOf(
         R.drawable.menu_home,
         R.drawable.menu_message,

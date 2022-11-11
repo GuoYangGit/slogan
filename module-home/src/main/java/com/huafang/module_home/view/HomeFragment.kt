@@ -5,10 +5,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
+import com.guoyang.utils_helper.getCompatColor
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeFragmentHomeBinding
 import com.huafang.mvvm.databinding.LayoutTextViewTabBinding
@@ -18,8 +18,8 @@ import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
+ * 首页Fragment
  * @author yang.guo on 2022/10/12
- * 首页
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_HOME_FRAGMENT)

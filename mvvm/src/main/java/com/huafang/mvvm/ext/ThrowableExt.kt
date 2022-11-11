@@ -9,10 +9,8 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 
-/***
- *
- * 网络错误扩展类
- * @author Yang.Guo on 2021/6/2.
+/**
+ * 异常扩展 code
  */
 val Throwable.code: Int
     get() {
@@ -25,6 +23,9 @@ val Throwable.code: Int
         return errorCode
     }
 
+/**
+ * 异常扩展 msg
+ */
 val Throwable.msg: String
     get() {
         return when (this) {

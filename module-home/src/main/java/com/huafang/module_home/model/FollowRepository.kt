@@ -9,8 +9,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * @author yang.guo on 2022/10/14
  * 关注列表的数据处理类
+ * @author yang.guo on 2022/10/14
  */
 @Singleton
 class FollowRepository @Inject constructor() {

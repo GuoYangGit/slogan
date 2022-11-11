@@ -8,13 +8,13 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.drake.spannable.movement.ClickableMovementMethod
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
-import com.dylanc.longan.dp
-import com.dylanc.longan.getCompatColor
-import com.dylanc.longan.screenWidth
-import com.dylanc.longan.toast
 import com.dylanc.viewbinding.brvah.getBinding
 import com.guoyang.base.ext.getDateStr
-import com.guoyang.loghelper.xLogD
+import com.guoyang.utils_helper.dp
+import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.utils_helper.screenWidth
+import com.guoyang.utils_helper.toast
+import com.guoyang.xloghelper.xLogD
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeItemContentBinding
 import com.huafang.module_home.entity.ContentEntity
@@ -26,8 +26,8 @@ import javax.inject.Inject
 
 
 /**
- * @author yang.guo on 2022/10/14
  * 用户发布内容Item适配器
+ * @author yang.guo on 2022/10/14
  */
 class ContentAdapter @Inject constructor() :
     BaseQuickAdapter<ContentEntity, BaseViewHolder>(R.layout.home_item_content), LoadMoreModule {

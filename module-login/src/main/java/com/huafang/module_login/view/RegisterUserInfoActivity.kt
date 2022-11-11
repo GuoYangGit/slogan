@@ -2,8 +2,8 @@ package com.huafang.module_login.view
 
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
-import com.dylanc.longan.doOnClick
-import com.dylanc.longan.startActivity
+import com.guoyang.utils_helper.doOnClick
+import com.guoyang.utils_helper.startActivity
 import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginRegisterUserInfoBinding

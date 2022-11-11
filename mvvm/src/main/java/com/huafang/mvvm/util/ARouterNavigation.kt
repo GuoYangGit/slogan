@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
 
 /**
+ *  [ARouter]的工具类
  * @author yang.guo on 2022/10/13
- * [ARouter]的工具类
  */
 object ARouterNavigation {
     const val PATH_HOME_FRAGMENT = "/home/HomeFragment"

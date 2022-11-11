@@ -3,15 +3,15 @@ package com.huafang.mvvm.weight
 import androidx.recyclerview.widget.DiffUtil
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.dylanc.longan.getCompatColor
 import com.dylanc.viewbinding.brvah.getBinding
 import com.github.forjrking.image.loadCircleImage
+import com.guoyang.utils_helper.getCompatColor
 import com.huafang.mvvm.R
 import com.huafang.mvvm.databinding.ItemPeopleLikeBinding
 
 /**
- * @author yang.guo on 2022/10/14
  * 用户头像Adapter
+ * @author yang.guo on 2022/10/14
  */
 class PeopleLikeAdapter : BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_people_like) {
     init {

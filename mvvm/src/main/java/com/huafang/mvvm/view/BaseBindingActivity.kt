@@ -7,9 +7,8 @@ import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.activity.BaseActivity
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 10:34
- *  @description : Activity封装基类
+ * Activity封装基类
+ * @author yang.guo on 2022/10/13
  */
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
     ActivityBinding<VB> by ActivityBindingDelegate(), ILoading {

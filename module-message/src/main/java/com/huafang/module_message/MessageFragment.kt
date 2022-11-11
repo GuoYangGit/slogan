@@ -2,7 +2,7 @@ package com.huafang.module_message
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.guoyang.loghelper.xLogD
+import com.guoyang.xloghelper.xLogD
 import com.huafang.module_message.databinding.MessageFragmentMessageBinding
 import com.huafang.mvvm.view.BaseBindingFragment
 import com.huafang.mvvm.util.ARouterNavigation

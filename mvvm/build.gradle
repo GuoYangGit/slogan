@@ -22,9 +22,13 @@ android {
 
 dependencies {
     implementation project(path: ':sdk-bugly')
-    //Log日志库
-    api 'com.github.GuoYangGit:XlogUtils:1.0.0'
+    def android_utils = "0.01-snapshot"
+    // 框架基础库
     api 'com.github.GuoYangGit:AndroidBase:1.0.0'
+    //Log日志库
+    api "com.github.GuoYangGit.AndroidUtils:xloghelper:$android_utils"
+    //Kotlin工具类 https://dylancaicoding.github.io/Longan/#/
+    api "com.github.GuoYangGit.AndroidUtils:utils-helper:$android_utils"
     //网络请求 https://github.com/liujingxing/rxhttp
     api "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
     kapt "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"
@@ -40,8 +44,6 @@ dependencies {
     api 'com.github.DSAppTeam:Anchors:v1.1.7'
     //图片加载 https://github.com/forJrking/ImageExt
     api 'com.github.forJrking:ImageExt:0.0.4'
-    //Kotlin工具类 https://dylancaicoding.github.io/Longan/#/
-    api 'com.github.DylanCaiCoding.Longan:longan:1.1.1'
     //屏幕适配框架 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
     //图片选择库 https://github.com/LuckSiege/PictureSelector/blob/version_component/README_CN.md

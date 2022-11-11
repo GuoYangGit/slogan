@@ -8,8 +8,8 @@ import com.guoyang.base.ext.divider
 import com.guoyang.base.ext.linear
 
 /**
- * @author yang.guo on 2022/10/14
  * 用户点赞自定义View
+ * @author yang.guo on 2022/10/14
  */
 class PeopleLikeView @JvmOverloads constructor(
     context: Context,

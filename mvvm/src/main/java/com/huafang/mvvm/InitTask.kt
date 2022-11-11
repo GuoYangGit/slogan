@@ -2,23 +2,21 @@ package com.huafang.mvvm
 
 import android.content.Context
 import android.widget.TextView
-import androidx.lifecycle.ProcessLifecycleOwner
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.Registry
 import com.chad.library.adapter.base.module.LoadMoreModuleConfig
 import com.drake.statelayout.StateConfig
-import com.dylanc.longan.*
+import com.guoyang.utils_helper.*
 import com.effective.android.anchors.task.Task
 import com.effective.android.anchors.task.TaskCreator
 import com.effective.android.anchors.task.project.Project
 import com.github.forjrking.image.core.ImageOptions
 import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
-import com.guoyang.loghelper.LogHelper
-import com.guoyang.loghelper.xLogD
-import com.guoyang.base.AppLifeObserver
+import com.guoyang.xloghelper.LogHelper
+import com.guoyang.xloghelper.xLogD
 import com.huafang.mvvm.weight.CustomLoadMoreView
 import okhttp3.OkHttpClient
 import rxhttp.RxHttpPlugins
@@ -26,11 +24,6 @@ import rxhttp.wrapper.ssl.HttpsUtils
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLSession
-
-/**
- * @author yang.guo on 2022/10/13
- * 第三方Application初始化工具类
- */
 
 const val TASK_APP_INIT = "task_app_init"
 const val TASK_NET_INIT = "task_net_init"
@@ -56,8 +49,8 @@ class AppInitTask : Task(TASK_APP_INIT) {
 
 /**
  * 初始化网络请求
- * @param id 任务ID
- * @param isAsyncTask 是否异步执行,默认为false
+ * @constructor id 任务ID
+ * @constructor isAsyncTask 是否异步执行,默认为false
  */
 class NetInitTask : Task(id = TASK_NET_INIT, isAsyncTask = true) {
     override fun run(name: String) {
