@@ -4,8 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 /**
- * @author yang.guo on 2022/11/7
  * 话题bean
+ * @author yang.guo on 2022/11/7
  */
 @Parcelize
 data class TopicBean(

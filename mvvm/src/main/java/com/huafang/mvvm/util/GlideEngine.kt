@@ -10,7 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.huafang.mvvm.R
 
 /**
- * [Glide]加载引擎
+ * 图片选择库 [Glide] 加载引擎
  * @author yang.guo on 2022/10/13
  */
 class GlideEngine private constructor() : ImageEngine {

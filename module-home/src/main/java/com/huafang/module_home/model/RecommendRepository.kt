@@ -22,12 +22,16 @@ import javax.inject.Singleton
 @Singleton
 class RecommendRepository @Inject constructor() {
 
-    fun getRecommendList(fragment: Fragment): Flow<List<RecommendEntity>> {
+    fun getRecommendList(fragment: Fragment, index: Int): Flow<List<RecommendEntity>> {
         return callbackFlow {
             PictureSelector.create(fragment)
                 .dataSource(SelectMimeType.ofImage())
-                .obtainMediaData {
-                    val list: List<RecommendEntity> = it.map { RecommendEntity(url = it.path) }
+                .obtainMediaData { result ->
+                    val list: List<RecommendEntity> = if (index == 0) {
+                        List(10) { RecommendEntity(url = result.first().path) }
+                    } else {
+                        List(5) { RecommendEntity(url = result.first().path) }
+                    }
                     trySendBlocking(list)
                 }
             awaitClose { }

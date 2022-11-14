@@ -4,14 +4,13 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.guoyang.base.ext.*
 import com.guoyang.base.state.asUiStateFlow
+import com.guoyang.base.state.doError
 import com.guoyang.base.state.doSuccess
 import com.guoyang.utils_helper.launchAndCollectIn
+import com.guoyang.xloghelper.xLogD
 import com.huafang.module_home.view.adapter.ContentAdapter
 import com.huafang.module_home.databinding.HomeFragmentFollowBinding
 import com.huafang.module_home.viewmodel.FollowViewModel
-import com.huafang.mvvm.ext.bindBaseAdapter
-import com.huafang.mvvm.ext.init
-import com.huafang.mvvm.state.bindUiState
 import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -33,42 +32,29 @@ class FollowFragment : BaseBindingFragment<HomeFragmentFollowBinding>() {
             recyclerView
                 .linear()
                 .divider { setDivider(6) }
-                .bindBaseAdapter(this@FollowFragment.adapter)
-            refreshLayout
-                .init(
-                    recyclerView = recyclerView,
-                    stateLayout = stateLayout
-                ) { isRefresh ->
-                    loadData(isRefresh)
-                }
+                .adapter = this@FollowFragment.adapter
+            pageLayout.onRefresh {
+                xLogD("onRefresh")
+                loadData(this.index)
+            }
         }
     }
 
     override fun lazyLoadData() {
-        binding.stateLayout.showLoading()
+        binding.pageLayout.refreshing()
     }
 
-    private fun loadData(isRefresh: Boolean = true) {
-        requestReadOrWritePermissions { allGranted, _, _ ->
-            if (!allGranted) return@requestReadOrWritePermissions
-            followViewModel.getFollowList()
-                .asUiStateFlow()
-                .launchAndCollectIn(viewLifecycleOwner) {
-                    it.bindUiState(
-                        isRefresh,
-                        10,
-                        binding.refreshLayout,
-                        adapter,
-                        binding.stateLayout
-                    ).doSuccess { list ->
-                        if (list == null) return@doSuccess
-                        if (isRefresh) {
-                            adapter.setDiffNewData(list.toMutableList())
-                        } else {
-                            adapter.addData(list)
-                        }
+    private fun loadData(index: Int = 0) {
+        followViewModel.getFollowList(index)
+            .asUiStateFlow()
+            .launchAndCollectIn(viewLifecycleOwner) {
+                it.doSuccess { list ->
+                    binding.pageLayout.addData(list) {
+                        (list?.size ?: 0) == 10
                     }
+                }.doError { throwable ->
+                    binding.pageLayout.showError(throwable.message)
                 }
-        }
+            }
     }
 }

@@ -3,16 +3,17 @@ package com.huafang.slogan
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.utils_helper.immersive
 import com.huafang.mvvm.ComplianceInit
 import com.huafang.mvvm.view.BaseBindingActivity
 import com.huafang.mvvm.util.ARouterNavigation
 import com.huafang.slogan.databinding.ActivityMainBinding
 import com.huafang.slogan.databinding.LayoutBottomTabBinding
-import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -20,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @author yang.guo on 2022/10/25
  */
 @AndroidEntryPoint
+@Route(path = ARouterNavigation.PATH_MAIN_ACTIVITY)
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     /**
      * 首页TabTitle
@@ -38,13 +40,8 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     )
 
     override fun initView(savedInstanceState: Bundle?) {
-        statusBarOnly {
-            // 设置状态栏字体颜色
-            light = true
-            // 设置状态栏为透明色
-            transparent()
-        }
         binding.run {
+            immersive(darkMode = true)
             // 设置ViewPager
             mainViewpager.run {
                 // 设置不可以滑动
@@ -76,7 +73,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
                 }
             }.attach()
         }
-        "".toIntOrNull()
         ComplianceInit.init()
     }
 }

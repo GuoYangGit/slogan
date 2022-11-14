@@ -2,6 +2,7 @@ package com.huafang.mvvm
 
 import com.guoyang.utils_helper.internalCacheDirPath
 
+// <editor-fold desc="App常量类">
 
 /**
  * 日志解析公钥
@@ -18,3 +19,5 @@ val LOG_PATH by lazy { "$internalCacheDirPath/mars" }
  * 网络请求BaseUrl
  */
 const val HTTP_BASE_URL = "https://wanandroid.com/"
+
+// </editor-fold>

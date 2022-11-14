@@ -8,13 +8,12 @@ import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
 import com.guoyang.utils_helper.doOnClick
 import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.utils_helper.immersive
 import com.guoyang.utils_helper.toast
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityPhoneLoginBinding
 import com.huafang.mvvm.repository.UserRepository
 import com.huafang.mvvm.view.BaseBindingActivity
-import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
-import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -24,14 +23,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class PhoneLoginActivity : BaseBindingActivity<LoginActivityPhoneLoginBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
-        statusBarOnly {
-            // 设置状态栏字体颜色
-            light = true
-            // 设置状态栏为透明色
-            transparent()
-        }
         binding.run {
-            tvTitle.addStatusBarTopPadding()
+            immersive(darkMode = true)
             changeBtn()
             ivClear.doOnClick {
                 etPhone.setText("")

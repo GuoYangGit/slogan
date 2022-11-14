@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.huafang.mvvm.entity.UserEntity
 
 /**
- * App存储Room数据库
+ * App 存储 [Room] 数据库
  * @author yang.guo on 2022/10/25
  */
 @Database(entities = [UserEntity::class], version = 1)

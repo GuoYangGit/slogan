@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.dylanc.viewbinding.base.FragmentBinding
-import com.dylanc.viewbinding.base.FragmentBindingDelegate
 import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.fragment.BaseFragment
+import com.guoyang.viewbinding_helper.FragmentBinding
+import com.guoyang.viewbinding_helper.FragmentBindingDelegate
 
 /**
  * Fragment封装基类

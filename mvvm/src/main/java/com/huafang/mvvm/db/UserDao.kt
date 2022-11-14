@@ -8,7 +8,7 @@ import com.huafang.mvvm.entity.UserEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * 用户Dao
+ * 用户 Dao
  * @author yang.guo on 2022/10/25
  */
 @Dao

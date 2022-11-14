@@ -1,32 +1,28 @@
 package com.huafang.mvvm.state
 
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.module.LoadMoreModule
 import com.drake.statelayout.StateLayout
 import com.guoyang.base.state.IPageSate
 import com.guoyang.base.state.UiState
 import com.guoyang.base.state.doError
 import com.guoyang.base.state.doSuccess
 import com.huafang.mvvm.ext.msg
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
 
 /**
  * 绑定加载状态
- * @param isRefresh true:下拉刷新、false:上拉加载(默认为下拉刷新)
  * @param pageSize 每页数量(默认为10)
- * @param swipeRefreshLayout 下拉刷新控件
- * @param adapter [BaseQuickAdapter]适配器
- * @param stateLayout 状态布局
+ * @param smartRefreshLayout [SmartRefreshLayout] 下拉刷新|上拉加载更多控件
+ * @param stateLayout [StateLayout] 状态布局
  */
 fun <T> UiState<T>.bindUiState(
-    isRefresh: Boolean = true,
-    pageSize: Int = 10,
-    swipeRefreshLayout: SwipeRefreshLayout? = null,
-    adapter: BaseQuickAdapter<*, *>? = null,
+    smartRefreshLayout: SmartRefreshLayout? = null,
     stateLayout: StateLayout? = null,
+    pageSize: Int = 10,
 ): UiState<T> {
-    // 判断是否有加载更多功能
-    val isLoadMore = adapter is LoadMoreModule
+    // 判断当前是否为刷新状态
+    val isRefresh = smartRefreshLayout?.isRefreshing ?: false
+    // 判断当前是否为加载更多状态
+    val isLoadMore = smartRefreshLayout?.isLoading ?: false
     this.doSuccess { // 请求成功
         // 判断数据是否为空
         val isEmpty = when (it) {
@@ -54,29 +50,29 @@ fun <T> UiState<T>.bindUiState(
         }
         when {
             isRefresh -> { // 下拉刷新
-                swipeRefreshLayout?.isRefreshing = false
                 if (isEmpty) {
                     stateLayout?.showEmpty()
                 } else {
                     stateLayout?.showContent()
                 }
+                smartRefreshLayout?.finishRefresh()
             }
             isLoadMore -> { // 上拉加载更多
-                if (!isEmpty && hasMore) {
-                    adapter?.loadMoreModule?.loadMoreComplete()
-                } else {
-                    adapter?.loadMoreModule?.loadMoreEnd()
-                }
                 stateLayout?.showContent()
+                if (!isEmpty && hasMore) {
+                    smartRefreshLayout?.finishLoadMore()
+                } else {
+                    smartRefreshLayout?.finishLoadMoreWithNoMoreData()
+                }
             }
         }
     }.doError { throwable ->
         when {
             isRefresh -> {
-                swipeRefreshLayout?.isRefreshing = false
+                smartRefreshLayout?.finishRefresh(false)
             }
             isLoadMore -> {
-                adapter?.loadMoreModule?.loadMoreFail()
+                smartRefreshLayout?.finishLoadMore(false)
             }
         }
         stateLayout?.showError(throwable.msg)

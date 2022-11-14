@@ -10,8 +10,8 @@ import com.huafang.mvvm.weight.richinput.RichInputTextView
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * @author yang.guo on 2022/10/12
  * 消息页面
+ * @author yang.guo on 2022/10/12
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_Message_FRAGMENT)

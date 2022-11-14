@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.HomeFragment">
+    android:layout_height="match_parent">
 
-    <com.drake.statelayout.StateLayout
-        android:id="@+id/state_layout"
+    <com.drake.brv.PageRefreshLayout
+        android:id="@+id/page_layout"
+        app:stateEnabled="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/refresh_layout"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F7F7F7" />
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </com.drake.statelayout.StateLayout>
+            android:background="#F7F7F7" />
+    </com.drake.brv.PageRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

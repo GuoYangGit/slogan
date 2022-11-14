@@ -1,8 +1,6 @@
 package com.huafang.mvvm.weight
 
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.dylanc.viewbinding.brvah.getBinding
+import com.drake.brv.BindingAdapter
 import com.github.forjrking.image.loadImage
 import com.huafang.mvvm.R
 import com.huafang.mvvm.databinding.ItemImageAdapterBinding
@@ -30,16 +28,12 @@ class BannerImageAdapter : BaseBannerAdapter<String>() {
 /**
  * ViewPager图片适配器
  */
-class ViewPagerImageAdapter :
-    BaseQuickAdapter<String, BaseViewHolder>(
-        R.layout.item_image_adapter
-    ) {
-    override fun convert(
-        holder: BaseViewHolder,
-        item: String
-    ) {
-        holder.getBinding(ItemImageAdapterBinding::bind).run {
-            imageView.loadImage(item)
+class ViewPagerImageAdapter : BindingAdapter() {
+    init {
+        addType<String>(R.layout.item_image_adapter)
+        onBind {
+            val binding = getBinding<ItemImageAdapterBinding>()
+            binding.imageView.loadImage(getModel<String>())
         }
     }
 }

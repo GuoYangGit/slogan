@@ -22,58 +22,65 @@ android {
 
 dependencies {
     implementation project(path: ':sdk-bugly')
-    def android_utils = "0.01-snapshot"
+    def android_utils = "0.0.2-snapshot"
     // 框架基础库
-    api 'com.github.GuoYangGit:AndroidBase:1.0.0'
-    //Log日志库
+    api "com.github.GuoYangGit.AndroidUtils:base:$android_utils"
+    // Log日志库
     api "com.github.GuoYangGit.AndroidUtils:xloghelper:$android_utils"
-    //Kotlin工具类 https://dylancaicoding.github.io/Longan/#/
+    // Kotlin工具类
     api "com.github.GuoYangGit.AndroidUtils:utils-helper:$android_utils"
-    //网络请求 https://github.com/liujingxing/rxhttp
+    // 视图绑定ViewBinding
+    api "com.github.GuoYangGit.AndroidUtils:viewbinding-helper:$android_utils"
+    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
+    // 网络请求 https://github.com/liujingxing/rxhttp
     api "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
     kapt "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"
     api 'com.squareup.okhttp3:okhttp:4.10.0'
-    //本地存储MMKV https://dylancaicoding.github.io/MMKV-KTX/#/
+    // 本地存储MMKV https://dylancaicoding.github.io/MMKV-KTX/#/
     api 'com.github.DylanCaiCoding:MMKV-KTX:1.2.14'
-    //本地存储Room https://developer.android.com/training/data-storage/room
+    // 本地存储Room https://developer.android.com/training/data-storage/room
     def room_version = "2.4.3"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    //App启动框架 https://github.com/DSAppTeam/Anchors/blob/master/README-zh.md
+    // App启动框架 https://github.com/DSAppTeam/Anchors/blob/master/README-zh.md
     api 'com.github.DSAppTeam:Anchors:v1.1.7'
-    //图片加载 https://github.com/forJrking/ImageExt
+    // 图片加载 https://github.com/forJrking/ImageExt
     api 'com.github.forJrking:ImageExt:0.0.4'
-    //屏幕适配框架 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    // 屏幕适配框架 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
-    //图片选择库 https://github.com/LuckSiege/PictureSelector/blob/version_component/README_CN.md
+    // 图片选择库 https://github.com/LuckSiege/PictureSelector/blob/version_component/README_CN.md
     // PictureSelector 基础 (必须)
     api 'io.github.lucksiege:pictureselector:v3.10.6'
     // 图片压缩 (按需引入)
     api 'io.github.lucksiege:compress:v3.10.6'
     // 图片裁剪 (按需引入)
     api 'io.github.lucksiege:ucrop:v3.10.6'
-    //加载WebView https://github.com/Justson/AgentWeb
+    // 加载WebView https://github.com/Justson/AgentWeb
     def agentweb_version = "v5.0.6-androidx"
     api "com.github.Justson.AgentWeb:agentweb-core:$agentweb_version" //核心库
     api "com.github.Justson.AgentWeb:agentweb-filechooser:$agentweb_version" //文件选择
     api "com.github.Justson:Downloader:v5.0.4-androidx" //下载器
-    //BaseAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.8'
-    //标签生成shape https://github.com/JavaNoober/BackgroundLibrary
+    // 标签生成shape https://github.com/JavaNoober/BackgroundLibrary
     api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.1'
-    //视图绑定ViewBinding https://dylancaicoding.github.io/ViewBindingKTX/#/
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-brvah:2.1.0'
-    //缺省页 https://liangjingkanji.github.io/StateLayout/
-    api 'com.github.liangjingkanji:StateLayout:1.3.11'
-    //弹窗 https://github.com/li-xiaojun/XPopup
+    // 弹窗 https://github.com/li-xiaojun/XPopup
     api 'com.github.li-xiaojun:XPopup:2.9.1'
-    //透明导航栏 https://github.com/Zackratos/UltimateBarX
-    api 'com.gitee.zackratos:UltimateBarX:0.8.0'
-    //轮播图 https://github.com/zhpanvip/BannerViewPager
+    // 轮播图 https://github.com/zhpanvip/BannerViewPager
     api 'com.github.zhpanvip:bannerviewpager:3.5.7'
-    //Spannable构建工具 https://github.com/liangjingkanji/spannable
+    // BaseAdapter https://liangjingkanji.github.io/BRV/
+    api 'com.github.liangjingkanji:BRV:1.3.85'
+    // 缺省页 https://liangjingkanji.github.io/StateLayout/
+    api 'com.github.liangjingkanji:StateLayout:1.3.11'
+    // Spannable构建工具 https://github.com/liangjingkanji/spannable
     api 'com.github.liangjingkanji:spannable:1.2.3'
+    // 计时器 https://github.com/liangjingkanji/Interval
+    api 'com.github.liangjingkanji:Interval:1.0.1'
+    // Android事件分发框架 https://github.com/liangjingkanji/Channel
+    api 'com.github.liangjingkanji:Channel:1.1.5'
+    //核心必须依赖
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'
+    //经典刷新头
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'
+    //经典加载
+    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'
 }

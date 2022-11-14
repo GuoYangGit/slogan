@@ -4,13 +4,21 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
 
 /**
- *  [ARouter]的工具类
+ * [ARouter]的工具类
  * @author yang.guo on 2022/10/13
  */
 object ARouterNavigation {
+    const val PATH_MAIN_ACTIVITY = "/main/MainActivity"
     const val PATH_HOME_FRAGMENT = "/home/HomeFragment"
     const val PATH_Message_FRAGMENT = "/message/MessageFragment"
     const val PATH_Me_FRAGMENT = "/me/MeFragment"
+
+    /**
+     * 跳转到主页面
+     */
+    fun toMainActivity() {
+        ARouter.getInstance().build(PATH_MAIN_ACTIVITY).navigation()
+    }
 
     /**
      * 跳转首页Fragment

@@ -1,10 +1,10 @@
 package com.huafang.mvvm.view
 
 import androidx.viewbinding.ViewBinding
-import com.dylanc.viewbinding.base.ActivityBinding
-import com.dylanc.viewbinding.base.ActivityBindingDelegate
 import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.activity.BaseActivity
+import com.guoyang.viewbinding_helper.ActivityBinding
+import com.guoyang.viewbinding_helper.ActivityBindingDelegate
 
 /**
  * Activity封装基类

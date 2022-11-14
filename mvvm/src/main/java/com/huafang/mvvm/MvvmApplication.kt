@@ -12,6 +12,7 @@ open class MvvmApplication : BaseApp() {
 
     override fun onCreate() {
         super.onCreate()
+        // 创建初始化任务
         AnchorsManager.getInstance()
             .debuggable { isAppDebug }
             .taskFactory { AppTaskFactory() }

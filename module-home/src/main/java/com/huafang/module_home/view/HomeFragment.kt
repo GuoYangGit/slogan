@@ -9,12 +9,12 @@ import com.dylanc.viewbinding.doOnCustomTabSelected
 import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.utils_helper.statusPadding
 import com.huafang.module_home.R
 import com.huafang.module_home.databinding.HomeFragmentHomeBinding
 import com.huafang.mvvm.databinding.LayoutTextViewTabBinding
 import com.huafang.mvvm.view.BaseBindingFragment
 import com.huafang.mvvm.util.ARouterNavigation
-import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -33,7 +33,7 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.run {
-            homeTitleLayout.addStatusBarTopPadding()
+            homeTitleLayout.statusPadding()
             // 设置ViewPager
             homeViewpager.run {
                 // 设置不可以滑动

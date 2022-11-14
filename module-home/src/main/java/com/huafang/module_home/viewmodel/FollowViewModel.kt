@@ -18,7 +18,7 @@ class FollowViewModel @Inject constructor(private val followRepository: FollowRe
     /**
      * 获取关注列表页面
      */
-    fun getFollowList(): Flow<List<ContentEntity>> {
-        return followRepository.getFollowList()
+    fun getFollowList(index: Int): Flow<List<ContentEntity>> {
+        return followRepository.getFollowList(index)
     }
 }

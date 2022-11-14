@@ -14,8 +14,8 @@ import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * @author yang.guo on 2022/10/12
  * 我的页面
+ * @author yang.guo on 2022/10/12
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_Me_FRAGMENT)

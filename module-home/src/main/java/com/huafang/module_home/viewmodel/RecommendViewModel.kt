@@ -16,7 +16,7 @@ import javax.inject.Inject
 class RecommendViewModel @Inject constructor(private val recommendRepository: RecommendRepository) :
     BaseViewModel() {
 
-    fun getRecommendList(fragment: Fragment): Flow<List<RecommendEntity>> {
-        return recommendRepository.getRecommendList(fragment)
+    fun getRecommendList(fragment: Fragment, index: Int): Flow<List<RecommendEntity>> {
+        return recommendRepository.getRecommendList(fragment, index)
     }
 }
