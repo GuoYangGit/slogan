@@ -1,28 +1,28 @@
 package com.guoyang.sdk_file_transfer
 
 /**
- * @author yang.guo on 2022/11/3
  * 文件操作接口
  */
 interface ITransfer {
 
     /**
-     * 取消下载
+     * 取消下载/上传
      */
     fun cancel()
 
     /**
-     * 暂停下载
+     * 暂停下载/上传
      */
     fun pause()
 
     /**
-     * 恢复下载
+     * 恢复下载/上传
      */
     fun resume()
 
     /**
      * 获取当前状态
+     * @return 当前状态 [FileTransferState]
      */
     fun getCurrentState(): FileTransferState
 }

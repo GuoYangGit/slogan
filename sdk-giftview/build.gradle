@@ -37,6 +37,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-    implementation "io.github.tencent:vap:2.0.27"
+    //播放mp4动画 https://github.com/Tencent/vap
+    api "io.github.tencent:vap:2.0.27"
 }

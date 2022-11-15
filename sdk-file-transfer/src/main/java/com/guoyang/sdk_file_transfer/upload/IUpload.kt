@@ -4,8 +4,8 @@ import com.guoyang.sdk_file_transfer.ITransfer
 import com.guoyang.sdk_file_transfer.ITransferCallback
 
 /**
+ * 上传文件接口类
  * @author yang.guo on 2022/11/3
- * 上传接口类
  */
 interface IUpload : ITransfer {
 

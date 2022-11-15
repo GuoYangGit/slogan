@@ -1,8 +1,7 @@
 package com.guoyang.sdk_file_transfer
 
 /**
- * @author yang.guo on 2022/11/3
- * 文件操作状态
+ * 文件操作状态枚举类
  */
 enum class FileTransferState {
     IDLE,// 默认状态
@@ -13,39 +12,33 @@ enum class FileTransferState {
     PAUSED,// 暂停
 }
 
+/**
+ * 文件操作状态数据类
+ * @constructor transfer 文件操作接口实现类
+ */
 sealed class TransferStateData(val transfer: ITransfer) {
+    /**
+     * 加载状态
+     * @constructor transfer 文件操作接口实现类，progress 进度
+     */
     class Loading(transfer: ITransfer, val progress: Int) : TransferStateData(transfer)
+
+    /**
+     * 成功状态
+     * @constructor transfer 文件操作接口实现类，fileUrl 远程文件路径，filePath 本地文件路径
+     */
     class Success(transfer: ITransfer, val fileUrl: String, val filePath: String) :
         TransferStateData(transfer)
 
+    /**
+     * 失败状态
+     * @constructor transfer 文件操作接口实现类
+     */
     class Failed(transfer: ITransfer) : TransferStateData(transfer)
+
+    /**
+     * 取消状态
+     * @constructor transfer 文件操作接口实现类
+     */
     class Canceled(transfer: ITransfer) : TransferStateData(transfer)
-}
-
-fun TransferStateData.doOnLoading(block: (ITransfer, Int) -> Unit): TransferStateData {
-    if (this is TransferStateData.Loading) {
-        block(transfer, progress)
-    }
-    return this
-}
-
-fun TransferStateData.doOnSuccess(block: (ITransfer, String, String) -> Unit): TransferStateData {
-    if (this is TransferStateData.Success) {
-        block(transfer, fileUrl, filePath)
-    }
-    return this
-}
-
-fun TransferStateData.doOnFailed(block: (ITransfer) -> Unit): TransferStateData {
-    if (this is TransferStateData.Failed) {
-        block(transfer)
-    }
-    return this
-}
-
-fun TransferStateData.doOnCanceled(block: (ITransfer) -> Unit): TransferStateData {
-    if (this is TransferStateData.Canceled) {
-        block(transfer)
-    }
-    return this
 }

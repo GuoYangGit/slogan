@@ -4,18 +4,18 @@ import com.guoyang.sdk_file_transfer.download.IDownload
 import com.guoyang.sdk_file_transfer.upload.IUpload
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.transform
+import kotlinx.coroutines.flow.*
 
 /**
- * @author yang.guo on 2022/11/3
  * 文件上传/下载扩展类(Flow调用形式)
  */
 fun <T : ITransfer> Flow<T>.asTransferStateFlow(filePath: String): Flow<TransferStateData> {
-    return this.transform { it.asFlow(filePath) }
+    return this.flatMapConcat { it.asFlow(filePath) }
 }
 
+/**
+ * 文件上传/下载扩展类(Flow调用形式)
+ */
 fun <T : ITransfer> T.asFlow(filePath: String): Flow<TransferStateData> {
     return callbackFlow {
         val callback = object : ITransferCallback {
@@ -51,4 +51,44 @@ fun <T : ITransfer> T.asFlow(filePath: String): Flow<TransferStateData> {
         }
         awaitClose {}
     }
+}
+
+/**
+ * [TransferStateData] 扩展函数, 判断当前是否加载状态
+ */
+fun TransferStateData.doOnLoading(block: (transfer: ITransfer, progress: Int) -> Unit): TransferStateData {
+    if (this is TransferStateData.Loading) {
+        block(transfer, progress)
+    }
+    return this
+}
+
+/**
+ * [TransferStateData] 扩展函数, 判断当前是否成功状态
+ */
+fun TransferStateData.doOnSuccess(block: (transfer: ITransfer, fileUrl: String, filePath: String) -> Unit): TransferStateData {
+    if (this is TransferStateData.Success) {
+        block(transfer, fileUrl, filePath)
+    }
+    return this
+}
+
+/**
+ * [TransferStateData] 扩展函数, 判断当前是否失败状态
+ */
+fun TransferStateData.doOnFailed(block: (transfer: ITransfer) -> Unit): TransferStateData {
+    if (this is TransferStateData.Failed) {
+        block(transfer)
+    }
+    return this
+}
+
+/**
+ * [TransferStateData] 扩展函数, 判断当前是否取消状态
+ */
+fun TransferStateData.doOnCanceled(block: (transfer: ITransfer) -> Unit): TransferStateData {
+    if (this is TransferStateData.Canceled) {
+        block(transfer)
+    }
+    return this
 }

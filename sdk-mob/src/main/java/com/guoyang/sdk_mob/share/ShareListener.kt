@@ -1,8 +1,8 @@
 package com.guoyang.sdk_mob.share
 
 /**
+ * 分享回调接口
  * @author yang.guo on 2022/11/2
- * 分享接口
  */
 interface ShareListener {
     /**

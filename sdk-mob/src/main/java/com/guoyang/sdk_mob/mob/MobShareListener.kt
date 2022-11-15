@@ -1,4 +1,4 @@
-package com.guoyang.sdk_mob.share.mob
+package com.guoyang.sdk_mob.mob
 
 import cn.sharesdk.framework.Platform
 import cn.sharesdk.framework.PlatformActionListener
@@ -6,8 +6,8 @@ import com.guoyang.sdk_mob.share.ShareListener
 import java.util.HashMap
 
 /**
+ * Mob平台分享回调实现类
  * @author yang.guo on 2022/11/2
- * Mob平台分享监听实现类
  */
 internal class MobShareListener(private val listener: ShareListener) :
     PlatformActionListener {

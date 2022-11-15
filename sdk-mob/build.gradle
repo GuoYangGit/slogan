@@ -50,6 +50,7 @@ dependencies {
 MobSDK {
     appKey "36df15d52c7ef"
     appSecret "0f8844d00cb570612d36b36d0239b3ce"
+    // 运营商秒验 https://www.mob.com/wiki/detailed?wiki=216&id=78
     SecVerify {}
 
     ShareSDK {

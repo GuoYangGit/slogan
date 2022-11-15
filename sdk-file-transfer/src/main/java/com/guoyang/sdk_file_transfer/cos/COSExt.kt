@@ -1,6 +1,5 @@
 package com.guoyang.sdk_file_transfer.cos
 
-import android.content.Context
 import com.guoyang.sdk_file_transfer.FileTransferHelper
 import com.guoyang.sdk_file_transfer.FileTransferState
 import com.guoyang.sdk_file_transfer.ITransferCallback
@@ -16,10 +15,6 @@ import com.tencent.cos.xml.transfer.TransferState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-/**
- * @author yang.guo on 2022/11/3
- * 腾讯云对象存储任务扩展类
- */
 /**
  * 扩展方法，腾讯云对象存储任务回调绑定
  */
@@ -78,18 +73,24 @@ inline fun <T : COSXMLTask> T.bindListener(
     return this
 }
 
-fun Flow<COSConfig>.asUploadFlow(context: Context): Flow<IUpload> {
+/**
+ * Flow<COSConfig> 扩展方法，转换为 Flow<COSUploadTask>
+ */
+fun Flow<COSConfig>.asUploadFlow(): Flow<IUpload> {
     return this.map { config ->
         FileTransferHelper.createUploadTask {
-            COSUploadTask(context, config)
+            COSUploadTask(config)
         }
     }
 }
 
-fun Flow<COSConfig>.asDownloadFlow(context: Context): Flow<IDownload> {
+/**
+ * Flow<COSConfig> 扩展方法，转换为 Flow<COSDownloadTask>
+ */
+fun Flow<COSConfig>.asDownloadFlow(): Flow<IDownload> {
     return this.map { config ->
         FileTransferHelper.createDownloadTask {
-            COSDownloadTask(context, config)
+            COSDownloadTask(config)
         }
     }
 }

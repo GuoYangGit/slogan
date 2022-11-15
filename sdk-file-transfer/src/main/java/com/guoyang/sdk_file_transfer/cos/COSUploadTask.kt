@@ -1,17 +1,17 @@
 package com.guoyang.sdk_file_transfer.cos
 
-import android.content.Context
+import com.guoyang.sdk_file_transfer.FileTransferHelper
 import com.guoyang.sdk_file_transfer.ITransferCallback
 import com.guoyang.sdk_file_transfer.FileTransferState
 import com.guoyang.sdk_file_transfer.upload.IUpload
 import com.tencent.cos.xml.transfer.COSXMLUploadTask
 
 /**
- * @author yang.guo on 2022/11/3
  * 腾讯云上传任务类
+ * @author yang.guo on 2022/11/3
  */
-class COSUploadTask(context: Context, private val config: COSConfig) : IUpload {
-    private val appContext = context.applicationContext
+class COSUploadTask(private val config: COSConfig) : IUpload {
+    private val appContext = FileTransferHelper.appContext
 
     // 上传任务
     private var uploadTask: COSXMLUploadTask? = null
