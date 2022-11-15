@@ -2,41 +2,40 @@
 
 > 本项目使用`Kotlin`语言编写，项目框架使用`MVVM+组件化`形式。
 
-## 目录结构
+## 知识储备
 
-- `App`  入口模块
-- `module-xxx` 业务功能模块
-- `sdk-xxx` 基础功能模块
-- `mvvm` 中间架构模块
+> 在项目编写代码前，需要对项目使用的技术点进行提前的了解和掌握，下面罗列一些必须掌握的技术点。
 
-## Android版本适配
+| 技术点   | 推荐文章                                         |
+| -------- | ------------------------------------------------ |
+| `kotlin` | [官方文档](https://developer.android.com/kotlin) |
+| `TheRouter` | [没错，TheRouter 是我写的](https://juejin.cn/post/7140153936295493668) |
+| `Hilt` | [官方文档](https://developer.android.com/training/dependency-injection/hilt-android) |
+| `Lifecycle` | [“终于懂了“系列：Jetpack AAC完整解析（一）Lifecycle 完全掌握！](https://juejin.cn/post/6893870636733890574) |
+| `LiveData` | [“终于懂了“系列：Jetpack AAC完整解析（二）LiveData 完全掌握！](https://juejin.cn/post/6903143273737814029/) |
+| `ViewModel` | [““终于懂了“系列：Jetpack AAC完整解析（三）ViewModel 完全掌握！](https://juejin.cn/post/6915012483421831175) |
+| `MVVM` | [“终于懂了“系列：Jetpack AAC完整解析（四）MVVM - Android架构探索！](https://juejin.cn/post/6921321173661777933) |
+| `ROOM` | [官方文档](https://developer.android.com/training/data-storage/room) |
+| `Flow` | [Jetpack 系列（4）—— 有小伙伴说看不懂 LiveData、Flow、Channel，跟我走](https://juejin.cn/post/7077149853876224013) |
 
-具体查看 [Android版本适配](./版本适配) 文档
+待补充...
 
-> 其主要适配是权限类，本框架已经集成 [PermissionX](https://github.com/guolindev/PermissionX) 进行适配
+## 项目结构
 
-## 三方依赖
+- `app`  入口模块
+- `module-xxx` [业务功能模块](./module/业务模块指南.md)
+- `mvvm` [中间架构模块](./module/架构模块指南.md)
+- `sdk-xxx` [基础功能模块](./module/基础模块指南.md)
 
-### MVVM 模块
 
-| 依赖                                                         | 描述                      |
-| :----------------------------------------------------------- | ------------------------- |
-| XlogUtils                                                    | Log日志库                 |
-| AndroidBase                                                  | 基层Base库                |
-| [rxhttp](https://github.com/liujingxing/rxhttp)              | 网络请求库                |
-| [MMKV](https://dylancaicoding.github.io/MMKV-KTX/#/)         | 本地存储方案(MMKV)        |
-| [Anchors](https://github.com/DSAppTeam/Anchors/blob/master/README-zh.md) | App启动框架               |
-| [ImageExt](https://github.com/forJrking/ImageExt)            | 图片加载库(基于Glide封装) |
-| [Longan](https://dylancaicoding.github.io/Longan/#/)         | Kotlin工具类              |
-| [AndroidAutoSize](https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md) | 屏幕适配框架              |
-| [PictureSelector](https://github.com/LuckSiege/PictureSelector/blob/version_component/README_CN.md) | 图片选择库                |
-| [AgentWeb](https://github.com/Justson/AgentWeb)              | WebView加载库             |
-| [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md) | RecyclerViewAdapter       |
-| [BackgroundLibrary](https://github.com/JavaNoober/BackgroundLibrary) | 标签生成shape             |
-| [ViewBindingKTX](https://dylancaicoding.github.io/ViewBindingKTX/#/) | 视图绑定ViewBinding       |
-| [StateLayout](https://liangjingkanji.github.io/StateLayout/) | 缺省页                    |
-| [XPopup](https://github.com/li-xiaojun/XPopup)               | 弹窗                      |
-| [UltimateBarX](https://github.com/Zackratos/UltimateBarX)    | 透明导航栏                |
-| [BannerViewPager](https://github.com/zhpanvip/BannerViewPager) | 轮播图                    |
-| [spannable](https://github.com/liangjingkanji/spannable)     | Spannable构建工具         |
 
+## 编码指南
+
+该文章讲述了业务功能如何快速实现，包括常用的功能介绍。[点此查看](./代码编写指南.md)
+
+## 其他指南
+
+- [6.0动态权限申请](./other/动态权限申请.md)
+- [项目Gradle配置](./other/Gradle.md)
+- [Android 版本适配](./other/版本适配.md)
+- [代码规范](./other/代码规范.md)

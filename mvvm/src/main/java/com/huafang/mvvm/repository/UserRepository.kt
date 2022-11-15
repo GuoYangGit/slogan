@@ -24,4 +24,11 @@ object UserRepository : MMKVOwner {
      * 登陆用户信息
      */
     var user by mmkvParcelable<UserEntity>()
+
+//    fun clear() {
+//        // 对象进行删除值操作
+//        kv.removeValueForKey(::isShowAgreement.name)
+//        // 清理缓存
+//        kv.clearAll()
+//    }
 }

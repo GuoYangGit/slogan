@@ -1,6 +1,12 @@
 apply plugin: 'com.android.library'
 apply from: '../config.gradle'
-apply from: '../dokka.gradle'
+apply plugin: 'org.jetbrains.dokka'
+
+dokkaHtml {
+    outputDirectory.set(file("$rootDir/docs/api/mvvm"))
+    suppressInheritedMembers.set(true)
+    moduleName.set("Mvvm")
+}
 
 android {
     namespace 'com.huafang.mvvm'
@@ -23,13 +29,13 @@ android {
 dependencies {
     implementation project(path: ':sdk-bugly')
     def android_utils = "0.0.2-snapshot"
-    // 框架基础库
+    // 框架基础库 https://guoyanggit.github.io/AndroidUtils/base/
     api "com.github.GuoYangGit.AndroidUtils:base:$android_utils"
-    // Log日志库
+    // Log日志库 https://guoyanggit.github.io/AndroidUtils/xlog-helper/
     api "com.github.GuoYangGit.AndroidUtils:xloghelper:$android_utils"
-    // Kotlin工具类
+    // Kotlin工具类 https://guoyanggit.github.io/AndroidUtils/utils-helper/
     api "com.github.GuoYangGit.AndroidUtils:utils-helper:$android_utils"
-    // 视图绑定ViewBinding
+    // 视图绑定ViewBinding https://guoyanggit.github.io/AndroidUtils/viewbinding-helper/
     api "com.github.GuoYangGit.AndroidUtils:viewbinding-helper:$android_utils"
     api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
     // 网络请求 https://github.com/liujingxing/rxhttp

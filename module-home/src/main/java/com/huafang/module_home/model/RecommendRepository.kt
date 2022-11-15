@@ -2,6 +2,7 @@ package com.huafang.module_home.model
 
 import androidx.fragment.app.Fragment
 import com.huafang.module_home.entity.RecommendEntity
+import com.huafang.mvvm.db.AppDatabase
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +21,7 @@ import javax.inject.Singleton
  * @author yang.guo on 2022/10/25
  */
 @Singleton
-class RecommendRepository @Inject constructor() {
+class RecommendRepository @Inject constructor(appDatabase: AppDatabase) {
 
     fun getRecommendList(fragment: Fragment, index: Int): Flow<List<RecommendEntity>> {
         return callbackFlow {
