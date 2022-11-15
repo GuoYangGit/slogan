@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: '../config.gradle'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'com.huafang.module_me'
@@ -7,6 +8,11 @@ android {
 }
 
 dependencies {
-    //引入基础组件库
+    // 引入基础组件库
     implementation project(path: ':mvvm')
+    // 礼物播放库
+    implementation project(path: ':sdk-giftview')
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }

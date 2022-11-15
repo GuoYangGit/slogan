@@ -8,11 +8,12 @@ import com.tencent.cos.xml.transfer.TransferConfig
 import com.tencent.cos.xml.transfer.TransferManager
 import com.tencent.qcloud.core.auth.BasicLifecycleCredentialProvider
 import com.tencent.qcloud.core.auth.SessionQCloudCredentials
+import com.tencent.qcloud.core.auth.ShortTimeCredentialProvider
 import kotlinx.parcelize.Parcelize
 
 /**
- * @author yang.guo on 2022/11/3
  * 腾讯云对象存储管理类
+ * @author yang.guo on 2022/11/3
  */
 object COSTransferManager {
 
@@ -23,13 +24,16 @@ object COSTransferManager {
      */
     fun createTransferManager(context: Context, config: COSConfig): TransferManager {
         // 创建临时密钥
-        val provider = object : BasicLifecycleCredentialProvider() {
-            override fun fetchNewCredentials(): SessionQCloudCredentials {
-                return SessionQCloudCredentials(
-                    config.secretId, config.secretKey, config.token, config.expiredTime
-                )
-            }
-        }
+//        val provider = object : BasicLifecycleCredentialProvider() {
+//            override fun fetchNewCredentials(): SessionQCloudCredentials {
+//                return SessionQCloudCredentials(
+//                    config.secretId, config.secretKey, config.token, config.expiredTime
+//                )
+//            }
+//        }
+        // 创建永久密钥
+        val provider =
+            ShortTimeCredentialProvider(config.secretId, config.secretKey, config.expiredTime)
         // 创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
         val serviceConfig = CosXmlServiceConfig.Builder().setRegion(config.region) // 设置一个默认的存储桶地域
             .isHttps(true) // 使用 https 请求, 默认 http 请求
@@ -58,6 +62,6 @@ data class COSConfig(
     val region: String = DEFAULT_REGION, // 存储桶所在地域
 ) : Parcelable {
     companion object {
-        const val DEFAULT_REGION = "ap-guangzhou"
+        const val DEFAULT_REGION = "ap-beijing"
     }
 }

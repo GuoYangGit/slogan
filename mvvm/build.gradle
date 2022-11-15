@@ -28,7 +28,8 @@ android {
 
 dependencies {
     implementation project(path: ':sdk-bugly')
-    def android_utils = "0.0.2-snapshot"
+    api project(path: ':sdk-file-transfer')
+    def android_utils = "0.0.3-snapshot"
     // 框架基础库 https://guoyanggit.github.io/AndroidUtils/base/
     api "com.github.GuoYangGit.AndroidUtils:base:$android_utils"
     // Log日志库 https://guoyanggit.github.io/AndroidUtils/xlog-helper/
@@ -37,7 +38,6 @@ dependencies {
     api "com.github.GuoYangGit.AndroidUtils:utils-helper:$android_utils"
     // 视图绑定ViewBinding https://guoyanggit.github.io/AndroidUtils/viewbinding-helper/
     api "com.github.GuoYangGit.AndroidUtils:viewbinding-helper:$android_utils"
-    api 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-ktx:2.1.0'
     // 网络请求 https://github.com/liujingxing/rxhttp
     api "com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version"
     kapt "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"

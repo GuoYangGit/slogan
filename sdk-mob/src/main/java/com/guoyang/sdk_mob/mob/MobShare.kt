@@ -1,4 +1,4 @@
-package com.guoyang.sdk_mob.share.mob
+package com.guoyang.sdk_mob.mob
 
 import android.content.Context
 import cn.sharesdk.framework.Platform
@@ -11,12 +11,13 @@ import com.guoyang.sdk_mob.share.*
 import com.mob.MobSDK
 
 /**
+ * Mob分享实现类
  * @author yang.guo on 2022/11/2
- *
  */
 internal object MobShare : IShare {
     /**
-     * 初始化分享
+     * 初始化分享(请务必在用户授权《隐私政策》后再初始化)
+     * @param context 上下文 [Context]
      */
     override fun init(context: Context) {
         // 合规指南，用户同意隐私协议后调用

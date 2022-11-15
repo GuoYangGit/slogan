@@ -1,12 +1,13 @@
 package com.guoyang.sdk_mob.login
 
 /**
+ * 登录回调接口
  * @author yang.guo on 2022/11/2
- * 登录接口
  */
 interface LoginListener {
     /**
      * 登录成功
+     * @param data 登录数据 [LoginData]
      */
     fun onComplete(data: LoginData)
 

@@ -10,16 +10,16 @@ import java.io.IOException
 
 
 /**
- * @author yang.guo on 2022/11/2
  * Bugly崩溃上报实现类
+ * @author yang.guo on 2022/11/2
  * https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=1.0.0
  */
 internal object BuglyCrash : ICrash {
 
     /**
      * 初始化(请务必在用户授权《隐私政策》后再初始化)
-     * @param context 上下文
-     * @param config 崩溃上报配置
+     * @param context 上下文 [Context]
+     * @param config 崩溃上报配置 [CrashConfig]
      */
     override fun init(context: Context, config: CrashConfig.() -> Unit) {
         val crashConfig = CrashConfig().apply(config)
@@ -50,6 +50,7 @@ internal object BuglyCrash : ICrash {
 
     /**
      * 设置用户ID
+     * @param userId 用户ID
      */
     override fun setUserId(userId: String) {
         CrashReport.setUserId(userId)
@@ -57,7 +58,6 @@ internal object BuglyCrash : ICrash {
 
     /**
      * 获取进程号对应的进程名
-     *
      * @param pid 进程号
      * @return 进程名
      */

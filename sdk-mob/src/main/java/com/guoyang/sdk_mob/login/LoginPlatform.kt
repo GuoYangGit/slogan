@@ -4,17 +4,16 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 /**
- * @author yang.guo on 2022/11/2
- * 登录平台相关信息
- */
-
-/**
  * 登录平台枚举
  */
 enum class LoginPlatform {
-    WECHAT, QQ, AUTH_PHONE
+    WECHAT, // 微信
+    QQ, // QQ
 }
 
+/**
+ * 登陆数据实体类
+ */
 @Parcelize
 data class LoginData(
     val userId: String, // 用户id

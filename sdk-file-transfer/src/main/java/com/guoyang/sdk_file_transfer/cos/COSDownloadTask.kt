@@ -1,22 +1,26 @@
 package com.guoyang.sdk_file_transfer.cos
 
-import android.content.Context
+import com.guoyang.sdk_file_transfer.FileTransferHelper
 import com.guoyang.sdk_file_transfer.ITransferCallback
 import com.guoyang.sdk_file_transfer.FileTransferState
 import com.guoyang.sdk_file_transfer.download.IDownload
 import com.tencent.cos.xml.transfer.COSXMLDownloadTask
 
 /**
- * @author yang.guo on 2022/11/3
  * 腾讯云下载任务类
+ * @author yang.guo on 2022/11/3
  */
-class COSDownloadTask(context: Context, private val config: COSConfig) : IDownload {
-    private val appContext = context.applicationContext
+class COSDownloadTask(private val config: COSConfig) : IDownload {
+    private val appContext = FileTransferHelper.appContext
 
-    // 下载任务
+    /**
+     * 下载任务
+     */
     private var downloadTask: COSXMLDownloadTask? = null
 
-    // 当前状态
+    /**
+     * 当前状态
+     */
     private var currentState: FileTransferState = FileTransferState.IDLE
 
     override fun download(filePath: String, callback: ITransferCallback) {

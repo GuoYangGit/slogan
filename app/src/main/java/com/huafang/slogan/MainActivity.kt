@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.dylanc.viewbinding.doOnCustomTabSelected
-import com.dylanc.viewbinding.setCustomView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.guoyang.utils_helper.getCompatColor
 import com.guoyang.utils_helper.immersive
+import com.guoyang.viewbinding_helper.doOnCustomTabSelected
+import com.guoyang.viewbinding_helper.setCustomView
 import com.huafang.mvvm.ComplianceInit
 import com.huafang.mvvm.view.BaseBindingActivity
 import com.huafang.mvvm.util.ARouterNavigation
