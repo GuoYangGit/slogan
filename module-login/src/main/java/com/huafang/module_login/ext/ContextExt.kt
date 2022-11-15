@@ -6,12 +6,8 @@ import com.huafang.mvvm.repository.UserRepository
 import com.lxj.xpopup.XPopup
 
 /**
- * @author yang.guo on 2022/10/17
- * 关于[Context]扩展类
- */
-
-/**
  * 显示用户协议/隐私弹窗
+ * @param block 用户点击同意后的回调
  */
 fun Context.showAgreementDialog(block: (agree: Boolean) -> Unit) {
     if (UserRepository.isShowAgreement) return

@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 /**
- * @author yang.guo on 2022/10/14
  * 用户信息实体类
+ * @author yang.guo on 2022/10/14
  */
 @Parcelize
 @Entity(tableName = "user_entity")

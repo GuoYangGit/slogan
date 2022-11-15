@@ -34,10 +34,13 @@ docs_dir: 'docs' # 文档路径
 # 导航
 nav:
   - 首页: index.md
-  - 代码编写: 代码编写指南.md
-  - 基础模块: 基础模块指南.md
-  - 业务模块: 业务模块指南.md
-  - 权限申请: 动态权限申请.md
-  - Gradle: Gradle.md
-  - 版本适配: 版本适配.md
-  - 代码规范: 代码规范.md
+  - 快速开始: 代码编写指南.md
+  - 模块说明:
+    - 架构模块: ./module/架构模块指南.md
+    - 基础模块: ./module/基础模块指南.md
+    - 业务模块: ./module/业务模块指南.md
+  - 其他:
+      - 权限申请: ./other/动态权限申请.md
+      - Gradle配置: ./other/Gradle.md
+      - 版本适配: ./other/版本适配.md
+      - 代码规范: ./other/代码规范.md

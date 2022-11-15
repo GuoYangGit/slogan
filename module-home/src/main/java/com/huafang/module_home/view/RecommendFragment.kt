@@ -2,24 +2,22 @@ package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
-import com.dylanc.longan.launchAndCollectIn
-import com.huafang.mvvm.ext.bindBaseAdapter
-import com.huafang.mvvm.ext.init
+import com.guoyang.base.ext.requestReadOrWritePermissions
 import com.guoyang.base.ext.staggered
 import com.guoyang.base.state.asUiStateFlow
-import com.guoyang.base.state.bindLoading
+import com.guoyang.base.state.doError
 import com.guoyang.base.state.doSuccess
+import com.guoyang.utils_helper.launchAndCollectIn
 import com.huafang.module_home.view.adapter.RecommendAdapter
 import com.huafang.module_home.databinding.HomeFragmentRecommendBinding
 import com.huafang.module_home.viewmodel.RecommendViewModel
-import com.huafang.mvvm.state.bindUiState
 import com.huafang.mvvm.view.BaseBindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 /**
+ * 推荐页面Fragment
  * @author yang.guo on 2022/10/14
- * 推荐页面
  */
 @AndroidEntryPoint
 class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
@@ -33,41 +31,31 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
         binding.apply {
             recyclerView
                 .staggered(2)
-                .bindBaseAdapter(adapter)
-            refreshLayout
-                .init(
-                    recyclerView = recyclerView,
-                    stateLayout = stateLayout,
-                ) { isRefresh ->
-                    loadData(isRefresh)
-                }
+                .adapter = this@RecommendFragment.adapter
+            pageLayout.onRefresh {
+                loadData(index)
+            }
         }
     }
 
     override fun lazyLoadData() {
-        binding.stateLayout.showLoading()
+        binding.pageLayout.refreshing()
     }
 
-    private fun loadData(isRefresh: Boolean = true) {
-        recommendViewModel.getRecommendList(this@RecommendFragment)
-            .asUiStateFlow()
-            .launchAndCollectIn(viewLifecycleOwner) {
-                it.bindLoading(this@RecommendFragment)
-                    .bindUiState(
-                        isRefresh,
-                        10,
-                        binding.refreshLayout,
-                        adapter,
-                        binding.stateLayout
-                    )
-                    .doSuccess { list ->
-                        if (list == null) return@doSuccess
-                        if (isRefresh) {
-                            adapter.setDiffNewData(list.toMutableList())
-                        } else {
-                            adapter.addData(list)
+    private fun loadData(index: Int = 0) {
+        requestReadOrWritePermissions { allGranted, _, _ ->
+            if (!allGranted) return@requestReadOrWritePermissions
+            recommendViewModel.getRecommendList(this@RecommendFragment, index)
+                .asUiStateFlow()
+                .launchAndCollectIn(viewLifecycleOwner) {
+                    it.doSuccess { list ->
+                        binding.pageLayout.addData(list) {
+                            (list?.size ?: 0) == 10
                         }
+                    }.doError { throwable ->
+                        binding.pageLayout.showError(throwable.message)
                     }
-            }
+                }
+        }
     }
 }

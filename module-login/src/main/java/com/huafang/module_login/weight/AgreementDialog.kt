@@ -4,10 +4,10 @@ import android.content.Context
 import com.drake.spannable.movement.ClickableMovementMethod
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
-import com.dylanc.longan.doOnClick
-import com.dylanc.longan.getCompatColor
-import com.dylanc.longan.getString
-import com.dylanc.longan.toast
+import com.guoyang.utils_helper.doOnClick
+import com.guoyang.utils_helper.getCompatColor
+import com.guoyang.utils_helper.getString
+import com.guoyang.utils_helper.toast
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginDialogAgreementBinding
 import com.lxj.xpopup.core.CenterPopupView

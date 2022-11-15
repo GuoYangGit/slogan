@@ -9,21 +9,21 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * @author yang.guo on 2022/10/14
  * 关注列表的数据处理类
+ * @author yang.guo on 2022/10/14
  */
 @Singleton
 class FollowRepository @Inject constructor() {
     /**
      * 获取关注列表页面数据
      */
-    fun getFollowList(): Flow<List<ContentEntity>> {
+    fun getFollowList(index: Int): Flow<List<ContentEntity>> {
         return flow {
-            val result = listOf(
-                ContentEntity(),
-                ContentEntity(),
-                ContentEntity()
-            )
+            val result = if (index == 0) {
+                List(10) { ContentEntity() }
+            } else {
+                List(5) { ContentEntity() }
+            }
             emit(result)
         }.onEach {
             delay(1000)

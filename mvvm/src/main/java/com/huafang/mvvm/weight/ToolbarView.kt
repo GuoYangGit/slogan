@@ -8,18 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.guoyang.utils_helper.statusPadding
 import com.huafang.mvvm.databinding.LayoutToolbarBinding
-import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
+import com.huafang.mvvm.databinding.LayoutToolbarBinding.*
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-/**
- *  @author : yang.guo
- *  @date : 2022/10/11 16:11
- *  @description : 标题栏视图
- */
+// <editor-fold desc="标题栏视图扩展属性">
 var ToolbarConfig.rightTextColor: Int? by toolbarExtras()
 
+// </editor-fold>
+
+/**
+ * 标题栏视图
+ * @author yang.guo on 2022/10/14
+ */
 class ToolbarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -28,11 +31,14 @@ class ToolbarView @JvmOverloads constructor(
     private val binding: LayoutToolbarBinding
 
     init {
-        binding = LayoutToolbarBinding.inflate(LayoutInflater.from(context), this, false)
-        binding.root.addStatusBarTopPadding()
+        binding = inflate(LayoutInflater.from(context), this, false)
         addView(binding.root)
     }
 
+    /**
+     * 设置标题栏配置
+     * @param apply 配置信息
+     */
     fun setToolbar(apply: ToolbarConfig.() -> Unit) {
         val config = ToolbarConfig()
         config.apply(apply)
@@ -85,10 +91,16 @@ class ToolbarView @JvmOverloads constructor(
     }
 }
 
+/**
+ * 标题栏左侧配置枚举
+ */
 enum class NavBtnType {
     ICON, TEXT, ICON_TEXT, NONE
 }
 
+/**
+ * 标题栏配置类
+ */
 class ToolbarConfig(
     var title: String? = null, // 标题
     var navBtnType: NavBtnType = NavBtnType.ICON, // 显示模式
@@ -149,6 +161,9 @@ class ToolbarConfig(
     }
 }
 
+/**
+ * 标题栏扩展属性
+ */
 fun <T> toolbarExtras() = object : ReadWriteProperty<ToolbarConfig, T?> {
     @Suppress("UNCHECKED_CAST")
     override fun getValue(thisRef: ToolbarConfig, property: KProperty<*>): T? =

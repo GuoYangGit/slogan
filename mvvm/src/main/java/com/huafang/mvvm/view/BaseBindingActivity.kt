@@ -1,15 +1,14 @@
 package com.huafang.mvvm.view
 
 import androidx.viewbinding.ViewBinding
-import com.dylanc.viewbinding.base.ActivityBinding
-import com.dylanc.viewbinding.base.ActivityBindingDelegate
 import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.activity.BaseActivity
+import com.guoyang.viewbinding_helper.ActivityBinding
+import com.guoyang.viewbinding_helper.ActivityBindingDelegate
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 10:34
- *  @description : Activity封装基类
+ * Activity封装基类
+ * @author yang.guo on 2022/10/13
  */
 abstract class BaseBindingActivity<VB : ViewBinding> : BaseActivity(),
     ActivityBinding<VB> by ActivityBindingDelegate(), ILoading {

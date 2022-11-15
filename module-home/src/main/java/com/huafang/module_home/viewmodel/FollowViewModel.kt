@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * @author yang.guo on 2022/10/14
  * 关注ViewModel
+ * @author yang.guo on 2022/10/14
  */
 @HiltViewModel
 class FollowViewModel @Inject constructor(private val followRepository: FollowRepository) :
@@ -18,7 +18,7 @@ class FollowViewModel @Inject constructor(private val followRepository: FollowRe
     /**
      * 获取关注列表页面
      */
-    fun getFollowList(): Flow<List<ContentEntity>> {
-        return followRepository.getFollowList()
+    fun getFollowList(index: Int): Flow<List<ContentEntity>> {
+        return followRepository.getFollowList(index)
     }
 }

@@ -6,18 +6,24 @@ import android.view.animation.Transformation
 
 
 /**
+ * 可展开收起的TextView的动画类
  * @author yang.guo on 2022/11/7
- *
  */
 internal class ExpandCollapseAnimation(target: View, startHeight: Int, endHeight: Int) :
     Animation() {
-    //动画执行view
+    /**
+     * 动画执行view
+     */
     private val mTargetView: View
 
-    //动画执行的开始高度
+    /**
+     * 动画执行的开始高度
+     */
     private val mStartHeight: Int
 
-    //动画结束后的高度
+    /**
+     * 动画结束后的高度
+     */
     private val mEndHeight: Int
 
     init {

@@ -7,12 +7,7 @@ import com.huafang.mvvm.R
 import com.huafang.mvvm.entity.UserEntity
 
 /**
- * @author yang.guo on 2022/10/18
- * 图片加载扩展类
- */
-
-/**
- * 加载用户头像
+ * [ImageView] 扩展方法 加载用户头像
  * @param url 头像地址
  * @param sex 用户性别
  * @param borderWidth 边框宽度

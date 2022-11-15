@@ -4,42 +4,37 @@ import android.os.Bundle
 import com.drake.spannable.movement.ClickableMovementMethod
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
-import com.dylanc.longan.doOnClick
-import com.dylanc.longan.getCompatColor
-import com.dylanc.longan.toast
+import com.guoyang.utils_helper.*
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityOneKeyLoginBinding
 import com.huafang.module_login.ext.showAgreementDialog
 import com.huafang.mvvm.repository.UserRepository
 import com.huafang.mvvm.view.BaseBindingActivity
-import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * @author yang.guo on 2022/10/17
  * 一键登陆页面
+ * @author yang.guo on 2022/10/17
  */
 @AndroidEntryPoint
 class OneKeyLoginActivity : BaseBindingActivity<LoginActivityOneKeyLoginBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
+        // 显示用户协议弹窗
         showAgreementDialog { agreement ->
             binding.ivAgreement.isEnabled = agreement
         }
-        statusBarOnly {
-            // 设置状态栏字体颜色
-            light = true
-            // 设置状态栏为透明色
-            transparent()
-        }
         binding.run {
+            immersive(darkMode = true)
             tvPhone.text = "150****0678"
             ivAgreement.isEnabled = UserRepository.isAgreement
             llAgreement.doOnClick {
                 UserRepository.isAgreement = !UserRepository.isAgreement
                 ivAgreement.isEnabled = UserRepository.isAgreement
             }
-
+            tvOtherLogin.doOnClick {
+                startActivity<PhoneLoginActivity>()
+            }
             // 保证没有点击背景色
             tvAgreement.movementMethod = ClickableMovementMethod.getInstance()
             tvAgreement.text =

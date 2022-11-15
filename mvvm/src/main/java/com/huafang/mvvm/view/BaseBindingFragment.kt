@@ -5,15 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
-import com.dylanc.viewbinding.base.FragmentBinding
-import com.dylanc.viewbinding.base.FragmentBindingDelegate
 import com.guoyang.base.ui.ILoading
 import com.guoyang.base.ui.fragment.BaseFragment
+import com.guoyang.viewbinding_helper.FragmentBinding
+import com.guoyang.viewbinding_helper.FragmentBindingDelegate
 
 /**
- *  @author : yang.guo
- *  @date : 2022/10/11 10:36
- *  @description : Fragment封装基类
+ * Fragment封装基类
+ * @author yang.guo on 2022/10/13
  */
 abstract class BaseBindingFragment<VB : ViewBinding> : BaseFragment(),
     FragmentBinding<VB> by FragmentBindingDelegate(), ILoading {

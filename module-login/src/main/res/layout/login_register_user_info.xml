@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:paddingHorizontal="30dp">
+    android:background="@color/white">
 
     <com.huafang.mvvm.weight.ToolbarView
         android:id="@+id/toolbar_view"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +27,7 @@
         android:id="@+id/tv_name_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/login_register_user_name_hint"
         android:textColor="@color/content_color"
@@ -39,6 +39,7 @@
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="16dp"
         android:background="@null"
         android:gravity="center"
@@ -97,6 +98,7 @@
         android:id="@+id/btn_commit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="24dp"
         android:background="@drawable/bg_btn"
         android:text="@string/finish"

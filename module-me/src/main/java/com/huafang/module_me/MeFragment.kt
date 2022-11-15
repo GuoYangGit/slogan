@@ -2,7 +2,7 @@ package com.huafang.module_me
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.dylanc.longan.doOnClick
+import com.guoyang.utils_helper.doOnClick
 import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_me.databinding.MeFragmentMeBinding
 import com.huafang.mvvm.view.BaseBindingFragment
@@ -14,8 +14,8 @@ import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * @author yang.guo on 2022/10/12
  * 我的页面
+ * @author yang.guo on 2022/10/12
  */
 @AndroidEntryPoint
 @Route(path = ARouterNavigation.PATH_Me_FRAGMENT)

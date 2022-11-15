@@ -5,8 +5,8 @@ import com.huafang.mvvm.entity.UserEntity
 import kotlinx.parcelize.Parcelize
 
 /**
- * @author yang.guo on 2022/10/14
  * 用户发布内容实体类
+ * @author yang.guo on 2022/10/14
  */
 @Parcelize
 data class ContentEntity(

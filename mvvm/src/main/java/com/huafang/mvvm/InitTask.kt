@@ -2,24 +2,24 @@ package com.huafang.mvvm
 
 import android.content.Context
 import android.widget.TextView
-import androidx.lifecycle.ProcessLifecycleOwner
 import com.alibaba.android.arouter.launcher.ARouter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.bumptech.glide.Registry
-import com.chad.library.adapter.base.module.LoadMoreModuleConfig
+import com.drake.brv.PageRefreshLayout
 import com.drake.statelayout.StateConfig
-import com.dylanc.longan.*
+import com.guoyang.utils_helper.*
 import com.effective.android.anchors.task.Task
 import com.effective.android.anchors.task.TaskCreator
 import com.effective.android.anchors.task.project.Project
 import com.github.forjrking.image.core.ImageOptions
 import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
-import com.guoyang.loghelper.LogHelper
-import com.guoyang.loghelper.xLogD
-import com.guoyang.base.AppLifeObserver
-import com.huafang.mvvm.weight.CustomLoadMoreView
+import com.guoyang.xloghelper.LogHelper
+import com.guoyang.xloghelper.xLogD
+import com.scwang.smart.refresh.footer.ClassicsFooter
+import com.scwang.smart.refresh.header.ClassicsHeader
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import okhttp3.OkHttpClient
 import rxhttp.RxHttpPlugins
 import rxhttp.wrapper.ssl.HttpsUtils
@@ -27,10 +27,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLSession
 
-/**
- * @author yang.guo on 2022/10/13
- * 第三方Application初始化工具类
- */
+// <editor-fold desc="App初始化任务ID">
 
 const val TASK_APP_INIT = "task_app_init"
 const val TASK_NET_INIT = "task_net_init"
@@ -38,6 +35,11 @@ const val TASK_AROUTER_INIT = "task_arouter_init"
 const val TASK_VIEW_INIT = "task_view_init"
 const val TASK_IMAGE_LOAD_INIT = "task_image_load_init"
 
+// </editor-fold>
+
+/**
+ * 初始化App通用任务
+ */
 class AppInitTask : Task(TASK_APP_INIT) {
     override fun run(name: String) {
         // 初始化日志打印
@@ -55,9 +57,7 @@ class AppInitTask : Task(TASK_APP_INIT) {
 }
 
 /**
- * 初始化网络请求
- * @param id 任务ID
- * @param isAsyncTask 是否异步执行,默认为false
+ * 初始化网络请求任务
  */
 class NetInitTask : Task(id = TASK_NET_INIT, isAsyncTask = true) {
     override fun run(name: String) {
@@ -74,6 +74,9 @@ class NetInitTask : Task(id = TASK_NET_INIT, isAsyncTask = true) {
     }
 }
 
+/**
+ * 初始化路由组件任务
+ */
 class ARouterInitTask : Task(TASK_AROUTER_INIT) {
     override fun run(name: String) {
         // 这两行必须写在init之前，否则这些配置在init过程中将无效
@@ -88,6 +91,9 @@ class ARouterInitTask : Task(TASK_AROUTER_INIT) {
     }
 }
 
+/**
+ * 初始化三方视图任务
+ */
 class ViewInitTask : Task(TASK_VIEW_INIT) {
     override fun run(name: String) {
         // 注册状态布局
@@ -112,10 +118,25 @@ class ViewInitTask : Task(TASK_VIEW_INIT) {
                 xLogD("StateConfig onContent $it")
             }
         }
-        LoadMoreModuleConfig.defLoadMoreView = CustomLoadMoreView()
+        // 初始化刷新控件
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
+            ClassicsHeader(
+                context
+            )
+        }
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
+            ClassicsFooter(
+                context
+            )
+        }
+        // 设置Page加载初始化Index
+        PageRefreshLayout.startIndex = 0 // startIndex即index变量的初始值
     }
 }
 
+/**
+ * 初始化图片加载任务
+ */
 class ImageLoadInitTask : Task(TASK_IMAGE_LOAD_INIT) {
     override fun run(name: String) {
         //代替AppGlideModule实现来修改glide配置接口

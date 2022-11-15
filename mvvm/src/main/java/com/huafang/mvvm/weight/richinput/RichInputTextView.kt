@@ -9,11 +9,11 @@ import android.util.AttributeSet
 import com.drake.spannable.listener.ModifyTextWatcher
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
-import com.guoyang.loghelper.xLogD
+import com.guoyang.xloghelper.xLogD
 
 /**
- * @author yang.guo on 2022/11/7
  * 富文本输入框,支持话题|@高亮
+ * @author yang.guo on 2022/11/7
  */
 class RichInputTextView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

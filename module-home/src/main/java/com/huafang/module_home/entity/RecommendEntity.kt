@@ -6,8 +6,8 @@ import kotlinx.parcelize.Parcelize
 import kotlin.random.Random
 
 /**
- * @author yang.guo on 2022/10/15
  * 推荐实体类
+ * @author yang.guo on 2022/10/15
  */
 @Parcelize
 data class RecommendEntity(

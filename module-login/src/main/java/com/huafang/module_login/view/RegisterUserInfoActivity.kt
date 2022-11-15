@@ -1,20 +1,20 @@
 package com.huafang.module_login.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.core.widget.doOnTextChanged
-import com.dylanc.longan.doOnClick
-import com.dylanc.longan.startActivity
+import com.guoyang.utils_helper.*
 import com.huafang.mvvm.util.GlideEngine
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginRegisterUserInfoBinding
 import com.huafang.mvvm.entity.UserEntity
 import com.huafang.mvvm.ext.loadAvatar
+import com.huafang.mvvm.util.ARouterNavigation
 import com.huafang.mvvm.view.BaseBindingActivity
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.interfaces.OnResultCallbackListener
-import com.zackratos.ultimatebarx.ultimatebarx.statusBarOnly
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -35,39 +35,42 @@ class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBindin
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        statusBarOnly {
-            // 设置状态栏字体颜色
-            light = true
-            // 设置状态栏为透明色
-            transparent()
-        }
         binding.run {
+            immersive(darkMode = true)
+            toolbarView.statusPadding()
             toolbarView.setToolbar {
                 title = "完善资料"
                 navIcon = R.mipmap.icon_close
             }
-            ivAvatar.doOnClick {
+            ivAvatar.doOnDebouncingClick {
                 PictureSelector.create(this@RegisterUserInfoActivity)
                     .openGallery(SelectMimeType.ofImage())
                     .setImageEngine(GlideEngine.createGlideEngine())
                     .forResult(object : OnResultCallbackListener<LocalMedia?> {
-                        override fun onResult(result: ArrayList<LocalMedia?>?) {}
+                        override fun onResult(result: ArrayList<LocalMedia?>?) {
+                            if (result.isNullOrEmpty()) return
+                            chooseAvatar = result[0]?.path ?: ""
+                            ivAvatar.loadAvatar(chooseAvatar, chooseSex)
+                        }
+
                         override fun onCancel() {}
                     })
             }
-            etName.doOnTextChanged { text, _, _, _ ->
-                val isEnabled = !text.isNullOrBlank()
-                btnCommit.isEnabled = isEnabled
-                btnCommit.alpha = if (isEnabled) 1.0f else 0.3f
+            etName.doOnTextChanged { _, _, _, _ ->
+                changeBtn()
             }
-            tvMale.doOnClick {
+            tvMale.doOnDebouncingClick {
                 chooseSex = UserEntity.SEX_MALE
             }
-            tvFemale.doOnClick {
+            tvFemale.doOnDebouncingClick {
                 chooseSex = UserEntity.SEX_FEMALE
+            }
+            btnCommit.doOnDebouncingClick{
+                ARouterNavigation.toMainActivity()
             }
         }
         chooseSex = UserEntity.SEX_FEMALE
+        changeBtn()
     }
 
     /**
@@ -78,5 +81,13 @@ class RegisterUserInfoActivity : BaseBindingActivity<LoginRegisterUserInfoBindin
         if (chooseAvatar.isBlank()) binding.ivAvatar.loadAvatar(chooseAvatar, chooseSex)
         binding.tvFemale.isEnabled = sex != UserEntity.SEX_FEMALE
         binding.tvMale.isEnabled = sex != UserEntity.SEX_MALE
+    }
+
+    private fun changeBtn() {
+        binding.apply {
+            val isEnable = etName.text.isNotBlank()
+            btnCommit.isEnabled = isEnable
+            btnCommit.alpha = if (isEnable) 1.0f else 0.3f
+        }
     }
 }
