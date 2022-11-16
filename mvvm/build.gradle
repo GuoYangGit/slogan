@@ -1,4 +1,3 @@
-apply plugin: 'com.android.library'
 apply from: '../config.gradle'
 apply plugin: 'org.jetbrains.dokka'
 
@@ -27,8 +26,12 @@ android {
 }
 
 dependencies {
+    // 崩溃统计平台
     implementation project(path: ':sdk-bugly')
+    // 腾讯云文件存储
     api project(path: ':sdk-file-transfer')
+    // Mob秒验/登陆/分享
+    api project(path: ':sdk-mob')
     def android_utils = "0.0.3-snapshot"
     // 框架基础库 https://guoyanggit.github.io/AndroidUtils/base/
     api "com.github.GuoYangGit.AndroidUtils:base:$android_utils"

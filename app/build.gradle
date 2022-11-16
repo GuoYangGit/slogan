@@ -1,4 +1,3 @@
-apply plugin: 'com.android.application'
 apply from: '../config.gradle'
 apply plugin: 'com.huawei.agconnect'
 

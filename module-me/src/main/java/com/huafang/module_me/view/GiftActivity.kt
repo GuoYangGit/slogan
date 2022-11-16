@@ -1,11 +1,13 @@
-package com.huafang.module_me
+package com.huafang.module_me.view
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import com.guoyang.sdk_giftview.GiftView
 import com.guoyang.sdk_giftview.PlayQueue
 import com.guoyang.utils_helper.doOnClick
+import com.guoyang.utils_helper.mainThread
 import com.guoyang.utils_helper.toast
+import com.huafang.module_me.R
 import com.huafang.module_me.databinding.MeActivityGiftBinding
 import com.huafang.mvvm.view.BaseBindingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,12 +58,13 @@ class GiftActivity : BaseBindingActivity<MeActivityGiftBinding>() {
             btnQueue.doOnClick {
                 for (i in 0..3) {
                     playQueue.addTask {
-                        giftView.startPlay(this@GiftActivity.assets, "vapx.mp4")
+                        mainThread(100){
+                            giftView.startPlay(this@GiftActivity.assets, "vapx.mp4")
+                        }
                     }
                 }
             }
             btnStop.doOnClick {
-                playQueue.clearTask()
                 giftView.stopPlay()
             }
 

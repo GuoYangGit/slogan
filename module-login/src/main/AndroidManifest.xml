@@ -2,23 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name=".view.OneKeyLoginActivity"
-            android:exported="true" >
-
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity android:name=".view.VerificationCodeActivity"
-            android:exported="false" >
-        </activity>
-        <activity android:name=".view.RegisterUserInfoActivity"
-            android:exported="false" >
-        </activity>
-        <activity android:name=".view.PhoneLoginActivity"
-            android:exported="false" >
-        </activity>
+        <activity
+            android:name=".view.OneKeyLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.VerificationCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterUserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PhoneLoginActivity"
+            android:exported="false" />
     </application>
 </manifest>

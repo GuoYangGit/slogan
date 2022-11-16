@@ -1,10 +1,23 @@
-apply plugin: 'com.android.library'
 apply from: '../config.gradle'
 apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'com.huafang.module_me'
     resourcePrefix "me_"
+    defaultConfig {
+        if (isModule.toBoolean()) {
+            applicationId 'com.huafang.module_me'
+        }
+    }
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {

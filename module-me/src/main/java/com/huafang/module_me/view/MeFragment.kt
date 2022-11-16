@@ -1,4 +1,4 @@
-package com.huafang.module_me
+package com.huafang.module_me.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels

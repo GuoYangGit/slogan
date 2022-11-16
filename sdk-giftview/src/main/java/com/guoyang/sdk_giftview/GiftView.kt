@@ -3,6 +3,8 @@ package com.guoyang.sdk_giftview
 import android.content.Context
 import android.content.res.AssetManager
 import android.graphics.Bitmap
+import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.util.Log
 import android.widget.FrameLayout
@@ -24,6 +26,8 @@ import java.io.File
 class GiftView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr), IGiftView, LifecycleEventObserver {
+    private val mainThreadHandler by lazy { Handler(Looper.getMainLooper()) }
+    private val isMainThread: Boolean get() = Looper.myLooper() != Looper.getMainLooper()
     private val animView: AnimView by lazy { AnimView(context) }
 
     init {
@@ -124,20 +128,22 @@ class GiftView @JvmOverloads constructor(
              * 开始播放
              */
             override fun onVideoStart() {
-                onStart()
+                mainThread { onStart() }
             }
 
             /**
              * 视频渲染每一帧时的回调
              * @param frameIndex 帧索引
              */
-            override fun onVideoRender(frameIndex: Int, config: AnimConfig?) {}
+            override fun onVideoRender(frameIndex: Int, config: AnimConfig?) {
+                mainThread { }
+            }
 
             /**
              * 视频播放结束(失败也会回调onComplete)
              */
             override fun onVideoComplete() {
-                onEnd()
+                mainThread { onEnd() }
             }
 
             /**
@@ -147,13 +153,15 @@ class GiftView @JvmOverloads constructor(
              * @param errorMsg 错误消息
              */
             override fun onFailed(errorType: Int, errorMsg: String?) {
-                Log.d("GiftView", "onFailed: $errorType, $errorMsg")
+                mainThread { Log.d("GiftView", "onFailed: $errorType, $errorMsg") }
             }
 
             /**
              * 播放器被销毁情况下会调用onVideoDestroy
              */
-            override fun onVideoDestroy() {}
+            override fun onVideoDestroy() {
+                mainThread { }
+            }
 
         })
         return this
@@ -209,5 +217,14 @@ class GiftView @JvmOverloads constructor(
             }
         })
         return this
+    }
+
+
+    /**
+     * 在主线程执行
+     * @param block 执行的动作
+     */
+    private fun mainThread(block: () -> Unit) {
+        if (isMainThread) mainThreadHandler.post(block) else block()
     }
 }

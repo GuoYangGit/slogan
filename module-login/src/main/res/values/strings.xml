@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_app_name">Login</string>
     <string name="login_verification_code_send">重新发送</string>
     <string name="login_plase_agree_hint">请先同意用户隐私协议</string>
     <string name="login_register_user_name_hint">起个好听的昵称</string>

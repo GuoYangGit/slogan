@@ -1,3 +1,10 @@
+// 判断是否可以单独编译
+def isAppModule = project.getName().contains("app") || isModule.toBoolean()
+if (isAppModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
@@ -37,19 +44,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     kapt {
         arguments {
             arg("AROUTER_MODULE_NAME", project.getName()) // 参数为每个 module 的名称
         }
         correctErrorTypes true // 开启kapt的错误修复
     }
+
     lintOptions {
         checkReleaseBuilds false //关闭lint检查
         abortOnError false // lint检查出错时，是否中断编译
