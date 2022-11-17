@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>FileTransferHelper</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>sdk-file-transfer</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageIds="sdk-file-transfer::com.guoyang.sdk_file_transfer/FileTransferHelper///PointingToDeclaration//1581077865">
+  <div class="breadcrumbs"><a href="../../../index.html">sdk-file-transfer</a><span class="delimiter">/</span><a href="../index.html">com.guoyang.sdk_file_transfer</a><span class="delimiter">/</span><span class="current">FileTransferHelper</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>File</span><wbr></wbr><span>Transfer</span><wbr></wbr><span><span>Helper</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-file-transfer:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">FileTransferHelper</a></div><p class="paragraph">文件上传/下载帮助类</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">yang.guo on 2022/11/3</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="460442293%2FFunctions%2F1581077865" anchor-label="createDownloadTask" id="460442293%2FFunctions%2F1581077865" data-filterable-set=":sdk-file-transfer:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-file-transfer:dokkaHtml/release" data-filterable-set=":sdk-file-transfer:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="create-download-task.html"><span>create</span><wbr></wbr><span>Download</span><wbr></wbr><span><span>Task</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="460442293%2FFunctions%2F1581077865"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-file-transfer:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-download-task.html"><span class="token function">createDownloadTask</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">block<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="../../com.guoyang.sdk_file_transfer.download/-i-download/index.html">IDownload</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.guoyang.sdk_file_transfer.download/-i-download/index.html">IDownload</a></div><div class="brief "><p class="paragraph">创建文件下载任务</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1239993458%2FFunctions%2F1581077865" anchor-label="createUploadTask" id="-1239993458%2FFunctions%2F1581077865" data-filterable-set=":sdk-file-transfer:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-file-transfer:dokkaHtml/release" data-filterable-set=":sdk-file-transfer:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="create-upload-task.html"><span>create</span><wbr></wbr><span>Upload</span><wbr></wbr><span><span>Task</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1239993458%2FFunctions%2F1581077865"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-file-transfer:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-upload-task.html"><span class="token function">createUploadTask</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">block<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="../../com.guoyang.sdk_file_transfer.upload/-i-upload/index.html">IUpload</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.guoyang.sdk_file_transfer.upload/-i-upload/index.html">IUpload</a></div><div class="brief "><p class="paragraph">创建文件上传任务</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-1970878252%2FProperties%2F1581077865" anchor-label="appContext" id="-1970878252%2FProperties%2F1581077865" data-filterable-set=":sdk-file-transfer:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-file-transfer:dokkaHtml/release" data-filterable-set=":sdk-file-transfer:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="app-context.html"><span>app</span><wbr></wbr><span><span>Context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1970878252%2FProperties%2F1581077865"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-file-transfer:dokkaHtml/release"><a data-name="-1970878252%2FProperties%2F1581077865" anchor-label="appContext" id="-1970878252%2FProperties%2F1581077865" data-filterable-set=":sdk-file-transfer:dokkaHtml/release"></a><div class="symbol monospace"><span class="token keyword">lateinit </span><span class="token keyword">var </span><a href="app-context.html">appContext</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></div><div class="brief "><a data-name="-1970878252%2FProperties%2F1581077865" anchor-label="appContext" id="-1970878252%2FProperties%2F1581077865" data-filterable-set=":sdk-file-transfer:dokkaHtml/release"></a><p class="paragraph">App上下文</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

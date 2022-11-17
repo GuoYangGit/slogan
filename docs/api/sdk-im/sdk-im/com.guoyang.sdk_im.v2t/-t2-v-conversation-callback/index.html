@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>T2VConversationCallback</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>sdk-im</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageIds="sdk-im::com.guoyang.sdk_im.v2t/T2VConversationCallback///PointingToDeclaration//356223113">
+  <div class="breadcrumbs"><a href="../../../index.html">sdk-im</a><span class="delimiter">/</span><a href="../index.html">com.guoyang.sdk_im.v2t</a><span class="delimiter">/</span><span class="current">T2VConversationCallback</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>T2VConversation</span><wbr></wbr><span><span>Callback</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">T2VConversationCallback</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../../com.guoyang.sdk_im.conversation/-i-i-m-conversation-callback/index.html">IIMConversationCallback</a></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="com.tencent.imsdk.v2/V2TIMConversationListener///PointingToDeclaration/">V2TIMConversationListener</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1455869405%2FConstructors%2F356223113" anchor-label="T2VConversationCallback" id="1455869405%2FConstructors%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-t2-v-conversation-callback.html"><span>T2VConversation</span><wbr></wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1455869405%2FConstructors%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-t2-v-conversation-callback.html"><span class="token function">T2VConversationCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../../com.guoyang.sdk_im.conversation/-i-i-m-conversation-callback/index.html">IIMConversationCallback</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-1265430837%2FFunctions%2F356223113" anchor-label="onConversationChanged" id="-1265430837%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-conversation-changed.html"><span>on</span><wbr></wbr><span>Conversation</span><wbr></wbr><span><span>Changed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1265430837%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-conversation-changed.html"><span class="token function">onConversationChanged</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMConversation///PointingToDeclaration/">V2TIMConversation</span><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1594567645%2FFunctions%2F356223113" anchor-label="onNewConversation" id="1594567645%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-new-conversation.html"><span>on</span><wbr></wbr><span>New</span><wbr></wbr><span><span>Conversation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1594567645%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-new-conversation.html"><span class="token function">onNewConversation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMConversation///PointingToDeclaration/">V2TIMConversation</span><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="921935313%2FFunctions%2F356223113" anchor-label="onSyncServerFailed" id="921935313%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-sync-server-failed.html"><span>on</span><wbr></wbr><span>Sync</span><wbr></wbr><span>Server</span><wbr></wbr><span><span>Failed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="921935313%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-sync-server-failed.html"><span class="token function">onSyncServerFailed</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1648988731%2FFunctions%2F356223113" anchor-label="onSyncServerFinish" id="1648988731%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-sync-server-finish.html"><span>on</span><wbr></wbr><span>Sync</span><wbr></wbr><span>Server</span><wbr></wbr><span><span>Finish</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1648988731%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-sync-server-finish.html"><span class="token function">onSyncServerFinish</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="385398730%2FFunctions%2F356223113" anchor-label="onSyncServerStart" id="385398730%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-sync-server-start.html"><span>on</span><wbr></wbr><span>Sync</span><wbr></wbr><span>Server</span><wbr></wbr><span><span>Start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="385398730%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-sync-server-start.html"><span class="token function">onSyncServerStart</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1049338458%2FFunctions%2F356223113" anchor-label="onTotalUnreadMessageCountChanged" id="-1049338458%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-total-unread-message-count-changed.html"><span>on</span><wbr></wbr><span>Total</span><wbr></wbr><span>Unread</span><wbr></wbr><span>Message</span><wbr></wbr><span>Count</span><wbr></wbr><span><span>Changed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1049338458%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-total-unread-message-count-changed.html"><span class="token function">onTotalUnreadMessageCountChanged</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">totalUnreadCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.guoyang.sdk_giftview////PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/index.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView///PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/index.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/GiftView/#android.content.Context#android.util.AttributeSet?#kotlin.Int/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/-gift-view.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/addAnimListener/#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/add-anim-listener.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/addFetchResource/#kotlin.Function2[com.tencent.qgame.animplayer.mix.Resource,kotlin.Function1[kotlin.String?,kotlin.Unit],kotlin.Unit]#kotlin.Function2[com.tencent.qgame.animplayer.mix.Resource,kotlin.Function1[android.graphics.Bitmap?,kotlin.Unit],kotlin.Unit]#kotlin.Function1[kotlin.collections.List[com.tencent.qgame.animplayer.mix.Resource],kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/add-fetch-resource.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/onStateChanged/#androidx.lifecycle.LifecycleOwner#androidx.lifecycle.Lifecycle.Event/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/on-state-changed.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/setGiftMute/#kotlin.Boolean/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/set-gift-mute.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/setGiftScale/#com.guoyang.sdk_giftview.ScaleType/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/set-gift-scale.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/setLoopCount/#kotlin.Int/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/set-loop-count.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/setOnResourceClickListener/#kotlin.Function1[com.tencent.qgame.animplayer.mix.Resource,kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/set-on-resource-click-listener.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/startPlay/#android.content.res.AssetManager#kotlin.String/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/start-play.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/startPlay/#java.io.File/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/start-play.html
+$dokka.location:com.guoyang.sdk_giftview/GiftView/stopPlay/#/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-gift-view/stop-play.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView///PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/index.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/addAnimListener/#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/add-anim-listener.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/addFetchResource/#kotlin.Function2[com.tencent.qgame.animplayer.mix.Resource,kotlin.Function1[kotlin.String?,kotlin.Unit],kotlin.Unit]#kotlin.Function2[com.tencent.qgame.animplayer.mix.Resource,kotlin.Function1[android.graphics.Bitmap?,kotlin.Unit],kotlin.Unit]#kotlin.Function1[kotlin.collections.List[com.tencent.qgame.animplayer.mix.Resource],kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/add-fetch-resource.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/setGiftMute/#kotlin.Boolean/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/set-gift-mute.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/setGiftScale/#com.guoyang.sdk_giftview.ScaleType/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/set-gift-scale.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/setLoopCount/#kotlin.Int/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/set-loop-count.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/setOnResourceClickListener/#kotlin.Function1[com.tencent.qgame.animplayer.mix.Resource,kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/set-on-resource-click-listener.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/startPlay/#android.content.res.AssetManager#kotlin.String/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/start-play.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/startPlay/#java.io.File/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/start-play.html
+$dokka.location:com.guoyang.sdk_giftview/IGiftView/stopPlay/#/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-i-gift-view/stop-play.html
+$dokka.location:com.guoyang.sdk_giftview/PlayQueue///PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-play-queue/index.html
+$dokka.location:com.guoyang.sdk_giftview/PlayQueue/PlayQueue/#TypeParam(bounds=[android.view.View])#androidx.lifecycle.LifecycleOwner?#androidx.lifecycle.Lifecycle.Event/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-play-queue/-play-queue.html
+$dokka.location:com.guoyang.sdk_giftview/PlayQueue/addTask/#kotlin.Function1[TypeParam(bounds=[android.view.View]),kotlin.Unit]/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-play-queue/add-task.html
+$dokka.location:com.guoyang.sdk_giftview/PlayQueue/clearTask/#/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-play-queue/clear-task.html
+$dokka.location:com.guoyang.sdk_giftview/PlayQueue/notifyPlayEnd/#/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-play-queue/notify-play-end.html
+$dokka.location:com.guoyang.sdk_giftview/PlayQueue/onStateChanged/#androidx.lifecycle.LifecycleOwner#androidx.lifecycle.Lifecycle.Event/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-play-queue/on-state-changed.html
+$dokka.location:com.guoyang.sdk_giftview/ScaleType.CENTER_CROP///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}sdk-giftview/com.guoyang.sdk_giftview/-scale-type/-c-e-n-t-e-r_-c-r-o-p/index.html
+$dokka.location:com.guoyang.sdk_giftview/ScaleType.FIT_CENTER///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}sdk-giftview/com.guoyang.sdk_giftview/-scale-type/-f-i-t_-c-e-n-t-e-r/index.html
+$dokka.location:com.guoyang.sdk_giftview/ScaleType.FIT_XY///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}sdk-giftview/com.guoyang.sdk_giftview/-scale-type/-f-i-t_-x-y/index.html
+$dokka.location:com.guoyang.sdk_giftview/ScaleType///PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-scale-type/index.html
+$dokka.location:com.guoyang.sdk_giftview/ScaleType/valueOf/#kotlin.String/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-scale-type/value-of.html
+$dokka.location:com.guoyang.sdk_giftview/ScaleType/values/#/PointingToDeclaration/sdk-giftview/com.guoyang.sdk_giftview/-scale-type/values.html
+com.guoyang.sdk_giftview
+

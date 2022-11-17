@@ -2,9 +2,9 @@ apply from: '../config.gradle'
 apply plugin: 'org.jetbrains.dokka'
 
 dokkaHtml {
-    outputDirectory.set(file("$rootDir/docs/api/mvvm"))
+    outputDirectory.set(file("$rootDir/docs/api/${project.name}"))
     suppressInheritedMembers.set(true)
-    moduleName.set("Mvvm")
+    moduleName.set(project.name)
 }
 
 android {

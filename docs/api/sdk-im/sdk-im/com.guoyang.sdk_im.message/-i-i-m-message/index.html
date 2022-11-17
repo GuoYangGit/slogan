@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>IIMMessage</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>sdk-im</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageIds="sdk-im::com.guoyang.sdk_im.message/IIMMessage///PointingToDeclaration//356223113">
+  <div class="breadcrumbs"><a href="../../../index.html">sdk-im</a><span class="delimiter">/</span><a href="../index.html">com.guoyang.sdk_im.message</a><span class="delimiter">/</span><span class="current">IIMMessage</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>IIMMessage</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">IIMMessage</a></div><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">yang.guo on 2022/11/8 消息相关的接口类</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-1253781598%2FFunctions%2F356223113" anchor-label="addReceiveMessageListener" id="-1253781598%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="add-receive-message-listener.html"><span>add</span><wbr></wbr><span>Receive</span><wbr></wbr><span>Message</span><wbr></wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1253781598%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-receive-message-listener.html"><span class="token function">addReceiveMessageListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="../-i-i-m-receive-message-callback/index.html">IIMReceiveMessageCallback</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">添加消息监听</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-526339542%2FFunctions%2F356223113" anchor-label="clearMessage" id="-526339542%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="clear-message.html"><span>clear</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-526339542%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-message.html"><span class="token function">clearMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">groupID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">清空消息</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1284323444%2FFunctions%2F356223113" anchor-label="deleteMessage" id="1284323444%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="delete-message.html"><span>delete</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1284323444%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="delete-message.html"><span class="token function">deleteMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageList<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">删除消息</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-798770440%2FFunctions%2F356223113" anchor-label="getHistoryMessage" id="-798770440%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-history-message.html"><span>get</span><wbr></wbr><span>History</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-798770440%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-history-message.html"><span class="token function">getHistoryMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">groupID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">count<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">20</span><span class="token punctuation">, </span></span><span class="parameter ">lastMsg<span class="token operator">: </span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span><span class="token keyword"></span>messageList<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">获取历史消息</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-333750268%2FFunctions%2F356223113" anchor-label="insertMessage" id="-333750268%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="insert-message.html"><span>insert</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-333750268%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="insert-message.html"><span class="token function">insertMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">groupID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;&quot;</span><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">插入消息(只会将消息插入本地数据库，不会发送到服务端) 该接口主要用于满足向聊天会话中插入一些提示性消息的需求，例如 “您已经退出该群”、“请注意信息安全，不要在群聊中发送任何账号、密码和验证码等私密信息“ 等。 这类消息有展示在聊天消息区的需求，但并没有发送给其他人的必要。</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1244675157%2FFunctions%2F356223113" anchor-label="readReceipts" id="-1244675157%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="read-receipts.html"><span>read</span><wbr></wbr><span><span>Receipts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1244675157%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="read-receipts.html"><span class="token function">readReceipts</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageList<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">发送消息已读回执</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2087453315%2FFunctions%2F356223113" anchor-label="removeReceiveMessageListener" id="-2087453315%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="remove-receive-message-listener.html"><span>remove</span><wbr></wbr><span>Receive</span><wbr></wbr><span>Message</span><wbr></wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2087453315%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-receive-message-listener.html"><span class="token function">removeReceiveMessageListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="../-i-i-m-receive-message-callback/index.html">IIMReceiveMessageCallback</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">移除消息监听</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1834904283%2FFunctions%2F356223113" anchor-label="revokeMessage" id="1834904283%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="revoke-message.html"><span>revoke</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1834904283%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="revoke-message.html"><span class="token function">revokeMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>success<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">撤回消息(发送者只能撤回2分钟以内的消息)</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1781873274%2FFunctions%2F356223113" anchor-label="sendMessage" id="-1781873274%2FFunctions%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="send-message.html"><span>send</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1781873274%2FFunctions%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk-im:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="send-message.html"><span class="token function">sendMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">imMessage<span class="token operator">: </span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token punctuation">, </span></span><span class="parameter ">configBlock<span class="token operator">: </span><span class="token keyword"></span><a href="../../com.guoyang.sdk_im.entity/-i-m-send-config/index.html">IMSendConfig</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{}<span class="token punctuation">, </span></span><span class="parameter ">onSuccess<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>message<span class="token operator">: </span><span data-unresolved-link="com.tencent.imsdk.v2/V2TIMMessage///PointingToDeclaration/">V2TIMMessage</span><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">onError<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>code<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span><span class="token keyword"></span>desc<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{ _, _ -&gt; }<span class="token punctuation">, </span></span><span class="parameter ">onProgress<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>progress<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator"> = </span>{ _ -&gt; }</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">发送消息</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Inheritors</h2>
+      <div class="table" data-togglable="Inheritors"><a data-name="-429691987%2FInheritors%2F356223113" anchor-label="IMMessageHelper" id="-429691987%2FInheritors%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../com.guoyang.sdk_im/-i-m-message-helper/index.html">IMMessageHelper</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-429691987%2FInheritors%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="-473508769%2FInheritors%2F356223113" anchor-label="V2TMessageImpl" id="-473508769%2FInheritors%2F356223113" data-filterable-set=":sdk-im:dokkaHtml/release"></a>
+        <div class="table-row" data-filterable-current=":sdk-im:dokkaHtml/release" data-filterable-set=":sdk-im:dokkaHtml/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../com.guoyang.sdk_im.v2t/-v2-t-message-impl/index.html">V2TMessageImpl</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-473508769%2FInheritors%2F356223113"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

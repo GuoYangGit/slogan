@@ -1,6 +1,4 @@
-# 项目Gradle构建指南
-
-> 本文关于项目配置相关讲解，涉及通用 `gradle` 配置、代码混淆、App打包等相关操作。
+> 本文关于项目配置相关讲解，涉及通用 `gradle` 配置、代码混淆、App 打包等相关操作。
 
 ## config.gradle
 
@@ -9,6 +7,13 @@
 ### 通用插件
 
 ```groovy
+// 判断是否可以单独编译
+def isAppModule = project.getName().contains("app") || isModule.toBoolean()
+if (isAppModule) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
@@ -110,9 +115,36 @@ dependencies {
 }
 ```
 
+## 单独编译
+
+> 项目使用组件化形式，每个组件都可以单独编译，单独编译时，需要在 `gradle.properties` 文件中配置 `isModule=true`，这样就可以单独编译了。
+
+### 业务模块 build.gradle 配置
+
+```groovy
+android {
+    namespace 'com.huafang.module_home'
+    resourcePrefix "home_" // 资源前缀,避免资源冲突
+    defaultConfig {
+        if (isModule.toBoolean()) { // 单独编译
+            applicationId 'com.huafang.module_home'
+        }
+    }
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) { // 单独编译,设置清单文件路径
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+}
+```
+
 ## 代码混淆
 
->  默认情况下 `release` 模式下混淆功能开启，`debug` 模式下混淆功能关闭，如果新增功能需要进行混淆验证，可以在 `debug` 模式下开启混淆，具体设置在 `config.gradle` 文件。
+> 默认情况下 `release` 模式下混淆功能开启，`debug` 模式下混淆功能关闭，如果新增功能需要进行混淆验证，可以在 `debug` 模式下开启混淆，具体设置在 `config.gradle` 文件。
 
 ### 配置混淆规则
 
@@ -133,7 +165,7 @@ android {
 }
 ```
 
-## App打包
+## App 打包
 
 ### 打包代码
 
@@ -172,7 +204,7 @@ android {
 
 ### 签名信息
 
-打包需要的的签名信息配置在 ` gradle.properties ` 文件下，**出于安全性考虑，该文件需要被 `git` 版本管理进行忽略**。
+打包需要的的签名信息配置在 `gradle.properties` 文件下，**出于安全性考虑，该文件需要被 `git` 版本管理进行忽略**。
 
 ## 建议
 
