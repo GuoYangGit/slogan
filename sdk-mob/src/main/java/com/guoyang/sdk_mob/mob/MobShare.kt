@@ -2,6 +2,7 @@ package com.guoyang.sdk_mob.mob
 
 import android.content.Context
 import cn.sharesdk.framework.Platform
+import cn.sharesdk.framework.Platform.ShareParams
 import cn.sharesdk.framework.ShareSDK
 import cn.sharesdk.tencent.qq.QQ
 import cn.sharesdk.tencent.qzone.QZone
@@ -38,13 +39,40 @@ internal object MobShare : IShare {
         // 构建分享数据
         val data = ShareData().apply(shareData)
         // 构建Mob分享参数
-        val shareParams = Platform.ShareParams().apply {
+        val shareParams = ShareParams().apply {
             this.shareType = getShareType(data.shareType)
-            this.title = data.title
-            this.titleUrl = data.url
-            this.url = data.url
-            this.text = data.text
-            this.imageUrl = data.imageUrl
+            when (data.shareType) {
+                ShareType.TEXT -> { // 文本
+                    this.text = data.text
+                }
+                ShareType.IMAGE -> { // 图片
+                    this.imagePath = data.imagePath
+                    this.imageUrl = data.imageUrl
+                }
+                ShareType.MUSIC -> { // 音乐
+                    this.title = data.title
+                    this.text = data.text
+                    this.imagePath = data.imagePath
+                    this.imageUrl = data.imageUrl
+                    this.musicUrl = data.url
+                }
+                ShareType.VIDEO -> { // 视频
+                    this.title = data.title
+                    this.text = data.text
+                    this.imagePath = data.imagePath
+                    this.imageUrl = data.imageUrl
+                    this.videoUrl = data.url
+                    this.filePath = data.filePath
+                }
+                ShareType.WEB -> { // 网页
+                    this.title = data.title
+                    this.text = data.text
+                    this.imagePath = data.imagePath
+                    this.imageUrl = data.imageUrl
+                    this.url = data.url
+                    this.titleUrl = data.url
+                }
+            }
         }
         // 获取分享平台
         val platform = getPlatform(sharePlatform)
@@ -73,11 +101,11 @@ internal object MobShare : IShare {
      */
     private fun getShareType(shareType: ShareType): Int {
         return when (shareType) {
-            ShareType.TEXT -> Platform.SHARE_TEXT
-            ShareType.IMAGE -> Platform.SHARE_IMAGE
-            ShareType.WEB -> Platform.SHARE_WEBPAGE
-            ShareType.MUSIC -> Platform.SHARE_MUSIC
-            ShareType.VIDEO -> Platform.SHARE_VIDEO
+            ShareType.TEXT -> Platform.SHARE_TEXT // 分享文本
+            ShareType.IMAGE -> Platform.SHARE_IMAGE // 分享图片
+            ShareType.WEB -> Platform.SHARE_WEBPAGE // 分享网页
+            ShareType.MUSIC -> Platform.SHARE_MUSIC // 分享音乐
+            ShareType.VIDEO -> Platform.SHARE_VIDEO // 分享视频
         }
     }
 }

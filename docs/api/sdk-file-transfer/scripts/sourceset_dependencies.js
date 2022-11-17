@@ -1,0 +1,1 @@
+sourceset_dependencies='{":sdk-file-transfer:dokkaHtml/androidTestRelease":[],":sdk-file-transfer:dokkaHtml/debug":[],":sdk-file-transfer:dokkaHtml/main":[],":sdk-file-transfer:dokkaHtml/release":[],":sdk-file-transfer:dokkaHtml/testFixtures":[],":sdk-file-transfer:dokkaHtml/testFixturesDebug":[],":sdk-file-transfer:dokkaHtml/testFixturesRelease":[]}'

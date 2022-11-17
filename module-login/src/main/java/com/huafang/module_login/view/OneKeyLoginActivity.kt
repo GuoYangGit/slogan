@@ -32,6 +32,8 @@ class OneKeyLoginActivity : BaseBindingActivity<LoginActivityOneKeyLoginBinding>
                 UserRepository.isAgreement = !UserRepository.isAgreement
                 ivAgreement.isEnabled = UserRepository.isAgreement
             }
+            btnLogin.doOnClick {
+            }
             tvOtherLogin.doOnClick {
                 startActivity<PhoneLoginActivity>()
             }

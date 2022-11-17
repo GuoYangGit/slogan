@@ -17,7 +17,7 @@ abstract class AppDatabase : RoomDatabase() {
          * 创建数据库方法
          */
         fun create(appContext: Context): AppDatabase {
-            val dbName = "" // 数据库名称
+            val dbName = "user_" // 数据库名称
             return Room.databaseBuilder(
                 appContext.applicationContext,
                 AppDatabase::class.java,

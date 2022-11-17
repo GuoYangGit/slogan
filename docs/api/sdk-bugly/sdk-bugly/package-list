@@ -1,0 +1,17 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.guoyang.sdk_bugly////PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/index.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig///PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/index.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/CrashConfig/#kotlin.Boolean#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/-crash-config.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/appChannel/#/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/app-channel.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/appId/#/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/app-id.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/appVersion/#/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/app-version.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/deviceId/#/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/device-id.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/deviceModel/#/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/device-model.html
+$dokka.location:com.guoyang.sdk_bugly/CrashConfig/isDebug/#/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-config/is-debug.html
+$dokka.location:com.guoyang.sdk_bugly/CrashHelper///PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-crash-helper/index.html
+$dokka.location:com.guoyang.sdk_bugly/ICrash///PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-i-crash/index.html
+$dokka.location:com.guoyang.sdk_bugly/ICrash/init/#android.content.Context#kotlin.Function1[com.guoyang.sdk_bugly.CrashConfig,kotlin.Unit]/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-i-crash/init.html
+$dokka.location:com.guoyang.sdk_bugly/ICrash/setUserId/#kotlin.String/PointingToDeclaration/sdk-bugly/com.guoyang.sdk_bugly/-i-crash/set-user-id.html
+com.guoyang.sdk_bugly
+

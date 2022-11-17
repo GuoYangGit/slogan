@@ -3,6 +3,13 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
 }
+apply plugin: 'org.jetbrains.dokka'
+
+dokkaHtml {
+    outputDirectory.set(file("$rootDir/docs/api/${project.name}"))
+    suppressInheritedMembers.set(true)
+    moduleName.set(project.name)
+}
 
 android {
     namespace 'com.guoyang.sdk_file_transfer'
