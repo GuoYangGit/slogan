@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/module-login" />
             <option value="$PROJECT_DIR$/module-me" />
             <option value="$PROJECT_DIR$/module-message" />
+            <option value="$PROJECT_DIR$/module-webview" />
             <option value="$PROJECT_DIR$/mvvm" />
             <option value="$PROJECT_DIR$/sdk-bugly" />
             <option value="$PROJECT_DIR$/sdk-file-transfer" />

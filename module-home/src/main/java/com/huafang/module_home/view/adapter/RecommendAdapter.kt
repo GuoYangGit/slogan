@@ -1,45 +1,66 @@
 package com.huafang.module_home.view.adapter
 
+import android.annotation.SuppressLint
+import android.view.View
+import androidx.core.text.parseAsHtml
+import androidx.lifecycle.Lifecycle
 import com.drake.brv.BindingAdapter
-import com.drake.spannable.replaceSpan
-import com.drake.spannable.span.HighlightSpan
-import com.github.forjrking.image.loadRoundCornerImage
-import com.guoyang.utils_helper.dp
-import com.guoyang.utils_helper.getCompatColor
-import com.guoyang.xloghelper.xLogD
 import com.huafang.module_home.R
+import com.huafang.module_home.databinding.HomeItemBannerBinding
 import com.huafang.module_home.databinding.HomeItemRecommendBinding
-import com.huafang.module_home.entity.RecommendEntity
-import com.huafang.mvvm.ext.loadAvatar
+import com.huafang.module_home.entity.ArticleEntity
+import com.huafang.module_home.entity.BannerEntity
+import com.huafang.mvvm.util.ARouterNavigation
+import com.huafang.mvvm.weight.BannerImageAdapter
 import javax.inject.Inject
 
 /**
  * 推荐列表适配器
  * @author yang.guo on 2022/10/15
  */
-class RecommendAdapter @Inject constructor() : BindingAdapter() {
+@SuppressLint("SetTextI18n")
+class RecommendAdapter @Inject constructor(lifecycle: Lifecycle) : BindingAdapter() {
     init {
-        addType<RecommendEntity>(R.layout.home_item_recommend)
+        addType<ArticleEntity>(R.layout.home_item_recommend)
+        addType<List<BannerEntity>>(R.layout.home_item_banner)
         onBind {
-            val item = getModel<RecommendEntity>()
-            getBinding<HomeItemRecommendBinding>().apply {
-                val layoutParams = ivImage.layoutParams
-                layoutParams.height = item.imageHeight
-                ivImage.layoutParams = layoutParams
-                ivImage.loadRoundCornerImage(item.url, 6.dp.toInt())
-                tvContent.text =
-                    item.content.replaceSpan("@[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
-                        HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
-                            xLogD("点击用户 ${matchResult.value}")
-                        }
-                    }.replaceSpan("#[^@]+?(?=\\s|\$)".toRegex()) { matchResult ->
-                        HighlightSpan(tvContent.getCompatColor(R.color.colorPrimary)) {
-                            xLogD("点击标签 ${matchResult.value}")
+            when (itemViewType) {
+                R.layout.home_item_recommend -> {
+                    getBinding<HomeItemRecommendBinding>().apply {
+                        val item = getModel<ArticleEntity>()
+                        tvTitle.text = item.title.parseAsHtml()
+                        tvUserName.text =
+                            "${item.author.ifEmpty { item.shareUser }} | ${item.niceDate}"
+                        tvContent.text = item.desc.parseAsHtml()
+                        tvContent.visibility =
+                            if (item.desc.isEmpty()) View.GONE else View.VISIBLE
+                        tvLikeNum.text = item.zan.toString()
+                        ivLike.setImageResource(
+                            if (item.collect) R.mipmap.icon_like else R.mipmap.icon_like_unselect
+                        )
+                        tvTag.text = item.superChapterName
+                        container.setOnClickListener {
+                            ARouterNavigation.toWebViewActivity(item.link, item.title)
                         }
                     }
-                ivAvatar.loadAvatar(item.userEntity.avatar, item.userEntity.sex)
-                tvUserName.text = item.userEntity.userName
-                tvLikeNum.text = item.likeNun.toString()
+
+                }
+                R.layout.home_item_banner -> {
+                    getBinding<HomeItemBannerBinding>().apply {
+                        val item = getModel<List<BannerEntity>>()
+                        bannerView.apply {
+                            setAdapter(BannerImageAdapter())
+                            setLifecycleRegistry(lifecycle)
+                            setOnPageClickListener { _, position ->
+                                val bean =
+                                    item.getOrNull(position) ?: return@setOnPageClickListener
+                                ARouterNavigation.toWebViewActivity(bean.url, bean.title)
+                            }
+                        }.create()
+                        bannerView.refreshData(item.map { it.imagePath })
+                    }
+
+                }
             }
         }
     }

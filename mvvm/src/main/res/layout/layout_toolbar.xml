@@ -11,11 +11,15 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="@dimen/title_size"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_right"
+        app:layout_constraintStart_toEndOf="@id/tv_left"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
@@ -58,8 +62,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@mipmap/icon_back"
         tools:rotation="180"
+        tools:srcCompat="@mipmap/icon_back"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

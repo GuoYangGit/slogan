@@ -44,7 +44,7 @@
         android:background="@null"
         android:gravity="center"
         android:maxLength="20"
-        android:textColor="@color/main_color"
+        android:textColor="@color/title_color"
         android:textSize="16sp"
         app:bl_corners_radius="90dp"
         app:bl_solid_color="@color/gray"

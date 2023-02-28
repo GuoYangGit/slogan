@@ -37,7 +37,7 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
             // 设置ViewPager
             homeViewpager.run {
                 // 设置不可以滑动
-//                isUserInputEnabled = false
+                isUserInputEnabled = false
                 // 设置适配器
                 adapter = object : FragmentStateAdapter(childFragmentManager, lifecycle) {
                     override fun getItemCount(): Int = tabTitles.size
@@ -51,7 +51,7 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
             }
             tabLayout.doOnCustomTabSelected<LayoutTextViewTabBinding>(
                 onTabSelected = {
-                    tvTitle.setTextColor(getCompatColor(R.color.main_color))
+                    tvTitle.setTextColor(getCompatColor(R.color.title_color))
                     tvTitle.typeface = Typeface.DEFAULT_BOLD
                 },
                 onTabUnselected = {
@@ -65,7 +65,7 @@ class HomeFragment : BaseBindingFragment<HomeFragmentHomeBinding>() {
                     val isSelect = position == 0
                     tvTitle.text = tabTitles[position]
                     tvTitle.textSize = 18f
-                    tvTitle.setTextColor(getCompatColor(if (isSelect) R.color.main_color else R.color.content_color))
+                    tvTitle.setTextColor(getCompatColor(if (isSelect) R.color.title_color else R.color.content_color))
                     tvTitle.typeface = if (isSelect) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
                 }
             }.attach()

@@ -37,7 +37,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="48dp"
         android:text="@string/login_verification_code_title"
-        android:textColor="@color/main_color"
+        android:textColor="@color/title_color"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         app:corner="10dp"
         app:maxLength="4"
         app:separateType="@integer/type_solid"
-        app:textColor="@color/main_color"
+        app:textColor="@color/title_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_hint" />

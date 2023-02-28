@@ -2,8 +2,8 @@ package com.huafang.module_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.viewModels
-import com.guoyang.base.ext.requestReadOrWritePermissions
-import com.guoyang.base.ext.staggered
+import com.guoyang.base.ext.divider
+import com.guoyang.base.ext.linear
 import com.guoyang.base.state.asUiStateFlow
 import com.guoyang.base.state.doError
 import com.guoyang.base.state.doSuccess
@@ -30,7 +30,10 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         binding.apply {
             recyclerView
-                .staggered(2)
+                .linear()
+                .divider {
+                    setDivider(6)
+                }
                 .adapter = this@RecommendFragment.adapter
             pageLayout.onRefresh {
                 loadData(index)
@@ -42,20 +45,17 @@ class RecommendFragment : BaseBindingFragment<HomeFragmentRecommendBinding>() {
         binding.pageLayout.refreshing()
     }
 
-    private fun loadData(index: Int = 0) {
-        requestReadOrWritePermissions { allGranted, _, _ ->
-            if (!allGranted) return@requestReadOrWritePermissions
-            recommendViewModel.getRecommendList(this@RecommendFragment, index)
-                .asUiStateFlow()
-                .launchAndCollectIn(viewLifecycleOwner) {
-                    it.doSuccess { list ->
-                        binding.pageLayout.addData(list) {
-                            (list?.size ?: 0) == 10
-                        }
-                    }.doError { throwable ->
-                        binding.pageLayout.showError(throwable.message)
+    private fun loadData(page: Int = 0) {
+        recommendViewModel.getArticleList(page)
+            .asUiStateFlow()
+            .launchAndCollectIn(viewLifecycleOwner) {
+                it.doSuccess { list ->
+                    binding.pageLayout.addData(list) {
+                        (list?.size ?: 0) != 0
                     }
+                }.doError { throwable ->
+                    binding.pageLayout.showError(throwable.message)
                 }
-        }
+            }
     }
 }

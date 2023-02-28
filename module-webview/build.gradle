@@ -1,0 +1,26 @@
+apply from: '../config.gradle'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    namespace 'com.huafang.module_webview'
+    resourcePrefix "webview_"
+    defaultConfig {
+        if (isModule.toBoolean()) {
+            applicationId 'com.huafang.module_webview'
+        }
+    }
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    //引入基础组件库
+    implementation project(path: ':mvvm')
+}

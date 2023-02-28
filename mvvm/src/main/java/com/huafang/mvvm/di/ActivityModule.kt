@@ -1,6 +1,9 @@
 package com.huafang.mvvm.di
 
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Lifecycle
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 
@@ -10,4 +13,9 @@ import dagger.hilt.android.components.ActivityComponent
  */
 @Module
 @InstallIn(ActivityComponent::class)
-class ActivityModule
+class ActivityModule {
+    @Provides
+    fun providesLifecycle(activity: FragmentActivity): Lifecycle {
+        return activity.lifecycle
+    }
+}

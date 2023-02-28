@@ -1,18 +1,12 @@
 package com.huafang.module_home.model
 
-import androidx.fragment.app.Fragment
-import com.huafang.module_home.entity.RecommendEntity
+import com.huafang.module_home.entity.ArticleEntity
+import com.huafang.module_home.entity.BannerEntity
+import com.huafang.module_home.entity.PageEntity
 import com.huafang.mvvm.db.AppDatabase
-import com.luck.picture.lib.basic.PictureSelector
-import com.luck.picture.lib.config.SelectMimeType
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.trySendBlocking
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
+import rxhttp.RxHttp
+import rxhttp.toFlowResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,21 +17,29 @@ import javax.inject.Singleton
 @Singleton
 class RecommendRepository @Inject constructor(appDatabase: AppDatabase) {
 
-    fun getRecommendList(fragment: Fragment, index: Int): Flow<List<RecommendEntity>> {
-        return callbackFlow {
-            PictureSelector.create(fragment)
-                .dataSource(SelectMimeType.ofImage())
-                .obtainMediaData { result ->
-                    val list: List<RecommendEntity> = if (index == 0) {
-                        List(10) { RecommendEntity(url = result.first().path) }
-                    } else {
-                        List(5) { RecommendEntity(url = result.first().path) }
-                    }
-                    trySendBlocking(list)
-                }
-            awaitClose { }
-        }.onEach {
-            delay(1000)
-        }.flowOn(Dispatchers.IO)
+    /**
+     * 首页文章列表
+     */
+    fun getArticleList(page: Int = 0): Flow<List<ArticleEntity>> {
+        return RxHttp.get("article/list/$page/json")
+            .add("page_size", 10)
+            .toFlowResponse<PageEntity<ArticleEntity>>()
+            .map { it.datas }
+    }
+
+    /**
+     * 首页banner
+     */
+    fun getBannerList(): Flow<List<BannerEntity>> {
+        return RxHttp.get("banner/json")
+            .toFlowResponse()
+    }
+
+    /**
+     * 置顶文章
+     */
+    fun getTopArticleList(): Flow<List<ArticleEntity>> {
+        return RxHttp.get("article/top/json")
+            .toFlowResponse()
     }
 }

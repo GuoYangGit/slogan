@@ -12,6 +12,7 @@ object ARouterNavigation {
     const val PATH_HOME_FRAGMENT = "/home/HomeFragment"
     const val PATH_Message_FRAGMENT = "/message/MessageFragment"
     const val PATH_Me_FRAGMENT = "/me/MeFragment"
+    const val PATH_WEBVIEW_ACTIVITY = "/webview/WebViewActivity"
 
     /**
      * 跳转到主页面
@@ -38,4 +39,10 @@ object ARouterNavigation {
     fun toMeFragment(): Fragment =
         ARouter.getInstance().build(PATH_Me_FRAGMENT).navigation() as Fragment
 
+    fun toWebViewActivity(url: String, title: String = "") {
+        ARouter.getInstance().build(PATH_WEBVIEW_ACTIVITY)
+            .withString("url", url)
+            .withString("title", title)
+            .navigation()
+    }
 }
