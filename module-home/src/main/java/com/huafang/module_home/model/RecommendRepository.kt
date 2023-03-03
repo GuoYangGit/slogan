@@ -5,8 +5,8 @@ import com.huafang.module_home.entity.BannerEntity
 import com.huafang.module_home.entity.PageEntity
 import com.huafang.mvvm.db.AppDatabase
 import kotlinx.coroutines.flow.*
-import rxhttp.RxHttp
-import rxhttp.toFlowResponse
+import rxhttp.RxWanAndroidHttp
+import rxhttp.toFlowWanAndroidResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -21,9 +21,9 @@ class RecommendRepository @Inject constructor(appDatabase: AppDatabase) {
      * 首页文章列表
      */
     fun getArticleList(page: Int = 0): Flow<List<ArticleEntity>> {
-        return RxHttp.get("article/list/$page/json")
+        return RxWanAndroidHttp.get("article/list/$page/json")
             .add("page_size", 10)
-            .toFlowResponse<PageEntity<ArticleEntity>>()
+            .toFlowWanAndroidResponse<PageEntity<ArticleEntity>>()
             .map { it.datas }
     }
 
@@ -31,15 +31,15 @@ class RecommendRepository @Inject constructor(appDatabase: AppDatabase) {
      * 首页banner
      */
     fun getBannerList(): Flow<List<BannerEntity>> {
-        return RxHttp.get("banner/json")
-            .toFlowResponse()
+        return RxWanAndroidHttp.get("banner/json")
+            .toFlowWanAndroidResponse()
     }
 
     /**
      * 置顶文章
      */
     fun getTopArticleList(): Flow<List<ArticleEntity>> {
-        return RxHttp.get("article/top/json")
-            .toFlowResponse()
+        return RxWanAndroidHttp.get("article/top/json")
+            .toFlowWanAndroidResponse()
     }
 }

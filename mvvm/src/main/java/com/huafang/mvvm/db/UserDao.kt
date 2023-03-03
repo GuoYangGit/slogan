@@ -19,8 +19,8 @@ interface UserDao {
     @Query("select * from user_entity where userID in (:userIds)")
     fun loadAllByIds(userIds: IntArray): Flow<List<UserEntity>>
 
-    @Query("select * from user_entity where userName like :userName and age like :age limit 1")
-    fun findByName(userName: String, age: Int): Flow<UserEntity>
+    @Query("select * from user_entity where userName like :userName limit 1")
+    fun findByName(userName: String): Flow<UserEntity>
 
     @Insert
     fun insertAll(vararg userEntity: UserEntity)

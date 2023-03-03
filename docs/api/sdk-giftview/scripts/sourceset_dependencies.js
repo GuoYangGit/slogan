@@ -1,1 +1,0 @@
-sourceset_dependencies='{":sdk-giftview:dokkaHtml/androidTestRelease":[],":sdk-giftview:dokkaHtml/debug":[],":sdk-giftview:dokkaHtml/main":[],":sdk-giftview:dokkaHtml/release":[],":sdk-giftview:dokkaHtml/testFixtures":[],":sdk-giftview:dokkaHtml/testFixturesDebug":[],":sdk-giftview:dokkaHtml/testFixturesRelease":[]}'

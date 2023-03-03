@@ -5,7 +5,7 @@ import com.guoyang.base.state.IPageSate
 import com.guoyang.base.state.UiState
 import com.guoyang.base.state.doError
 import com.guoyang.base.state.doSuccess
-import com.huafang.mvvm.ext.msg
+import com.huafang.mvvm.net.msg
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 
 /**

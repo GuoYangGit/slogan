@@ -4,12 +4,15 @@ import com.dylanc.mmkv.MMKVOwner
 import com.dylanc.mmkv.mmkvBool
 import com.dylanc.mmkv.mmkvParcelable
 import com.huafang.mvvm.entity.UserEntity
+import com.tencent.mmkv.MMKV
 
 /**
  * 用户相关[MMKVOwner]存储类
  * @author yang.guo on 2022/10/17
  */
 object UserRepository : MMKVOwner {
+    override val kv: MMKV = MMKV.mmkvWithID("user")
+
     /**
      * 是否显示用户协议
      */

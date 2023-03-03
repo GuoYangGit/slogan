@@ -1,7 +1,8 @@
 package com.huafang.mvvm.net
 
-import com.huafang.mvvm.HTTP_BASE_URL
-import rxhttp.wrapper.annotation.DefaultDomain
+import com.huafang.mvvm.DUAN_ZI_LE_HTTP_BASE_URL
+import com.huafang.mvvm.WAN_ANDROID_HTTP_BASE_URL
+import rxhttp.wrapper.annotation.Domain
 
 /***
  * 统一设置BaseUrl
@@ -9,6 +10,10 @@ import rxhttp.wrapper.annotation.DefaultDomain
  */
 object BaseUrl {
     @JvmField
-    @DefaultDomain
-    var BASE_URL = HTTP_BASE_URL
+    @Domain(name = "WanAndroid", className = "WanAndroid")
+    var WAN_ANDROID_BASE_URL = WAN_ANDROID_HTTP_BASE_URL
+
+    @JvmField
+    @Domain(name = "DuanZiLe", className = "DuanZiLe")
+    var DUAN_ZI_LE_BASE_URL = DUAN_ZI_LE_HTTP_BASE_URL
 }

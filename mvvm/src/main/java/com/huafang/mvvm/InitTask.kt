@@ -17,6 +17,7 @@ import com.github.forjrking.image.glide.AppGlideModuleIml
 import com.github.forjrking.image.glide.IAppGlideOptions
 import com.guoyang.xloghelper.LogHelper
 import com.guoyang.xloghelper.xLogD
+import com.huafang.mvvm.repository.UserRepository
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -70,7 +71,23 @@ class NetInitTask : Task(id = TASK_NET_INIT, isAsyncTask = true) {
             .hostnameVerifier { _: String?, _: SSLSession? -> true } //忽略host验证
             .build()
         // 初始化网络请求
-        RxHttpPlugins.init(okHttpClient).setDebug(isAppDebug)
+        RxHttpPlugins.init(okHttpClient)
+            .setDebug(isAppDebug)
+            .setOnParamAssembly { param ->
+                if (param.url.contains(DUAN_ZI_LE_HTTP_BASE_URL)) {
+                    // 添加公共参数
+                    param.addHeader("project_token", HTTP_PROJECT_TOKEN) // 项目token
+                    param.addHeader("token", UserRepository.user?.token ?: "") // 用户token
+                    param.addHeader("uk", HTTP_PROJECT_TOKEN) // 用户唯一标识
+                    param.addHeader("channel", HTTP_CHANNEL) // 渠道号
+                    param.addHeader(
+                        "app",
+                        "${appVersionName};${appVersionCode};${sdkVersionCode}"
+                    ) // app版本号
+                    param.addHeader("device", "${deviceManufacturer};${deviceModel}") // 设备号
+                }
+
+            }
     }
 }
 
@@ -119,12 +136,12 @@ class ViewInitTask : Task(TASK_VIEW_INIT) {
             }
         }
         // 初始化刷新控件
-        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ ->
             ClassicsHeader(
                 context
             )
         }
-        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, layout ->
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
             ClassicsFooter(
                 context
             )

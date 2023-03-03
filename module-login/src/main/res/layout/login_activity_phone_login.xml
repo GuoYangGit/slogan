@@ -54,7 +54,7 @@
         android:layout_marginHorizontal="16dp"
         android:background="@null"
         android:hint="@string/login_phone_hint"
-        android:inputType="number"
+        android:inputType="phone"
         android:maxLength="11"
         android:textColor="@color/title_color"
         android:textColorHint="@color/content_color"

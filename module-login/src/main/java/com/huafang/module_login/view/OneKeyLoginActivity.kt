@@ -5,10 +5,12 @@ import com.drake.spannable.movement.ClickableMovementMethod
 import com.drake.spannable.replaceSpan
 import com.drake.spannable.span.HighlightSpan
 import com.guoyang.utils_helper.*
+import com.guoyang.xloghelper.xLogD
 import com.huafang.module_login.R
 import com.huafang.module_login.databinding.LoginActivityOneKeyLoginBinding
 import com.huafang.module_login.ext.showAgreementDialog
 import com.huafang.mvvm.repository.UserRepository
+import com.huafang.mvvm.util.AESUtils
 import com.huafang.mvvm.view.BaseBindingActivity
 import dagger.hilt.android.AndroidEntryPoint
 
